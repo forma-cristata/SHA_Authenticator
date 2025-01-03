@@ -1,7 +1,5 @@
 # GitHub Assignment Verification System
 
-# GitHub Assignment Verification System
-
 A web application designed to streamline the GitHub assignment submission process for South Hills Institute students and educators.
 
 ## Overview
