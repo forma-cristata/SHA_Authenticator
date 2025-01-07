@@ -8,9 +8,9 @@ This application aims to simplify the process of verifying student code submissi
 
 ## Current Status
 
-⚠️ Currently in development
+⚠️ Currently in development!
 
-## Key Features
+## Features
 
 - Simplified GitHub integration for students
 - Automated SHA token verification system
