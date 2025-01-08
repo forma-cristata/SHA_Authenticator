@@ -2,6 +2,13 @@
 export default {
   name: "UsernameInput.vue"
 }
+const form = document.getElementById('container');
+const usernameInput = document.getElementById('username');
+form.addEventListener('submit', () => {
+  let username = usernameInput.value;
+  // save to a cookie that expires at the end of a term's length.
+  //localStorage.setItem('username', username);
+});
 </script>
 
 <template>
