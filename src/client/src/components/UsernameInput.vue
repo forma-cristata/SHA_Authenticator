@@ -2,13 +2,20 @@
 export default {
   name: "UsernameInput.vue"
 }
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
+
+  const termLengthInSeconds = new Date(Date.now() +24*60*60*7*14*1000).toUTCString();
+
   const form = document.getElementById('container');
   const usernameInput = document.getElementById('username');
   form.addEventListener('submit', (e) => {
-    let username = usernameInput.value;
-    // save to a cookie that expires at the end of a term's length.
-    //localStorage.setItem('username', username);
+    e.preventDefault();
+    let username = usernameInput.value.trim();
+    console.log(username);
+    document.cookie = `username=${username}; expires=${termLengthInSeconds}`;
   });
 });
 </script>

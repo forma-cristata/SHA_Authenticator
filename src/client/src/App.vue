@@ -1,6 +1,7 @@
 <script setup>
 
 import UsernameInput from "./components/UsernameInput.vue";
+import Home from "@/components/Home.vue";
 </script>
 
 <template>
@@ -8,7 +9,7 @@ import UsernameInput from "./components/UsernameInput.vue";
   </header>
 
   <main>
-    <UsernameInput />
+    <Home />
   </main>
 </template>
 
