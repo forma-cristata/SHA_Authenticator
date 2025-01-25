@@ -27,17 +27,21 @@ button{
 }
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: var(--light-green);
-  --bs-btn-border-color: var(--light-green);
+  --bs-btn-bg: var(--gh-green);
+  --bs-btn-border-color: var(--gh-green);
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: var(--gh-green);
-  --bs-btn-hover-border-color: var(--gh-green);
+  --bs-btn-hover-bg: var(--light-green);
+  --bs-btn-hover-border-color: var(--light-green);
   --bs-btn-focus-shadow-rgb: 49,132,253;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: var(--dark-magenta);
   --bs-btn-active-border-color: var(--dark-magenta);
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: var(--light-green);
-  --bs-btn-disabled-border-color: var(--light-green);
+  --bs-btn-disabled-bg: var(--gh-green);
+  --bs-btn-disabled-border-color: var(--gh-green);
+}
+#fit-betas{
+  min-width: fit-content;
+  width: fit-content;
 }
