@@ -1,0 +1,31 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+body{
+  background-color: var(--background);
+}
+:root{
+  --dark-magenta: #a30052;
+  --light-green: #56d970;
+  --gh-green: #2bda4e;
+  --ultraviolet-glow: #978def;
+  --indigogo: #6F779D;
+  --periwinkle: #ffffff;
+  --midnight: #24292e;
+  --greyrocking: #acbad5;
+  --background: #2b3137;
+
+  --periwinkle-rgb: 172, 186, 213;
+
+  --ultraviolet-glow-rgb: 25, 0, 248;
+
+  --dark-magenta-rgb: 163, 0, 82;
+
+  --dark-teal-rgb: 81, 157, 168;
+
+  --indigogo-rgb: 111, 119, 157;
+
+  --midnight-rgb: 52, 45, 71;
+
+  --greyrocking-rgb: 184, 185, 187;
+
+  --light-magenta-rgb: 253, 141, 198;
+}

@@ -1,0 +1,23 @@
+#circuit-right-bottom{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  transform-origin: left;
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  z-index: 1;
+}
+#form-container{
+  position: fixed;
+  top: 12%;
+  left: 12%;
+  transform: translate(-12%, -12%);
+  background-color: var(--midnight);
+  z-index: 2;
+  border-radius: 10%;
+  opacity: 50%;
+  padding: 20px;
+  max-width: fit-content;
+  min-width: fit-content;
+}
+
