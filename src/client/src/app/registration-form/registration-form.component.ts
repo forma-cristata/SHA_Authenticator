@@ -14,6 +14,7 @@ export class RegistrationFormComponent {
   public termLengthInSeconds: string = new Date(Date.now() + 24 * 60 * 60 * 7 * 14 * 1000).toUTCString();
   public username: string = '';
   ngOnInit() {
+      // todo: If cookie exists, reroute to classes page.
       const termLengthInSeconds = new Date(Date.now() + 24 * 60 * 60 * 7 * 14 * 1000).toUTCString();
   }
 
