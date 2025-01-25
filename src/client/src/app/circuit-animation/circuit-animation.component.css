@@ -1,0 +1,695 @@
+*{
+
+  position: absolute;
+
+}
+img{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.electric-pulses{
+  border-radius: 50%;
+}
+.thin-line{
+  width: 3px;
+  height: 3px;
+  -webkit-box-shadow:0 0 10px var(--ultraviolet-glow);
+  -moz-box-shadow: 0 0 10px var(--ultraviolet-glow);
+  box-shadow:0 0 10px var(--ultraviolet-glow);
+}
+.thick-line{
+  width: 9px;
+  height: 9px;
+  -webkit-box-shadow:0 0 20px var(--ultraviolet-glow);
+  -moz-box-shadow: 0 0 20px var(--ultraviolet-glow);
+  box-shadow:0 0 20px var(--ultraviolet-glow);
+}
+
+
+/*==========LINE 1============*/
+.line-1 {
+  animation: line-1-pulses 5s linear infinite;
+}
+
+@keyframes line-1-pulses{
+  from{
+    left: 20px;
+    top: 50px;
+    background-color: var(--dark-magenta)
+  }
+  28.66%{
+    left: 237px;
+    top: 50px;
+    background-color: var(--light-green)
+  }
+  39.52%{
+    left: 294px;
+    top: 109px;
+    background-color: var(--dark-magenta)
+
+  }
+  50.91%{
+    left: 294px;
+    top: 194px;
+    background-color: var(--light-green)
+
+  }
+  69.23%{
+    left: 393px;
+    top: 292px;
+    background-color: var(--dark-magenta)
+
+  }
+  to{
+    left: 628px;
+    top: 292px;
+    background-color: var(--light-green)
+
+  }
+}
+
+
+/*=====LINE 2=====*/
+.line-2 {
+  animation: line-2-pulses 3s linear infinite alternate-reverse;
+}
+@keyframes line-2-pulses {
+  from{
+    left: 202px;
+    top: 363px;
+    background-color: var(--dark-magenta)
+  }
+  36.08%{
+    left: 202px;
+    top: 461px;
+    background-color: var(--light-green)
+  }
+  37%{
+    background-color: var(--dark-magenta);
+    transition: ease-in;
+  }
+  39%{
+    background-color: var(--gh-green);
+    transition: ease-out;
+  }
+  41%{
+    background-color: var(--dark-magenta);
+    transition: ease-in;
+
+  }
+  43%{
+    background-color: var(--gh-green);
+    transition: ease-out;
+
+  }
+  45%{
+    background-color: var(--dark-magenta);
+    transition: ease-in;
+
+  }
+  47%{
+    background-color: var(--gh-green);
+    transition: ease-out;
+
+  }
+  49%{
+    background-color: var(--dark-magenta);
+    transition: ease-in;
+
+  }
+  51%{
+    background-color: var(--gh-green);
+    transition: ease-out;
+
+  }
+  53%{
+    background-color: var(--dark-magenta);
+    transition: ease-in;
+
+  }
+  55%{
+    background-color: var(--gh-green);
+    transition: ease-out;
+
+  }
+  57%{
+    background-color: var(--dark-magenta);
+    transition: ease-in;
+
+  }
+  59%{
+    background-color: var(--gh-green);
+    transition: ease-out;
+  }
+  61%{
+    background-color: var(--dark-magenta);
+    transition: ease-in;
+
+  }
+  63.92%{
+    left: 256px;
+    top: 515px;
+    background-color: var(--light-green)
+  }
+  to{
+    left: 256px;
+    top: 622px;
+    background-color: var(--dark-magenta)
+  }
+}
+
+/*==========LINE 3============*/
+.line-3 {
+  animation: line-3-pulses 10s linear infinite;
+}
+
+@keyframes line-3-pulses{
+  from{
+    left: 334px;
+    top: 175px;
+    background-color: var(--dark-magenta)
+  }
+  20.04%{
+    left: 400px;
+    top: 241px;
+    background-color: var(--light-green)
+  }
+  58.83%{
+    left: 580px;
+    top: 241px;
+    background-color: var(--dark-magenta)
+  }
+  70.09%{
+    left: 618px;
+    top: 203px;
+    background-color: var(--light-green)
+  }
+
+  to{
+    left: 754px;
+    top: 203px;
+    background-color: var(--dark-magenta)
+  }
+}
+
+/*==========LINE 4============*/
+.line-4 {
+  animation: line-4-pulses 5s linear infinite reverse;
+}
+
+@keyframes line-4-pulses{
+  from{
+    left: 270px;
+    top: 17px;
+    background-color: var(--dark-magenta)
+  }
+  12.25%{
+    left: 340px;
+    top: 88px;
+    background-color: var(--light-green)
+  }
+  17.52%{
+    left: 340px;
+    top: 130px;
+    background-color: var(--dark-magenta)
+  }
+  28.3%{
+    left: 402px;
+    top: 191px;
+    background-color: var(--light-green)
+  }
+  48.03%{
+    left: 562px;
+    top: 191px;
+    background-color: var(--dark-magenta)
+  }
+  54.16%{
+    left: 596px;
+    top: 156px;
+    background-color: var(--light-green)
+  }
+  to{
+    left: 971px;
+    top: 156px;
+    background-color: var(--dark-magenta)
+  }
+}
+
+/*==========LINE 5============*/
+.line-5 {
+  animation: line-5-pulses 3s linear infinite;
+}
+
+@keyframes line-5-pulses{
+  from{
+    left: 189px;
+    top: 289px;
+    background-color: var(--dark-magenta)
+  }
+  22.97%{
+    left: 296px;
+    top: 397px;
+    background-color: var(--light-green)
+  }
+  38.59%{
+    left: 296px;
+    top: 499px;
+    background-color: var(--dark-magenta)
+  }
+  64.86%{
+    left: 419px;
+    top: 621px;
+    background-color: var(--light-green)
+  }
+  to{
+    left: 654px;
+    top: 621px;
+    background-color: var(--dark-magenta)
+  }
+}
+
+/*==========LINE 6============*/
+.line-6 {
+  animation: line-6-pulses 8s linear infinite;
+}
+
+@keyframes line-6-pulses{
+  from{
+    left: 20px;
+    top: 155px;
+    background-color: var(--light-green)
+  }
+  19.29%{
+    left: 147px;
+    top: 155px;
+  }
+  15%{
+    background-color: var(--dark-magenta)
+  }
+  21.71%{
+    left: 162px;
+    top: 171px;
+  }
+  30%{
+    background-color: var(--light-green);
+  }
+  30.29%{
+    left: 162px;
+    top: 229px;
+  }
+  43.57%{
+    left: 97px;
+    top: 294px;
+  }
+  45%{
+    background-color: var(--dark-magenta);
+  }
+  60%{
+    background-color: var(--light-green);
+  }
+  70.43%{
+    left: 97px;
+    top: 481px;
+  }
+  75%{
+    background-color: var(--dark-magenta);
+  }
+  86.29%{
+    left: 175px;
+    top: 558px;
+  }
+  to{
+    left: 175px;
+    top: 653px;
+    background-color: var(--light-green);
+  }
+}
+
+/*==========LINE 7============*/
+.line-7 {
+  animation: line-7-pulses 4s linear reverse infinite;
+}
+
+@keyframes line-7-pulses{
+  from{
+    left: 197px;
+    top: 254px;
+    background-color: var(--dark-magenta)
+  }
+  15%{
+    background-color: var(--light-green);
+  }
+  15.78%{
+    left: 136px;
+    top: 314px;
+  }
+  30%{
+    background-color: var(--dark-magenta)
+  }
+  42.02%{
+    left: 136px;
+    top: 456px;
+  }
+  45%{
+    background-color: var(--light-green)
+  }
+  60%{
+    background-color: var(--dark-magenta);
+  }
+  63.67%{
+    left: 219px;
+    top: 540px;
+  }
+  75%{
+    background-color: var(--light-green)
+  }
+  90%{
+    background-color: var(--dark-magenta);
+  }
+  to{
+    left: 219px;
+    top: 737px;
+  }
+}
+
+/*==========LINE 8============*/
+.line-8 {
+  animation: line-8-pulses 3s linear infinite;
+}
+
+@keyframes line-8-pulses{
+  from{
+    left: 62px;
+    top: 562px;
+    background-color: var(--gh-green)
+  }
+  10%{
+    background-color: var(--dark-magenta);
+  }
+  20%{
+    background-color: var(--gh-green);
+  }
+  30%{
+    background-color: var(--dark-magenta);
+  }
+  40%{
+    background-color: var(--gh-green);
+  }
+  41.79%{
+    left: 62px;
+    top: 667px;
+  }
+  50%{
+    background-color: var(--dark-magenta)
+  }
+  55.08%{
+    left: 40px;
+    top: 688px;
+  }
+  60%{
+    background-color: var(--gh-green)
+
+  }
+  70%{
+    background-color: var(--dark-magenta)
+
+  }
+  80%{
+    background-color: var(--gh-green)
+
+  }
+  90%{
+    background-color: var(--dark-magenta)
+
+  }
+  to{
+    left: 40px;
+    top: 804px;
+    background-color: var(--gh-green)
+  }
+}
+
+/*==========LINE 9============*/
+.line-9 {
+  animation: line-9-pulses 3s linear reverse infinite;
+}
+
+@keyframes line-9-pulses{
+  from{
+    left: 428px;
+    top: 152px;
+    background-color: var(--light-green)
+  }
+
+  21.32%{
+    left: 539px;
+    top: 152px;
+  }
+  34.53%{
+    left: 588px;
+    top: 103px;
+  }
+  50%{
+    background-color: var(--gh-green);
+  }
+  67.55%{
+    left: 761px;
+    top: 103px;
+  }
+  74.91%{
+    left: 788px;
+    top: 76px;
+  }
+  to{
+    left: 920px;
+    top: 76px;
+    background-color: var(--light-green)
+  }
+}
+
+/*==========LINE 10============*/
+.line-10 {
+  animation: line-10-pulses 3s linear infinite;
+}
+
+@keyframes line-10-pulses{
+  from{
+    left: 402px;
+    top: 393px;
+    background-color: var(--light-green)
+  }
+  33.33%{
+    background-color: var(--dark-magenta);
+  }
+  47.96%{
+    left: 541px;
+    top: 393px;
+  }
+  66.66%{
+    background-color: var(--light-green);
+  }
+  71.09%{
+    left: 588px;
+    top: 441px;
+  }
+  to{
+    left: 673px;
+    top: 441px;
+    background-color: var(--dark-magenta)
+  }
+}
+
+/*==========LINE 11============*/
+.line-11 {
+  animation: line-11-pulses 3s linear infinite;
+}
+
+@keyframes line-11-pulses{
+  from{
+    left: 402px;
+    top: 393px;
+    background-color: var(--light-green)
+  }
+  29.58%{
+    left: 402px;
+    top: 455px;
+  }
+  33.33%{
+    background-color: var(--dark-magenta);
+  }
+
+  66.2%{
+    left: 458px;
+    top: 509px;
+  }
+  66.66%{
+    background-color: var(--light-green);
+  }
+  to{
+    left: 529px;
+    top: 509px;
+    background-color: var(--dark-magenta)
+  }
+}
+
+/*==========LINE 12============*/
+.line-12 {
+  animation: line-12-pulses 3s linear infinite;
+}
+
+@keyframes line-12-pulses{
+  from{
+    left: 20px;
+    top: 87px;
+    background-color: var(--light-green)
+  }
+  20.49%{
+    left: 214px;
+    top: 87px;
+  }
+  26.22% {
+    left: 250px;
+    top: 124px;
+  }
+  33.33%{
+    background-color: var(--dark-magenta);
+  }
+  35.03% {
+    left: 250px;
+    top: 206px;
+  }
+  54.56% {
+    left: 380px;
+    top: 334px;
+  }
+  66.66%{
+    background-color: var(--light-green);
+  }
+  73.14% {
+    left: 553px;
+    top: 334px;
+  }
+  78.77% {
+    left: 589px;
+    top: 371px;
+  }
+  to{
+    left: 789px;
+    top: 371px;
+    background-color: var(--dark-magenta)
+  }
+}
+
+/*==========LINE 13============*/
+.line-13 {
+  animation: line-13-pulses 2500ms linear reverse infinite;
+}
+
+@keyframes line-13-pulses{
+  from{
+    left: 105px;
+    top: 208px;
+    background-color: var(--gh-green)
+  }
+  2%{
+    background-color: var(--light-green);
+  }
+  4%{
+    background-color: var(--dark-magenta);
+  }
+  6%{
+    background-color: var(--light-green);
+  }
+  8%{
+    background-color: var(--gh-green);
+  }
+  11.49%{
+    left: 60px;
+    top: 254px;
+  }
+  58.35%{
+    left: 60px;
+    top: 509px;
+  }
+  71.81%{
+    left: 111px;
+    top: 560px;
+  }
+  to{
+    left: 111px;
+    top: 716px;
+    background-color: var(--light-green)
+  }
+}
+
+/*==========LINE 14============*/
+.line-14 {
+  animation: line-14-pulses 1500ms linear infinite;
+}
+
+@keyframes line-14-pulses{
+  from{
+    left: 20px;
+    top: 114px;
+    background-color: var(--gh-green)
+  }
+  21.88%{
+    left: 180px;
+    top: 114px;
+  }
+  27.11%{
+    left: 204px;
+    top: 142px;
+  }
+  37.45%{
+    left: 204px;
+    top: 215px;
+  }
+  67.92%{
+    left: 362px;
+    top: 373px;
+  }
+  82.68%{
+    left: 362px;
+    top: 479px;
+  }
+  to{
+    left: 453px;
+    top: 568px;
+    background-color: var(--dark-magenta)
+  }
+}
+
+/*==========LINE 15============*/
+.line-15 {
+  animation: line-15-pulses 3s linear alternate infinite;
+}
+
+@keyframes line-15-pulses{
+  from{
+    left: 346px;
+    top: 14px;
+    background-color: var(--light-green)
+  }
+  31.91%{
+    left: 425px;
+    top: 92px;
+  }
+  50%{
+    background-color: var(--dark-magenta);
+  }
+  53.85%{
+    left: 499px;
+    top: 92px;
+  }
+  72.08%{
+    left: 543px;
+    top: 48px;
+  }
+  to{
+    left: 640px;
+    top: 48px;
+    background-color: var(--light-green)
+  }
+}
