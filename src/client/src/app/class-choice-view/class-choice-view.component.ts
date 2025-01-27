@@ -11,7 +11,7 @@ import { Octokit } from '@octokit/rest';
 export class ClassChoiceViewComponent {
 
   public octokit = new Octokit({
-    auth: ''
+    auth: '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'
   });
 
   async ngOnInit() {
