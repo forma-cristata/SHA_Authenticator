@@ -1,11 +1,21 @@
 #circuit-right-bottom{
   position: absolute;
-  right: 0;
+  left: 100vw;
   bottom: 0;
   transform-origin: left;
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
   z-index: 1;
+  width: 75vw;
+  height: 75vw;
+}
+#top-banner{
+  background-color: var(--background);
+  z-index: 2;
+}
+#left-banner{
+  background-color: var(--background);
+  z-index: 3;
 }
 #form-container{
   position: fixed;
@@ -13,7 +23,7 @@
   left: 12%;
   transform: translate(-12%, -12%);
   background-color: var(--midnight);
-  z-index: 2;
+  z-index: 4;
   border-radius: 10%;
   opacity: 50%;
   padding: 20px;
