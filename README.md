@@ -4,6 +4,8 @@ A web application designed to streamline the GitHub assignment submission proces
 
 https://github.com/user-attachments/assets/a3a263a8-0a61-42e1-838b-06414e2c6507
 
+## Animations
+
 ## Overview
 
 This application aims to simplify the process of verifying student code submissions through GitHub by providing an intuitive interface for SHA token validation and commit verification.
@@ -30,7 +32,7 @@ This system will help:
 ## Technology Stack
 
 - Node.js Full Stack
-- VueJS
+- Angular
 - GitHub OAuth & API Integration
 
 More detailed documentation will be provided as development progresses.
