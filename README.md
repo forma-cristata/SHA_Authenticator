@@ -2,9 +2,9 @@
 
 A web application designed to streamline the GitHub assignment submission process for South Hills Institute students and educators.
 
-https://github.com/user-attachments/assets/a3a263a8-0a61-42e1-838b-06414e2c6507
-
 ## Animations
+
+https://github.com/user-attachments/assets/a3a263a8-0a61-42e1-838b-06414e2c6507
 
 ## Overview
 
