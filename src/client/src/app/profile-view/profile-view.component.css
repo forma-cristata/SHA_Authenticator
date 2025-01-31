@@ -7,3 +7,9 @@
   transform-origin: top left;
   transform: scale(200%);
 }
+#home-button-prof{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 5;
+}

@@ -11,3 +11,11 @@
   left: 20px;
   z-index: 5;
 }
+#home-button{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 5;
+  transform-origin: top right;
+  transform: scale(200%);
+}

@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import {InfoButtonComponent} from '../info-button/info-button.component';
 import {ProfileButtonComponent} from '../profile-button/profile-button.component';
+import {HomeButtonComponent} from '../home-button/home-button.component';
 
 @Component({
   selector: 'app-profile-view',
   imports: [
     InfoButtonComponent,
-    ProfileButtonComponent
+    ProfileButtonComponent,
+    HomeButtonComponent
   ],
   templateUrl: './profile-view.component.html',
   standalone: true,

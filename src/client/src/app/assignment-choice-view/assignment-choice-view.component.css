@@ -11,3 +11,9 @@
   left: 20px;
   z-index: 5;
 }
+#home-button-assignment{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 5;
+}
