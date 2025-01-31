@@ -13,3 +13,10 @@
   right: 20px;
   z-index: 5;
 }
+#circuit-animation-div-home{
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+  transform: scale(30%);
+}

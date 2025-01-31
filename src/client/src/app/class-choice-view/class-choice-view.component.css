@@ -19,3 +19,10 @@
   transform-origin: top right;
   transform: scale(200%);
 }
+#circuit-animation-div-home{
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform-origin: center;
+  transform: rotate(90deg) scale(30%);
+}
