@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Octokit } from '@octokit/rest';
+import {Repository} from '../repository';
 
 @Component({
   selector: 'app-class-choice-view',
@@ -9,9 +10,10 @@ import { Octokit } from '@octokit/rest';
   styleUrl: './class-choice-view.component.css'
 })
 export class ClassChoiceViewComponent {
+  public repositories: Repository[] = [];
 
   public octokit = new Octokit({
-    auth: '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'
+    auth: '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'
   });
 
   async ngOnInit() {
@@ -24,26 +26,24 @@ export class ClassChoiceViewComponent {
         }
       });
       data = response.data;
+/*
       console.log("Classes Object:", data); // Array of class objects
+*/
       this.getClassArray(data);
     } catch (error) {
       console.error(error);
     }
-
-
   }
 
-  getClassArray(data : any) {
+  getClassArray(data: any) {
     let possibleClassesIds = [];
-    let possibleClassesNames = []
-    for(let i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
       possibleClassesIds.push(data[i].id);
-      possibleClassesNames.push(data[i].name);
     }
-
-    console.log("Class IDs:",possibleClassesIds.toString());
-    console.log("Class Names:",possibleClassesNames.toString());
-    for(let i = 0; i < possibleClassesIds.length; i++) {
+/*
+    console.log("Class IDs:", possibleClassesIds.toString());
+*/
+    for (let i = 0; i < possibleClassesIds.length; i++) {
       this.getAssignments(possibleClassesIds[i]);
     }
   }
@@ -57,25 +57,26 @@ export class ClassChoiceViewComponent {
         }
       });
       data = response.data;
+/*
       console.log(`Assignments for class ${classId}`, data); // Array of assignment objects`
+*/
       this.getAssignmentsArray(data);
-    } catch (error) {
+    }
+    catch (error)
+    {
       console.error(error);
     }
   }
 
-  getAssignmentsArray(data: any){
-
+  getAssignmentsArray(data: any) {
     let assignmentIds = [];
-    let assignmentNames = [];
-    for(let i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
       assignmentIds.push(data[i].id);
-      assignmentNames.push(data[i].name);
     }
-
+/*
     console.log("Assignment IDs", assignmentIds.toString());
-    console.log("Assignment Names", assignmentNames.toString());
-    for(let i = 0; i < assignmentIds.length; i++) {
+*/
+    for (let i = 0; i < assignmentIds.length; i++) {
       this.getAcceptedAssignments(assignmentIds[i]);
     }
   }
@@ -89,23 +90,36 @@ export class ClassChoiceViewComponent {
         }
       });
       data = response.data;
+/*
       console.log(`Array of accepted assignment objects for assignment ${assignmentId}:`, data); // Array of accepted assignment objects
-      this.finalInformation(data);
+*/
+      for (let i = 0; i < data.length; i++) { // TODO get username from stored input from prior class and input here where it says "forma-cristata"
+        if (data[i].students[0].login == "kcraycraft45") {
+          this.craftRepositoryObject(data[i]);
+        }
+      }
     } catch (error) {
       console.error(error);
     }
   }
 
-  finalInformation(data: any) {
-    for (let i = 0; i < data.length; i++) {
-      console.log(`Accepted Assignment Username: ${data[i].students[0].login}`); // TODO may be multiple students
-      console.log(`Accepted Assignment Repository Name: ${data[i].repository.full_name}`)
-      this.getSHAArrayPerAssignment(data[i].repository.full_name)
-      // TODO: from this point, create an array of objects for every accepted assignment that is accepted by the saved username.
-    }
+  async craftRepositoryObject(data: any) {
+    let repoName = data.repository.full_name.toString();
+    let shaArray = await this.getSHAArrayPerAssignment(repoName);
+    let object: Repository = {
+      repositoryName: repoName,
+      username: data.students[0].login.toString(),
+      assignmentId: data.assignment.id,
+      assignmentName: data.assignment.title.toString(),
+      classId: data.assignment.classroom.id,
+      className: data.assignment.classroom.name,
+      sHAs: shaArray
+    };
+    this.repositories.push(object);
+    console.log(this.repositories);
   }
 
-  async getSHAArrayPerAssignment(repo: any) {
+  async getSHAArrayPerAssignment(repo: any): Promise<string[]> {
     let data;
     try {
       let response = await this.octokit.request(`GET /repos/${repo}/commits`, {
@@ -114,37 +128,15 @@ export class ClassChoiceViewComponent {
         }
       });
       data = response.data;
-      console.log(`Array of SHAs for ${repo}:`, data); // Array of accepted assignment objects
-    } catch (error) {
+      let shaArray = [];
+      for (let i = 0; i < data.length; i++) {
+        shaArray.push(data[i].sha.toString());
+      }
+      return shaArray;
+    }
+    catch (error) {
       console.error(error);
+      return [];
     }
   }
-
-  // Student inputs their username
-
-  // Get classrooms from github rest api
-  // For each classroom
-    // Get assignments from github rest api
-    // For each assignment
-      // Get accepted assignments from github rest api
-      // For each accepted assignment
-        // if the username = students.login:
-          // Add it to the list of assignments for this student on the server
-
-  // for each assignment in the list:
-    // Get the class (IT231 for example)
-    // Translate the class to the class name (IT231 -> Web Development)
-
-  // For each class:
-    // Get the class name
-    // Present as a choice on this page.
-
-  // When a class is clicked:
-    // Reroute to the assignments page for that class
-    // Show all assignments for that class
-    // If user clicks on one they have not accepted, let them know
-    // if they click on one they HAVE accepted
-        // Reroute to the SHA validation page
-            // Student inputs SHA
-            // Then get their SHAs from the repository you put together and validate from github rest api
 }

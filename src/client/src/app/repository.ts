@@ -1,8 +1,9 @@
 export interface Repository {
   repositoryName?: string;
-  usernameId?: string;
-  assignment?: number;
+  username?: string;
+  assignmentId?: number;
   assignmentName?: string;
   classId?: number;
   className?: string;
+  sHAs?: string[];
 }
