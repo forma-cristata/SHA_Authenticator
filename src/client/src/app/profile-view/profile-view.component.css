@@ -20,3 +20,9 @@
   transform-origin: top left;
   transform: scale(30%);
 }
+#back-button-prof{
+  position: absolute;
+  top: 20px;
+  right: 90px;
+  z-index: 5;
+}
