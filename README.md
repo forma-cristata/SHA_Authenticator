@@ -2,6 +2,8 @@
 
 A web application designed to streamline the GitHub assignment submission process for South Hills Institute students and educators.
 
+## Animations
+
 https://github.com/user-attachments/assets/a3a263a8-0a61-42e1-838b-06414e2c6507
 
 ## Overview
@@ -30,7 +32,7 @@ This system will help:
 ## Technology Stack
 
 - Node.js Full Stack
-- VueJS
+- Angular
 - GitHub OAuth & API Integration
 
 More detailed documentation will be provided as development progresses.
