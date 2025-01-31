@@ -47,4 +47,10 @@ app-circuit-animation{
   min-height: fit-content;
   max-height: fit-content;
 }
+#info-button{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 5;
+}
 

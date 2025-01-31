@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
 import { Octokit } from '@octokit/rest';
 import {Repository} from '../repository';
+import {InfoButtonComponent} from '../info-button/info-button.component';
+import {ProfileButtonComponent} from '../profile-button/profile-button.component';
 
 @Component({
   selector: 'app-class-choice-view',
-  imports: [],
+  imports: [
+    InfoButtonComponent,
+    ProfileButtonComponent
+  ],
   standalone: true,
   templateUrl: './class-choice-view.component.html',
   styleUrl: './class-choice-view.component.css'
