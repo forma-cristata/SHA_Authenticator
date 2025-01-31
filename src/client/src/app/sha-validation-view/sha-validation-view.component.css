@@ -1,0 +1,13 @@
+#info-button-sha{
+  position: absolute;
+  top: 20px;
+  left: 90px;
+  z-index: 5;
+}
+
+#profile-button-sha{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 5;
+}
