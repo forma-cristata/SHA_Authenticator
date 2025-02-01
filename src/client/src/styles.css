@@ -4,14 +4,17 @@ body{
 }
 :root{
   --dark-magenta: #a30052;
-  --light-green: #56d970;
-  --gh-green: #2bda4e;
+  --light-green: #00ff46;
+  --gh-green: #2da44e;
+  --uv-blue: #000aff;
+  --flamingo-dark: #ff507a;
   --ultraviolet-glow: #978def;
   --indigogo: #6F779D;
   --periwinkle: #ffffff;
   --midnight: #24292e;
   --greyrocking: #acbad5;
   --background: #2b3137;
+  --productive-purple: #7c72ff;
 
   --periwinkle-rgb: 172, 186, 213;
 
@@ -28,4 +31,8 @@ body{
   --greyrocking-rgb: 184, 185, 187;
 
   --light-magenta-rgb: 253, 141, 198;
+}
+.hoverers:hover{
+  filter: drop-shadow(0 0 0.75rem var(--productive-purple));
+
 }

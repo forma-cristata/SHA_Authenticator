@@ -33,7 +33,7 @@ app-circuit-animation{
   max-height: 100vh;
 }
 #form-container{
-  position: fixed;
+  position: absolute;
   top: 12%;
   left: 12%;
   transform: translate(-12%, -12%);
@@ -41,11 +41,31 @@ app-circuit-animation{
   z-index: 4;
   border-radius: 10%;
   opacity: 50%;
-  padding: 20px;
-  max-width: fit-content;
-  min-width: fit-content;
+  width: max(333px, 20vw);
+  height: max(226px, 20vh);
+  min-height: 236px;
+  min-width: 333px;
+}
+#not-opaque{
+  position: absolute;
+  top: 12%;
+  left: 12%;
+  transform: translate(-12%, -12%);
+  opacity: 100% !important;
+  z-index: 5;
+  border-radius: 10%;
+  padding: 0 0;
+  width: max(333px, 20vw);
+  height: max(226px, 20vh);
   min-height: fit-content;
-  max-height: fit-content;
+  min-width: fit-content;
+}
+#centering-form-register{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(max(300px, 18vw) - 40px);
 }
 #info-button-registration{
   position: absolute;
