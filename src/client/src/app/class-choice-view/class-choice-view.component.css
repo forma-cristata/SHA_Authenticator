@@ -18,11 +18,14 @@
   z-index: 5;
   transform-origin: top right;
   transform: scale(200%);
+  filter: drop-shadow(0 0 0.75rem var(--gh-green));
 }
 #circuit-animation-div-home{
   position: absolute;
   top: 0;
   right: 0;
   transform-origin: center;
-  transform: rotate(90deg) scale(30%);
+  transform: scale(25%) rotate(90deg);
+  filter: saturate(150%) blur(100%);
+
 }
