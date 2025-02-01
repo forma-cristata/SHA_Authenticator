@@ -64,35 +64,47 @@ td{
   border-color: #2da44f;
 }
 #c1:hover{
-  filter: drop-shadow(0 0 0.75rem #2da44f);
+  filter: drop-shadow(0 0 1rem #2da44f);
+  border: 10px solid #2da44f;
+  transform: scale(102%);
 }
 #c2{
   border-color: #00a086;
 }
 #c2:hover{
-  filter: drop-shadow(0 0 0.75rem #00a086);
+  filter: drop-shadow(0 0 1rem #00a086);
+  border: 10px solid #00a086;
+  transform: scale(102%);
 }
 #c3{
   border-color: #0099ab;
 }
 #c3:hover{
-  filter: drop-shadow(0 0 0.75rem #0099ab);
+  filter: drop-shadow(0 0 1rem #0099ab);
+  border: 10px solid #0099ab;
+  transform: scale(102%);
 }
 #c4{
   border-color: #00A56A;
 }
 #c4:hover{
-  filter: drop-shadow(0 0 0.75rem #00A56A);
+  filter: drop-shadow(0 0 1rem #00A56A);
+  border: 10px solid #00A56A;
+  transform: scale(102%);
 }
 #c5{
   border-color: #009c9b;
 }
 #c5:hover{
-  filter: drop-shadow(0 0 0.75rem #009c9b);
+  filter: drop-shadow(0 0 1rem #009c9b);
+  border: 10px solid #009c9b;
+  transform: scale(102%);
 }
 #c6{
   border-color: #0097b9;
 }
 #c6:hover{
-  filter: drop-shadow(0 0 0.75rem #0097b9);
+  filter: drop-shadow(0 0 1rem #0097b9);
+  border: 10px solid #0097b9;
+  transform: scale(102%);
 }
