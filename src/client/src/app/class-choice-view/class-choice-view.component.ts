@@ -22,7 +22,7 @@ export class ClassChoiceViewComponent {
   public repositories: Repository[] = [];
 
   public octokit = new Octokit({
-    auth: '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'
+    auth: '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'
   });
 
   async ngOnInit() {

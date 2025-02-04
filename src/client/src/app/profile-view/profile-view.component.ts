@@ -8,7 +8,6 @@ import {BackButtonComponent} from '../back-button/back-button.component';
 @Component({
   selector: 'app-profile-view',
   imports: [
-    InfoButtonComponent,
     ProfileButtonComponent,
     HomeButtonComponent,
     CircuitAnimationComponent,
