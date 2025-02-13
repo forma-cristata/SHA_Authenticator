@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { Octokit } from '@octokit/rest';
-import {Repository} from '../repository';
+import {Component} from '@angular/core';
+import {Octokit} from '@octokit/rest';
+import {Repository} from '../../../../server/repository';
 import {InfoButtonComponent} from '../info-button/info-button.component';
 import {ProfileButtonComponent} from '../profile-button/profile-button.component';
 import {HomeButtonComponent} from '../home-button/home-button.component';
@@ -35,9 +35,9 @@ export class ClassChoiceViewComponent {
         }
       });
       data = response.data;
-/*
-      console.log("Classes Object:", data); // Array of class objects
-*/
+      /*
+            console.log("Classes Object:", data); // Array of class objects
+      */
       this.getClassArray(data);
     } catch (error) {
       console.error(error);
@@ -49,9 +49,9 @@ export class ClassChoiceViewComponent {
     for (let i = 0; i < data.length; i++) {
       possibleClassesIds.push(data[i].id);
     }
-/*
-    console.log("Class IDs:", possibleClassesIds.toString());
-*/
+    /*
+        console.log("Class IDs:", possibleClassesIds.toString());
+    */
     for (let i = 0; i < possibleClassesIds.length; i++) {
       this.getAssignments(possibleClassesIds[i]);
     }
@@ -66,13 +66,11 @@ export class ClassChoiceViewComponent {
         }
       });
       data = response.data;
-/*
-      console.log(`Assignments for class ${classId}`, data); // Array of assignment objects`
-*/
+      /*
+            console.log(`Assignments for class ${classId}`, data); // Array of assignment objects`
+      */
       this.getAssignmentsArray(data);
-    }
-    catch (error)
-    {
+    } catch (error) {
       console.error(error);
     }
   }
@@ -82,9 +80,9 @@ export class ClassChoiceViewComponent {
     for (let i = 0; i < data.length; i++) {
       assignmentIds.push(data[i].id);
     }
-/*
-    console.log("Assignment IDs", assignmentIds.toString());
-*/
+    /*
+        console.log("Assignment IDs", assignmentIds.toString());
+    */
     for (let i = 0; i < assignmentIds.length; i++) {
       this.getAcceptedAssignments(assignmentIds[i]);
     }
@@ -99,9 +97,9 @@ export class ClassChoiceViewComponent {
         }
       });
       data = response.data;
-/*
-      console.log(`Array of accepted assignment objects for assignment ${assignmentId}:`, data); // Array of accepted assignment objects
-*/
+      /*
+            console.log(`Array of accepted assignment objects for assignment ${assignmentId}:`, data); // Array of accepted assignment objects
+      */
       for (let i = 0; i < data.length; i++) { // TODO get username from stored input from prior class and input here where it says "forma-cristata"
         if (data[i].students[0].login == "kcraycraft45") {
           this.craftRepositoryObject(data[i]);
@@ -142,8 +140,7 @@ export class ClassChoiceViewComponent {
         shaArray.push(data[i].sha.toString());
       }
       return shaArray;
-    }
-    catch (error) {
+    } catch (error) {
       console.error(error);
       return [];
     }

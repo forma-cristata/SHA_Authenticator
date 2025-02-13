@@ -1,9 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import {CircuitAnimationComponent} from '../circuit-animation/circuit-animation.component';
 import {RegistrationFormComponent} from '../registration-form/registration-form.component';
 import {InfoButtonComponent} from '../info-button/info-button.component';
 import { WebSocketService } from '../services/web-socket.service';
-import {Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-registration-view',
@@ -26,9 +25,10 @@ export class RegistrationViewComponent {
 
 
   ngOnInit() {
-    WebSocketService.getMessages();
 
     this.sendMessage('Hello, Server!');
+    WebSocketService.getMessages();
+
   }
 
 }

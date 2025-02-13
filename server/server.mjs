@@ -1,6 +1,6 @@
 import express from 'express';
 import { WebSocketServer } from 'ws';
-
+import {getClasses} from "./githubsies.mjs";
 
 const app = express();
 const PORT = 3012;
@@ -15,6 +15,9 @@ const wss = new WebSocketServer({server});
 wss.on('connection', (ws) =>
 {
     console.log('New client connected');
+
+    getClasses();
+
 
     ws.on('message', (message) =>
     {
