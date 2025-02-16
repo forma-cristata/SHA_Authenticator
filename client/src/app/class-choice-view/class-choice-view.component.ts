@@ -21,15 +21,9 @@ export class ClassChoiceViewComponent {
   // Send a request to the server (3012) using express and log the response
 
   constructor(private SHAService: SHAService) { }
-  ngOnInit(): void {
-    this.SHAService.getClasses().subscribe({
-      next: (data: any) => {
-        console.log(data);
-      },
-      error: (error: any) => {
-        console.error('There was an error!', error);
-      }
-    });
+  async ngOnInit(): Promise<void> {
+    let data = await this.SHAService.getClasses()
+    console.log(data);
   }
 
 }

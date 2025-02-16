@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Octokit} from 'octokit';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SHAService {
+
+  private octokit = new Octokit({});
   private apiUrl = 'http://localhost:3012'
 
   constructor(private http: HttpClient) { }
@@ -13,7 +16,12 @@ export class SHAService {
     return this.http.get(`${this.apiUrl}/sha`);
   }
 
-  getClasses(): any {
-    return this.http.get(`${this.apiUrl}/classes`);
+  async getClasses(): Promise<any> {
+    try {
+      let data = ((await this.octokit.request('GET localhost:3012/classes', {}))).data;
+      console.log(data);
+    } catch (error) {
+      console.error('There was an error!', error);
+    }
   }
 }
