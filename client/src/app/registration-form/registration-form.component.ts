@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import {Router} from '@angular/router';
+import getCookie from '../get-cookie';
 
 @Component({
   selector: 'app-registration-form',
@@ -13,7 +15,14 @@ import {FormsModule} from '@angular/forms';
 export class RegistrationFormComponent {
   public termLengthInSeconds: string = new Date(Date.now() + 24 * 60 * 60 * 7 * 14 * 1000).toUTCString();
   public username: string = '';
+
+  constructor(private router: Router){}
   ngOnInit() {
+    if(getCookie('username'))
+    {
+      // reroute to classes page
+      this.router.navigate(['/classes']);
+    }
       // todo: If cookie exists, reroute to classes page.
       const termLengthInSeconds = new Date(Date.now() + 24 * 60 * 60 * 7 * 14 * 1000).toUTCString();
   }
@@ -27,4 +36,6 @@ export class RegistrationFormComponent {
     // Preventing default behavior by returning false
     return false;
   }
+
+
 }

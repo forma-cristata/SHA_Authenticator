@@ -29,7 +29,7 @@ app.get(`/classes`, async (req, res) => {
     res.json(classes);
 });
 
-app.get(`/assignments`, async (req, res) => {
+app.get(`/class/assignments`, async (req, res) => {
     console.log('Received a request for assignments');
 
     const forkedRepositories = await getClasses();

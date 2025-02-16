@@ -18,7 +18,7 @@ export class SHAService {
 
   async getClasses(): Promise<any> {
     try {
-      let data = ((await this.octokit.request('GET localhost:3012/classes', {}))).data;
+      let data = ((await this.octokit.request(`GET ${this.apiUrl}/classes`, {}))).data;
       console.log(data);
     } catch (error) {
       console.error('There was an error!', error);

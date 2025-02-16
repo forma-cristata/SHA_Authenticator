@@ -17,6 +17,7 @@ import {InfoButtonComponent} from '../info-button/info-button.component';
 export class RegistrationViewComponent {
 
 
+
   ngOnInit() {
 
 
