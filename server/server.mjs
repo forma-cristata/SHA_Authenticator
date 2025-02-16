@@ -1,17 +1,29 @@
 import express from 'express';
-import { WebSocketServer } from 'ws';
 import {getClasses} from "./githubsies.mjs";
+import bodyParser from "express";
 
 const app = express();
 const PORT = 3012;
+
+app.use(bodyParser.json());
 
 const server = app.listen(PORT, () =>
 {
     console.log(`Server is listening on http://localhost:${PORT}`);
 });
 
-const wss = new WebSocketServer({server});
+// Console.log when the server receives a request
+app.get('/classes', async (req, res) => {
+    console.log('Received a request for objects');
+    console.log(req.body);
+    const classes = await getClasses();
+    console.log(classes);
+    res.json(classes);
+});
 
+
+
+/*
 wss.on('connection', (ws) =>
 {
     console.log('New client connected');
@@ -34,3 +46,4 @@ wss.on('connection', (ws) =>
         console.log('Client has disconnected');
     });
 });
+*/

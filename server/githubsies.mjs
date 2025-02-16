@@ -2,7 +2,7 @@ import {Octokit} from "octokit";
 export {getClasses};
 
 const octokit = new Octokit({
-    auth: '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'
+    auth: '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'
 });
 
 let repositories = [];
@@ -18,6 +18,8 @@ async function getClasses() {
         /*console.log(data);*/
 
         await getClassArray(data);
+
+        return repositories;
 
     } catch (error) {
         console.log(error);
@@ -43,7 +45,9 @@ async function getAssignments(classId) {
             }
         })).data;
 
+/*
         console.log(data);
+*/
 
         await getAssignmentArray(data);
 
@@ -61,6 +65,8 @@ async function getAssignmentArray(data) {
     for (let i = 0; i < possibleAssignmentIds.length; i++) {
         await getAcceptedAssignment(possibleAssignmentIds[i]);
     }
+
+
 }
 
 async function getAcceptedAssignment(assignmentId) {
@@ -82,6 +88,7 @@ async function getAcceptedAssignment(assignmentId) {
             }
         }
 
+
     } catch (error) {
         console.log(error);
     }
@@ -102,7 +109,11 @@ async function craftRepositoryObject(data) {
     }
 
     repositories.push(object);
+
+/*
     console.log(repositories);
+*/
+
 }
 
 

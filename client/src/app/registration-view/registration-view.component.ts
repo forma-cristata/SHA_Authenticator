@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {CircuitAnimationComponent} from '../circuit-animation/circuit-animation.component';
 import {RegistrationFormComponent} from '../registration-form/registration-form.component';
 import {InfoButtonComponent} from '../info-button/info-button.component';
-import { WebSocketService } from '../services/web-socket.service';
 
 @Component({
   selector: 'app-registration-view',
@@ -17,17 +16,10 @@ import { WebSocketService } from '../services/web-socket.service';
 })
 export class RegistrationViewComponent {
 
-  messages: any[] = [];
-
-  sendMessage(message: string) {
-    WebSocketService.sendMessage(message);
-  }
-
 
   ngOnInit() {
 
-    this.sendMessage('Hello, Server!');
-    WebSocketService.getMessages();
+
 
   }
 
