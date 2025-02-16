@@ -34,8 +34,6 @@ export class RegistrationFormComponent {
     document.cookie = `username=${username}; expires=${(this.termLengthInSeconds)}`;
     this.username = '';
     // Preventing default behavior by returning false
-    return false;
+    this.router.navigate(['/classes']);
   }
-
-
 }
