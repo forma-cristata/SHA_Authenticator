@@ -1,11 +1,16 @@
 import express from 'express';
 import {getClasses} from "./githubsies.mjs";
 import bodyParser from "express";
+import ParseClasses from "./parseClasses.mjs";
+import ParseAssignmentsInGivenClass from "./parseAssignmentsInGivenClass.mjs";
 
 const app = express();
 const PORT = 3012;
 
 app.use(bodyParser.json());
+
+let chosenClass = ''; // todo: how to set??
+let chosenUsername = 'kcraycraft45'; // todo, how to set??
 
 const server = app.listen(PORT, () =>
 {
@@ -13,13 +18,24 @@ const server = app.listen(PORT, () =>
 });
 
 // Console.log when the server receives a request
-app.get('/classes', async (req, res) => {
-    console.log('Received a request for objects');
-    console.log(req.body);
-    const classes = await getClasses();
-    console.log(classes);
+app.get(`/classes`, async (req, res) => {
+    console.log('Received a request for classes');
+
+    const forkedRepositories = await getClasses(chosenUsername);
+    const classes = ParseClasses(forkedRepositories);
+
     res.json(classes);
 });
+
+app.get(`/assignments`, async (req, res) => {
+    console.log('Received a request for assignments');
+
+    const forkedRepositories = await getClasses();
+    const assignments = await ParseAssignmentsInGivenClass(chosenUsername, chosenClass, forkedRepositories);
+
+
+    res.json();
+})
 
 
 
