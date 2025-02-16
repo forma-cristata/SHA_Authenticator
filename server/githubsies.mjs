@@ -7,7 +7,7 @@ const octokit = new Octokit({
 
 let repositories = [];
 
-async function getClasses(username) {
+async function getClasses() {
     try {
         let data = (await octokit.request('GET /classrooms', {
             headers: {
@@ -19,7 +19,7 @@ async function getClasses(username) {
         repositories = [];
 
 
-        await getClassArray(data, username);
+        await getClassArray(data);
 
         return repositories;
 
@@ -28,18 +28,18 @@ async function getClasses(username) {
     }
 }
 
-async function getClassArray(data, username) {
+async function getClassArray(data) {
     let possibleClassIds = [];
     for (let i = 0; i < data.length; i++) {
         possibleClassIds.push(data[i].id);
     }
 
     for (let i = 0; i < possibleClassIds.length; i++) {
-        await getAssignments(possibleClassIds[i], username);
+        await getAssignments(possibleClassIds[i]);
     }
 }
 
-async function getAssignments(classId, username) {
+async function getAssignments(classId) {
     try {
         let data = (await octokit.request(`GET /classrooms/${classId}/assignments`, {
             headers: {
@@ -51,27 +51,27 @@ async function getAssignments(classId, username) {
         console.log(data);
 */
 
-        await getAssignmentArray(data, username);
+        await getAssignmentArray(data);
 
     } catch (error) {
         console.log(error);
     }
 }
 
-async function getAssignmentArray(data, username) {
+async function getAssignmentArray(data) {
     let possibleAssignmentIds = [];
     for (let i = 0; i < data.length; i++) {
         possibleAssignmentIds.push(data[i].id);
     }
 
     for (let i = 0; i < possibleAssignmentIds.length; i++) {
-        await getAcceptedAssignment(possibleAssignmentIds[i], username);
+        await getAcceptedAssignment(possibleAssignmentIds[i]);
     }
 
 
 }
 
-async function getAcceptedAssignment(assignmentId, username) {
+async function getAcceptedAssignment(assignmentId) {
     try {
         let data = (await octokit.request(`GET /assignments/${assignmentId}/accepted_assignments`, {
             headers: {
@@ -84,7 +84,7 @@ async function getAcceptedAssignment(assignmentId, username) {
 */
         for(let i = 0; i < data.length; i++) {
             // todo: get username from client request
-            if(data[i].students[0].login === `${username}`) {
+            if(data[i].students[0].login === 'kcraycraft45') {
                 await craftRepositoryObject(data[i]);
             }
         }

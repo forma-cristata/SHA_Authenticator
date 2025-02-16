@@ -3,13 +3,15 @@ import {getClasses} from "./githubsies.mjs";
 import bodyParser from "express";
 import ParseClasses from "./parseClasses.mjs";
 import ParseAssignmentsInGivenClass from "./parseAssignmentsInGivenClass.mjs";
+import ParseSHAs from "./parseSHAs.mjs";
 
 const app = express();
 const PORT = 3012;
 
 app.use(bodyParser.json());
 
-let chosenClass = ''; // todo: how to set??
+let chosenAssignment = 'Something Something'; // todo: how to set??
+let chosenClass = 'IT241JavaScript'; // todo: how to set??
 let chosenUsername = 'kcraycraft45'; // todo, how to set??
 
 const server = app.listen(PORT, () =>
@@ -22,7 +24,7 @@ app.get(`/classes`, async (req, res) => {
     console.log('Received a request for classes');
 
     const forkedRepositories = await getClasses(chosenUsername);
-    const classes = ParseClasses(forkedRepositories);
+    const classes = ParseClasses(chosenUsername, forkedRepositories);
 
     res.json(classes);
 });
@@ -34,8 +36,17 @@ app.get(`/assignments`, async (req, res) => {
     const assignments = await ParseAssignmentsInGivenClass(chosenUsername, chosenClass, forkedRepositories);
 
 
-    res.json();
-})
+    res.json(assignments);
+});
+
+app.get('/shas', async (req, res) => {
+    console.log("Received a request for shas");
+
+    const forkedRepositories = await getClasses();
+    const shas = ParseSHAs('SouthHillsSubmissionCheck/testingtesting-kcraycraft45', forkedRepositories);
+
+    res.json(shas);
+});
 
 
 
