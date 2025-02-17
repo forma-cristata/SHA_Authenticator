@@ -2,7 +2,7 @@ import {Octokit} from "octokit";
 export {getClasses};
 
 const octokit = new Octokit({
-    auth: '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'
+    auth: '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'
 });
 
 let repositories = [];
@@ -83,11 +83,9 @@ async function getAcceptedAssignment(assignmentId) {
         console.log(data);
 */
         for(let i = 0; i < data.length; i++) {
-            // todo: get username from client request
-            if(data[i].students[0].login === 'kcraycraft45') {
                 await craftRepositoryObject(data[i]);
             }
-        }
+
 
 
     } catch (error) {

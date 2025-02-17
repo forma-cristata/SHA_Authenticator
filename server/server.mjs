@@ -4,11 +4,13 @@ import bodyParser from "express";
 import ParseClasses from "./parseClasses.mjs";
 import ParseAssignmentsInGivenClass from "./parseAssignmentsInGivenClass.mjs";
 import ParseSHAs from "./parseSHAs.mjs";
+import cors from 'cors';
 
 const app = express();
 const PORT = 3012;
 
 app.use(bodyParser.json());
+app.use(cors());
 
 let chosenAssignment = 'Something Something'; // todo: how to set??
 let chosenClass = 'IT241JavaScript'; // todo: how to set??
@@ -22,11 +24,15 @@ const server = app.listen(PORT, () =>
 // Console.log when the server receives a request
 app.get(`/classes`, async (req, res) => {
     console.log('Received a request for classes');
+    let username = req.query.username;
+    const forkedRepositories = await getClasses();
+    console.log(forkedRepositories);
+    if(forkedRepositories){
+        const classes = ParseClasses(username, forkedRepositories);
+        res.json(classes);
 
-    const forkedRepositories = await getClasses(chosenUsername);
-    const classes = ParseClasses(chosenUsername, forkedRepositories);
+    }
 
-    res.json(classes);
 });
 
 app.get(`/class/assignments`, async (req, res) => {

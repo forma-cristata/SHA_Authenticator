@@ -1,7 +1,7 @@
 export {getCookie, setCookie};
 function getCookie(name: string): string {
   const nameLenPlus = (name.length + 1);
-  return document.cookie
+  let cookie = document.cookie
     .split(';')
     .map(c => c.trim())
     .filter(cookie => {
@@ -10,6 +10,9 @@ function getCookie(name: string): string {
     .map(cookie => {
       return decodeURIComponent(cookie.substring(nameLenPlus));
     })[0] || "";
+
+  console.log(cookie);
+  return cookie;
 
 }
 

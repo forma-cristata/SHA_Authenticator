@@ -3,9 +3,12 @@ import {InfoButtonComponent} from '../info-button/info-button.component';
 import {ProfileButtonComponent} from '../profile-button/profile-button.component';
 import {HomeButtonComponent} from '../home-button/home-button.component';
 import {CircuitAnimationComponent} from '../circuit-animation/circuit-animation.component';
-import {SHAService} from '../services/sha.service';
-import {getCookie} from '../get-cookie';
+import {getCookie, setCookie} from '../get-cookie';
 import {Router} from '@angular/router';
+import {FormsModule} from '@angular/forms';
+import {NgIf} from '@angular/common';
+import {Octokit} from 'octokit';
+import {SHAService} from '../services/sha.service';
 
 @Component({
   selector: 'app-class-choice-view',
@@ -13,22 +16,41 @@ import {Router} from '@angular/router';
     InfoButtonComponent,
     ProfileButtonComponent,
     HomeButtonComponent,
-    CircuitAnimationComponent
+    CircuitAnimationComponent,
+    FormsModule,
   ],
   standalone: true,
   templateUrl: './class-choice-view.component.html',
   styleUrl: './class-choice-view.component.css'
 })
 export class ClassChoiceViewComponent {
+  public returnedClasses: string[] = [];
+  private octokit = new Octokit({});
   constructor(private router: Router){}
 
+  async setReturnedClasses(username: String) {
+    let data = ((await this.octokit.request(`GET http://localhost:3012/classes?username=${username}`, {}))).data;
 
-  ngOnInit(){
-    if(!getCookie('username'))
-    {
+
+
+    console.log(data);
+    this.returnedClasses = [...data];
+  }
+  async ngOnInit() {
+    if (!getCookie('username')) {
       this.router.navigate(['/']);
     }
+    setCookie('class', '');
+    await this.setReturnedClasses(getCookie('username'));
   }
+
+  selectClass(selectedClass: string){
+    setCookie('class', selectedClass);
+    this.router.navigate(['/assignments']);
+  }
+
+
+
   // Send a request to the server (3012) using express and log the response
 
   /*constructor(private SHAService: SHAService) { }

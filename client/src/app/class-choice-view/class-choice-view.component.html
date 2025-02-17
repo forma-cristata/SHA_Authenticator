@@ -17,11 +17,17 @@
   <table id="class-table" class="table-borderless">
     <thead>
       <tr class="visible-row">
-        <td><div id="c1" class="class-blocker">Class 1</div></td>
+        @if(this.returnedClasses[0]){
+        <td><div id="c1" class="class-blocker" (click)="selectClass(this.returnedClasses[0])">{{this.returnedClasses[0]}}</div></td>
         <td class="no-vis-col"></td>
-        <td><div id="c2" class="class-blocker">Class 2</div></td>
+        @if(this.returnedClasses[1]){
+        <td><div id="c2" class="class-blocker" (click)="selectClass(this.returnedClasses[1])">{{this.returnedClasses[1]}}</div></td>
         <td class="no-vis-col"></td>
-        <td><div id="c3" class="class-blocker">Class 3</div></td>
+        @if(this.returnedClasses[2]){
+        <td><div id="c3" class="class-blocker" (click)="selectClass(this.returnedClasses[2])">{{this.returnedClasses[2]}}</div></td>}}}
+        @else{
+          <td>No Classes Yet</td>
+        }
       </tr>
       <tr class="background-row">
         <td class="no-vis-col"></td>
@@ -31,11 +37,14 @@
         <td class="no-vis-col"></td>
       </tr>
       <tr class="visible-row">
-        <td><div id="c4" class="class-blocker">Class 4</div></td>
+        @if(this.returnedClasses[3]){
+        <td><div id="c4" class="class-blocker" (click)="selectClass(this.returnedClasses[3])">{{this.returnedClasses[3]}}</div></td>
         <td class="no-vis-col"></td>
-        <td><div id="c5" class="class-blocker">Class 5</div></td>
+        @if(this.returnedClasses[4]){
+        <td><div id="c5" class="class-blocker" (click)="selectClass(this.returnedClasses[4])">{{this.returnedClasses[4]}}</div></td>
         <td class="no-vis-col"></td>
-        <td><div id="c6" class="class-blocker">Class 6</div></td>
+          @if(this.returnedClasses[5]){
+        <td><div id="c6" class="class-blocker" (click)="selectClass(this.returnedClasses[5])">{{this.returnedClasses[5]}}</div></td>}}}
       </tr>
     </thead>
   </table>

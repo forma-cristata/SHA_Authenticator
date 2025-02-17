@@ -14,7 +14,6 @@ import {Location} from '@angular/common';
     HomeButtonComponent,
     CircuitAnimationComponent,
     BackButtonComponent,
-    RouterLink
   ],
   templateUrl: './profile-view.component.html',
   standalone: true,

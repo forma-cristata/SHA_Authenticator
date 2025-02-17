@@ -14,11 +14,14 @@
   <table id="ass-table" class="table-borderless">
     <thead>
     <tr class="visible-row">
-      <td><div id="a1" class="ass-blocker">Assignment 1</div></td>
+      @if(this.returnedAssignments[0]){
+      <td><div id="a1" class="ass-blocker" (click)="selectAssignment(this.returnedAssignments[0])">{{this.returnedAssignments[0]}}</div></td>
       <td class="no-vis-col"></td>
-      <td><div id="a2" class="ass-blocker">Assignment 2</div></td>
+      @if(this.returnedAssignments[1]){
+      <td><div id="a2" class="ass-blocker" (click)="selectAssignment(this.returnedAssignments[1])">{{this.returnedAssignments[1]}}</div></td>
+      @if(this.returnedAssignments[2]){
       <td class="no-vis-col"></td>
-      <td><div id="a3" class="ass-blocker">Assignment 3</div></td>
+      <td><div id="a3" class="ass-blocker" (click)="selectAssignment(this.returnedAssignments[2])">{{this.returnedAssignments[2]}}</div></td>}}}
     </tr>
     <tr class="background-row">
       <td class="no-vis-col"></td>
@@ -28,11 +31,14 @@
       <td class="no-vis-col"></td>
     </tr>
     <tr class="visible-row">
-      <td><div id="a4" class="ass-blocker">Assignment 4</div></td>
+      @if(this.returnedAssignments[3]){
+      <td><div id="a4" class="ass-blocker" (click)="selectAssignment(this.returnedAssignments[3])">{{this.returnedAssignments[3]}}</div></td>
       <td class="no-vis-col"></td>
-      <td><div id="a5" class="ass-blocker">Assignment 5</div></td>
+      @if(this.returnedAssignments[4]){
+      <td><div id="a5" class="ass-blocker" (click)="selectAssignment(this.returnedAssignments[4])">{{this.returnedAssignments[4]}}</div></td>
       <td class="no-vis-col"></td>
-      <td><div id="a6" class="ass-blocker">Assignment 6</div></td>
+      @if(this.returnedAssignments[5]){
+      <td><div id="a6" class="ass-blocker" (click)="selectAssignment(this.returnedAssignments[5])">{{this.returnedAssignments[5]}}</div></td>}}}
     </tr>
     </thead>
   </table>
