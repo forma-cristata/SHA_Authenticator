@@ -7,6 +7,7 @@ import {getCookie, setCookie} from '../get-cookie';
 import {Router} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {Octokit} from 'octokit';
+import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
 
 @Component({
   selector: 'app-class-choice-view',
@@ -16,6 +17,7 @@ import {Octokit} from 'octokit';
     HomeButtonComponent,
     CircuitAnimationComponent,
     FormsModule,
+    LoadingIconComponent,
   ],
   standalone: true,
   templateUrl: './class-choice-view.component.html',
@@ -39,7 +41,10 @@ export class ClassChoiceViewComponent {
       this.router.navigate(['/']);
     }
     setCookie('class', '');
-    await this.setReturnedClasses(getCookie('username'));
+    await this.setReturnedClasses(getCookie('username')).then(() => {
+      document.querySelector('#loading-boxer')!.classList.add('d-none');
+      document.querySelector('#classes-table')!.classList.remove('d-none');
+    });
   }
 
   selectClass(selectedClass: string){

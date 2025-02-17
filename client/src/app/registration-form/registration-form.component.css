@@ -4,7 +4,9 @@ button{
   width: 56px;
   height: 56px;
 }
-
+h4{
+  width: 333px;
+}
 #chev-3{
   animation: colors 1000ms linear infinite;
   animation-delay: 500ms;
@@ -49,6 +51,7 @@ button{
   --bs-btn-disabled-border-color: var(--gh-green);
 }
 #fit-betas{
-  min-width: fit-content;
-  width: fit-content;
+  min-width: 325px;
+  width: 100%;
+  height: calc(3.5rem + calc(var(--bs-border-width) * 2));
 }

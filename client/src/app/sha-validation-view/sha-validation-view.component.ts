@@ -8,6 +8,7 @@ import '../get-cookie';
 import {getCookie, setCookie} from '../get-cookie';
 import {Octokit} from 'octokit';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
 
 @Component({
   selector: 'app-sha-validation-view',
@@ -18,7 +19,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     BackButtonComponent,
     RouterLink,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    LoadingIconComponent
   ],
   templateUrl: './sha-validation-view.component.html',
   standalone: true,
@@ -42,7 +44,10 @@ export class ShaValidationViewComponent {
     if (!getCookie('assignment')) {
       this.router.navigate(['/assignments']);
     }
-    await this.setReturnedSHAs(getCookie('username'), getCookie('class'), getCookie('assignment'));
+    await this.setReturnedSHAs(getCookie('username'), getCookie('class'), getCookie('assignment')).then(() => {
+      document.querySelector('#loading-boxer')!.classList.add('d-none');
+      document.querySelector('#classes-table')!.classList.remove('d-none');
+    });
 
   }
 

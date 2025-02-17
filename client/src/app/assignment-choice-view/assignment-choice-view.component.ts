@@ -6,6 +6,7 @@ import {BackButtonComponent} from '../back-button/back-button.component';
 import {Router, RouterLink} from '@angular/router';
 import {getCookie, setCookie} from '../get-cookie';
 import {Octokit} from 'octokit';
+import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
 
 @Component({
   selector: 'app-assignment-choice-view',
@@ -14,7 +15,8 @@ import {Octokit} from 'octokit';
     ProfileButtonComponent,
     HomeButtonComponent,
     BackButtonComponent,
-    RouterLink
+    RouterLink,
+    LoadingIconComponent
   ],
   templateUrl: './assignment-choice-view.component.html',
   standalone: true,
@@ -33,19 +35,20 @@ export class AssignmentChoiceViewComponent {
     // TODO API Return Call Set
     this.returnedAssignments = [...data];
   }
-  ngOnInit(){
-    if(!getCookie('username'))
-    {
+  async ngOnInit() {
+    if (!getCookie('username')) {
       this.router.navigate(['/']).then(r => console.log('redirected to login'));
     }
 
-    if(!getCookie('class'))
-    {
+    if (!getCookie('class')) {
       this.router.navigate(['/classes']).then(r => console.log('redirected to classes'));
     }
 
     setCookie('assignment', '');
-    this.setReturnedAssignments(getCookie('username'), getCookie('class'));
+    await this.setReturnedAssignments(getCookie('username'), getCookie('class')).then(() => {
+      document.querySelector('#loading-boxer')!.classList.add('d-none');
+      document.querySelector('#assignments-table')!.classList.remove('d-none');
+    });
   }
 
   selectAssignment(selectedAssignment: string){

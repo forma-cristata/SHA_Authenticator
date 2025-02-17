@@ -44,7 +44,7 @@ app-circuit-animation{
   width: max(333px, 20vw);
   height: max(226px, 20vh);
   min-height: 236px;
-  min-width: 333px;
+  min-width: 412px;
 }
 #not-opaque{
   position: absolute;

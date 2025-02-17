@@ -108,3 +108,10 @@ td{
   border: 10px solid #0097b9;
   transform: scale(102%);
 }
+
+#loading-boxer{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
