@@ -5,7 +5,7 @@ export default function ParseAssignmentsInGivenClass(username, chosenClass, fork
             assignments.push(forkedRepositories[i].assignmentName);
         }
     }
-
+    console.log(assignments);
     return assignments;
 
 }

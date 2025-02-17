@@ -35,11 +35,12 @@ app.get(`/classes`, async (req, res) => {
 
 });
 
-app.get(`/class/assignments`, async (req, res) => {
+app.get(`/assignments`, async (req, res) => {
     console.log('Received a request for assignments');
-
+    let username = req.query.username;
+    let className = req.query.classname;
     const forkedRepositories = await getClasses();
-    const assignments = await ParseAssignmentsInGivenClass(chosenUsername, chosenClass, forkedRepositories);
+    const assignments = await ParseAssignmentsInGivenClass(username, className, forkedRepositories);
 
 
     res.json(assignments);
@@ -47,9 +48,11 @@ app.get(`/class/assignments`, async (req, res) => {
 
 app.get('/shas', async (req, res) => {
     console.log("Received a request for shas");
-
+    let username = req.query.username;
+    let className = req.query.classname;
+    let assignment = req.query.assignment;
     const forkedRepositories = await getClasses();
-    const shas = ParseSHAs('SouthHillsSubmissionCheck/testingtesting-kcraycraft45', forkedRepositories);
+    const shas = ParseSHAs(username, className, assignment, forkedRepositories);
 
     res.json(shas);
 });

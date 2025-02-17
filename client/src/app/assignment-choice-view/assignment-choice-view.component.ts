@@ -28,7 +28,7 @@ export class AssignmentChoiceViewComponent {
 
   async setReturnedAssignments(username: string, classChoice: string) {
 
-    let data = ((await this.octokit.request(`GET http://localhost:3012/classes?username=${username}&class=${classChoice}`, {}))).data;
+    let data = ((await this.octokit.request(`GET http://localhost:3012/assignments?username=${username}&classname=${classChoice}`, {}))).data;
 
     // TODO API Return Call Set
     this.returnedAssignments = [...data];
@@ -45,7 +45,7 @@ export class AssignmentChoiceViewComponent {
     }
 
     setCookie('assignment', '');
-    this.setReturnedAssignments();
+    this.setReturnedAssignments(getCookie('username'), getCookie('class'));
   }
 
   selectAssignment(selectedAssignment: string){
