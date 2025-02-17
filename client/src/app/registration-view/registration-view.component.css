@@ -8,10 +8,9 @@
   z-index: 1;
   width: 75vw;
   height: 75vw;
+
 }
-app-circuit-animation{
-  transform: scale(300%);
-}
+
 #top-banner{
   background-color: var(--background);
   z-index: 2;

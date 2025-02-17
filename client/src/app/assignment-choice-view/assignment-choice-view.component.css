@@ -56,55 +56,55 @@ td{
   border-radius: 20px !important;
   margin: auto auto;
 }
-#a1 {
+.a1 {
   border-color: #0099ab;
 }
-#a1:hover{
+.a1:hover{
   filter: drop-shadow(0 0 1rem #0099ab);
   border: 10px solid #0099ab;
   transform-origin: center;
   transform: scale(102%);
 }
-#a2{
+.a2{
   border-color: #0095c8;
 }
-#a2:hover{
+.a2:hover{
   filter: drop-shadow(0 0 1rem #0095c8);
   border: 10px solid #0095c8;
   transform: scale(102%);
 
 }
-#a3{
+.a3{
   border-color: #0b82ff;
 }
-#a3:hover{
+.a3:hover{
   filter: drop-shadow(0 0 1rem #0b82ff);
   border: 10px solid #0b82ff;
   transform: scale(102%);
 
 }
-#a4{
+.a4{
   border-color: #0097b9;
 }
-#a4:hover{
+.a4:hover{
   filter: drop-shadow(0 0 1rem #0097b9);
   border: 10px solid #0097b9;
   transform: scale(102%);
 
 }
-#a5{
+.a5{
   border-color: #0090e0;
 }
-#a5:hover{
+.a5:hover{
   filter: drop-shadow(0 0 1rem #0090e0);
   border: 10px solid #0090e0;
   transform: scale(102%);
 
 }
-#a6{
+.a6{
   border-color: #7a70ff;
 }
-#a6:hover{
+.a6:hover{
   filter: drop-shadow(0 0 1rem #7a70ff);
   border: 10px solid #7a70ff;
   transform: scale(102%);
