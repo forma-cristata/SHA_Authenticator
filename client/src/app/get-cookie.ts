@@ -1,4 +1,5 @@
-export default function getCookie(name: string): string {
+export {getCookie, setCookie};
+function getCookie(name: string): string {
   const nameLenPlus = (name.length + 1);
   return document.cookie
     .split(';')
@@ -10,4 +11,9 @@ export default function getCookie(name: string): string {
       return decodeURIComponent(cookie.substring(nameLenPlus));
     })[0] || "";
 
+}
+
+function setCookie(name: string, value: string){
+  document.cookie = `${name}=${value}`;
+  return;
 }

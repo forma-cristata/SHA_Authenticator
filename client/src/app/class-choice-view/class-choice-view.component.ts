@@ -4,7 +4,7 @@ import {ProfileButtonComponent} from '../profile-button/profile-button.component
 import {HomeButtonComponent} from '../home-button/home-button.component';
 import {CircuitAnimationComponent} from '../circuit-animation/circuit-animation.component';
 import {SHAService} from '../services/sha.service';
-import getCookie from '../get-cookie';
+import {getCookie} from '../get-cookie';
 import {Router} from '@angular/router';
 
 @Component({

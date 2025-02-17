@@ -4,7 +4,7 @@ import {ProfileButtonComponent} from '../profile-button/profile-button.component
 import {HomeButtonComponent} from '../home-button/home-button.component';
 import {BackButtonComponent} from '../back-button/back-button.component';
 import {Router, RouterLink} from '@angular/router';
-import getCookie from '../get-cookie';
+import {getCookie} from '../get-cookie';
 
 @Component({
   selector: 'app-assignment-choice-view',
@@ -26,7 +26,12 @@ export class AssignmentChoiceViewComponent {
   ngOnInit(){
     if(!getCookie('username'))
     {
-      this.router.navigate(['/']);
+      this.router.navigate(['/']).then(r => console.log('redirected to login'));
+    }
+
+    if(!getCookie('class'))
+    {
+      this.router.navigate(['/classes']).then(r => console.log('redirected to classes'));
     }
   }
 }

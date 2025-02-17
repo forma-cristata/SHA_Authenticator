@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import {InfoButtonComponent} from '../info-button/info-button.component';
 import {ProfileButtonComponent} from '../profile-button/profile-button.component';
 import {HomeButtonComponent} from '../home-button/home-button.component';
 import {CircuitAnimationComponent} from '../circuit-animation/circuit-animation.component';
 import {BackButtonComponent} from '../back-button/back-button.component';
 import {Router, RouterLink} from '@angular/router';
-import getCookie from '../get-cookie';
+import {getCookie} from '../get-cookie';
 import {Location} from '@angular/common';
 
 @Component({
