@@ -1,0 +1,111 @@
+*{
+  --dark-dots: #FF507A;
+  --duration: 1s;
+}
+#dot-box{
+  position: relative;
+  width: 125px;
+  height: 125px;
+}
+#title-box{
+  width: 75px;
+  height: 30px;
+  position: absolute;
+  left: 25px;
+  top: 53px;
+}
+#load-title{
+  font-variant: small-caps;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  color: #e1506f;
+}
+.circle{
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: var(--dark-dots);
+  opacity: 0;
+}
+#circ-1{
+  top: 50px;
+  animation: load-spin var(--duration) infinite;
+}
+#circ-2{
+  top: 12px;
+  left: 12px;
+  animation: load-spin var(--duration) infinite;
+  animation-delay: calc(var(--duration) / 8);
+}
+#circ-3{
+  top: 0;
+  left: 50px;
+  animation: load-spin var(--duration) infinite;
+  animation-delay: calc(var(--duration) * 2 / 8);
+}
+#circ-4{
+  top: 12px;
+  left: 88px;
+  animation: load-spin var(--duration) infinite;
+  animation-delay: calc(var(--duration) * 3 / 8);
+}
+#circ-5{
+  top: 50px;
+  left: 100px;
+  animation: load-spin var(--duration) infinite;
+  animation-delay: calc(var(--duration) * 4 / 8);
+}
+#circ-6{
+  top: 88px;
+  left: 88px;
+  animation: load-spin var(--duration) infinite;
+  animation-delay: calc(var(--duration) * 5 / 8);
+}
+#circ-7{
+  top: 100px;
+  left: 50px;
+  animation: load-spin var(--duration) infinite;
+  animation-delay: calc(var(--duration) * 6 / 8);
+
+}
+#circ-8{
+  top: 88px;
+  left: 12px;
+  animation: load-spin var(--duration) infinite;
+  animation-delay: calc(var(--duration) * 7 / 8);
+
+}
+
+@keyframes load-spin{
+  0%{
+    opacity: 1;
+  }
+  12.5%{
+    opacity: 0.875;
+  }
+  25%{
+    opacity: 0.75;
+  }
+  37.5%{
+    opacity: 0.625;
+  }
+  50%{
+    opacity: .5;
+  }
+  62.5%{
+    opacity: .375;
+  }
+  75%{
+    opacity: 0.25;
+  }
+  87.5%{
+    opacity: 0.125;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+
