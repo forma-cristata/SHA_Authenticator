@@ -29,6 +29,10 @@ button{
   }
 }
 .btn-primary {
+  height: calc(3.5rem + calc(var(--bs-border-width) * 2)) !important;
+  margin-left: 20px;
+  padding: 1rem 0.75rem !important;
+  vertical-align: top !important;
   --bs-btn-color: #fff;
   --bs-btn-bg: var(--gh-green);
   --bs-btn-border-color: var(--gh-green);

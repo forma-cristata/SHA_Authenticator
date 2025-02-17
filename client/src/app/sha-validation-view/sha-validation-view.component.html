@@ -10,3 +10,25 @@
 <div id="back-button-sha" routerLink="/assignments" class="hoverers">
   <app-back-button />
 </div>
+
+<div id="classes-table">
+  <table id="class-table" class="table-borderless">
+    <thead>
+    <tr class="visible-row">
+      <td class="no-vis-col col-2"></td>
+        <td class="col-6">
+          <div id="c1" class="class-blocker col-4" >
+            <h1 class="w-50">{{assignmentName}}</h1>
+            <div class="form-floating d-inline-block w-50">
+              <input type="text" class="form-control" id="floatingInput" placeholder="sha" [(ngModel)]="sHAToCheck" name="sha" required>
+              <label for="floatingInput">SHA</label>
+            </div>
+            <button class="btn btn-primary" type="button" (click)="checkSHA()">Check</button>
+            <div id="feedback-header" class="h3">{{this.feedback}}</div>
+            </div>
+        </td>
+        <td class="no-vis-col"></td>
+    </tr>
+    </thead>
+  </table>
+</div>

@@ -7,6 +7,7 @@ import {Router, RouterLink} from '@angular/router';
 import '../get-cookie';
 import {getCookie, setCookie} from '../get-cookie';
 import {Octokit} from 'octokit';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-sha-validation-view',
@@ -15,7 +16,9 @@ import {Octokit} from 'octokit';
     ProfileButtonComponent,
     HomeButtonComponent,
     BackButtonComponent,
-    RouterLink
+    RouterLink,
+    ReactiveFormsModule,
+    FormsModule
   ],
   templateUrl: './sha-validation-view.component.html',
   standalone: true,
@@ -24,23 +27,22 @@ import {Octokit} from 'octokit';
 export class ShaValidationViewComponent {
   public returnedSHAs: string[] = [];
   private octokit = new Octokit({});
-
+  public assignmentName = getCookie('assignment');
+  public sHAToCheck = '';
+  public feedback = '';
 
   constructor(private router: Router){}
-  ngOnInit(){
-    if(!getCookie('username'))
-    {
+  async ngOnInit() {
+    if (!getCookie('username')) {
       this.router.navigate(['/']);
     }
-    if(!getCookie('class'))
-    {
+    if (!getCookie('class')) {
       this.router.navigate(['/classes']);
     }
-    if(!getCookie('assignment'))
-    {
+    if (!getCookie('assignment')) {
       this.router.navigate(['/assignments']);
     }
-    this.setReturnedSHAs(getCookie('username'), getCookie('class'), getCookie('assignment'));
+    await this.setReturnedSHAs(getCookie('username'), getCookie('class'), getCookie('assignment'));
 
   }
 
@@ -50,6 +52,18 @@ export class ShaValidationViewComponent {
 
     this.returnedSHAs = [...data];
     console.log(this.returnedSHAs);
+  }
+
+  checkSHA() {
+    if(this.returnedSHAs.includes(this.sHAToCheck))
+    {
+      this.feedback = 'SHA is valid';
+    }
+    else {
+      this.feedback = 'SHA is not valid';
+      // TODO more specific feedback - does it belong to another repository?
+
+    }
   }
 }
 
