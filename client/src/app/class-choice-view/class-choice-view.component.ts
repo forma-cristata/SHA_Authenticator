@@ -6,9 +6,7 @@ import {CircuitAnimationComponent} from '../circuit-animation/circuit-animation.
 import {getCookie, setCookie} from '../get-cookie';
 import {Router} from '@angular/router';
 import {FormsModule} from '@angular/forms';
-import {NgIf} from '@angular/common';
 import {Octokit} from 'octokit';
-import {SHAService} from '../services/sha.service';
 
 @Component({
   selector: 'app-class-choice-view',

@@ -5,6 +5,7 @@ import {HomeButtonComponent} from '../home-button/home-button.component';
 import {BackButtonComponent} from '../back-button/back-button.component';
 import {Router, RouterLink} from '@angular/router';
 import {getCookie, setCookie} from '../get-cookie';
+import {Octokit} from 'octokit';
 
 @Component({
   selector: 'app-assignment-choice-view',
@@ -21,14 +22,16 @@ import {getCookie, setCookie} from '../get-cookie';
 })
 export class AssignmentChoiceViewComponent {
   public returnedAssignments: string[] = [];
+  private octokit = new Octokit({});
 
   constructor(private router: Router){}
 
-  setReturnedAssignments(){
+  async setReturnedAssignments(username: string, classChoice: string) {
 
+    let data = ((await this.octokit.request(`GET http://localhost:3012/classes?username=${username}&class=${classChoice}`, {}))).data;
 
     // TODO API Return Call Set
-    this.returnedAssignments = ['Assignment 1', 'Assignment 2', 'Assignment 3', 'Assignment 4', 'Assignment 5', 'Assignment 6'];
+    this.returnedAssignments = [...data];
   }
   ngOnInit(){
     if(!getCookie('username'))
@@ -52,3 +55,30 @@ export class AssignmentChoiceViewComponent {
 }
 
 
+
+/*
+public returnedClasses: string[] = [];
+private octokit = new Octokit({});
+constructor(private router: Router){}
+
+async setReturnedClasses(username: String) {
+
+
+
+  console.log(data);
+  this.returnedClasses = [...data];
+}
+async ngOnInit() {
+  if (!getCookie('username')) {
+    this.router.navigate(['/']);
+  }
+  setCookie('class', '');
+  await this.setReturnedClasses(getCookie('username'));
+}
+
+selectClass(selectedClass: string){
+  setCookie('class', selectedClass);
+  this.router.navigate(['/assignments']);
+}
+
+*/

@@ -9,3 +9,4 @@ export default function ParseClasses(username, forkedRepositories) {
     }
     return classes;
 }
+
