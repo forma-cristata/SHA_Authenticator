@@ -3,7 +3,7 @@ import {InfoButtonComponent} from '../info-button/info-button.component';
 import {ProfileButtonComponent} from '../profile-button/profile-button.component';
 import {HomeButtonComponent} from '../home-button/home-button.component';
 import {BackButtonComponent} from '../back-button/back-button.component';
-import {Router} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import getCookie from '../get-cookie';
 
 @Component({
@@ -12,7 +12,8 @@ import getCookie from '../get-cookie';
     InfoButtonComponent,
     ProfileButtonComponent,
     HomeButtonComponent,
-    BackButtonComponent
+    BackButtonComponent,
+    RouterLink
   ],
   templateUrl: './assignment-choice-view.component.html',
   standalone: true,

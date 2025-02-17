@@ -3,6 +3,7 @@ import {InfoButtonComponent} from '../info-button/info-button.component';
 import {ProfileButtonComponent} from '../profile-button/profile-button.component';
 import {HomeButtonComponent} from '../home-button/home-button.component';
 import {BackButtonComponent} from '../back-button/back-button.component';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-sha-validation-view',
@@ -10,7 +11,8 @@ import {BackButtonComponent} from '../back-button/back-button.component';
     InfoButtonComponent,
     ProfileButtonComponent,
     HomeButtonComponent,
-    BackButtonComponent
+    BackButtonComponent,
+    RouterLink
   ],
   templateUrl: './sha-validation-view.component.html',
   standalone: true,
