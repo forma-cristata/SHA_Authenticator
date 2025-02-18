@@ -16,26 +16,18 @@ async function getClasses() {
         })).data;
 
         /*console.log(data);*/
-        repositories = [];
+        let possibleClassIds = [];
+        for (let i = 0; i < data.length; i++) {
+            possibleClassIds.push(data[i].id);
+        }
 
-
-        await getClassArray(data);
-
+        for (let i = 0; i < possibleClassIds.length; i++) {
+            await getAssignments(possibleClassIds[i]);
+        }
         return repositories;
 
     } catch (error) {
         console.log(error);
-    }
-}
-
-async function getClassArray(data) {
-    let possibleClassIds = [];
-    for (let i = 0; i < data.length; i++) {
-        possibleClassIds.push(data[i].id);
-    }
-
-    for (let i = 0; i < possibleClassIds.length; i++) {
-        await getAssignments(possibleClassIds[i]);
     }
 }
 

@@ -40,8 +40,17 @@
   align-content: space-between;
   align-items: center;
 }
+
+
 .flex-attempt{
   height: 200px;
+  flex-wrap: wrap;
+
+  /*
+  border: 2px solid #0099ab;
+  */
+}
+.flex-attempt2{
   flex-wrap: wrap;
 
   /*

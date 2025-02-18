@@ -2,8 +2,8 @@ export default function ParseSHAs(username, className, assignment, forkedReposit
     let shas = [];
 
 
-    let wrongAssFeedback = "ICommit ID belongs to ";
-    let shaNotFoundFeedback = "ICommit ID not found";
+    let wrongAssFeedback = "ISHA belongs to ";
+    let shaNotFoundFeedback = "ISHA not found";
     let validSHAFeedback = "VCommit ID is valid";
     let validButNotFirstSHAFeedback = "VNote • SHA is not the most recent commit";
 
@@ -44,7 +44,7 @@ export default function ParseSHAs(username, className, assignment, forkedReposit
         if(allSHAs.includes(shaToCheck))
         {
             // Notify user that shaToCheck belongs to ${this} other assignment
-            return `${wrongAssFeedback} ${className} | ${allAssignmentNames[allSHAs.indexOf(shaToCheck)]}`;
+            return `${wrongAssFeedback} ${className} • ${allAssignmentNames[allSHAs.indexOf(shaToCheck)]}`;
         }
         // If shaToCheck does not match any other assignments
         else
