@@ -6,6 +6,8 @@ import {BackButtonComponent} from '../back-button/back-button.component';
 import {Router, RouterLink} from '@angular/router';
 import {getCookie} from '../get-cookie';
 import {Location} from '@angular/common';
+import {ChangeUsernameComponent} from '../change-username/change-username.component';
+import {InfoButtonComponent} from '../info-button/info-button.component';
 
 @Component({
   selector: 'app-profile-view',
@@ -14,6 +16,8 @@ import {Location} from '@angular/common';
     HomeButtonComponent,
     CircuitAnimationComponent,
     BackButtonComponent,
+    ChangeUsernameComponent,
+    InfoButtonComponent,
   ],
   templateUrl: './profile-view.component.html',
   standalone: true,
