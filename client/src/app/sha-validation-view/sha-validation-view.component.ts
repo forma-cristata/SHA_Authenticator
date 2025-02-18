@@ -28,39 +28,45 @@ import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
 })
 export class ShaValidationViewComponent {
   public returnedSHAs: string[] = [];
-  private octokit = new Octokit({});
-  public assignmentName = getCookie('assignment');
-  public sHAToCheck = '';
-  public feedback = '';
+  private octokit: Octokit = new Octokit({});
+  public username: string = '';
+  public assignmentName: string = '';
+  public className: string = '';
+  public sHAToCheck: string = '';
+  public feedback:string = '';
 
   constructor(private router: Router){}
   async ngOnInit() {
-    if (!getCookie('username')) {
+    this.username = getCookie('username');
+    this.assignmentName = getCookie('assignment');
+    this.className = getCookie('class');
+
+    if (!this.username) {
       this.router.navigate(['/']);
     }
-    if (!getCookie('class')) {
+    if (!this.className) {
       this.router.navigate(['/classes']);
     }
-    if (!getCookie('assignment')) {
+    if (!this.assignmentName) {
       this.router.navigate(['/assignments']);
     }
-    await this.setReturnedSHAs(getCookie('username'), getCookie('class'), getCookie('assignment')).then(() => {
+  }
+
+  async setReturnedSHAs() {
+    this.feedback = ((await this.octokit.request(`GET http://localhost:3012/shas?username=${this.username}&classname=${this.className}&assignment=${this.assignmentName}&sha=${this.sHAToCheck}`, {}))).data[0];
+    console.log(this.feedback);
+  }
+
+  async checkSHA() {
+    document.querySelector('#loading-boxer')!.classList.remove('d-none');
+    document.querySelector('#classes-table')!.classList.add('d-none');
+
+    await this.setReturnedSHAs().then(() => {
       document.querySelector('#loading-boxer')!.classList.add('d-none');
       document.querySelector('#classes-table')!.classList.remove('d-none');
     });
 
-  }
-
-  async setReturnedSHAs(username: string, classChoice: string, assignment: string) {
-
-    let data = ((await this.octokit.request(`GET http://localhost:3012/shas?username=${username}&classname=${classChoice}&assignment=${assignment}`, {}))).data;
-
-    this.returnedSHAs = [...data];
-    console.log(this.returnedSHAs);
-  }
-
-  checkSHA() {
-    if(this.returnedSHAs.includes(this.sHAToCheck))
+    /*if(this.returnedSHAs.includes(this.sHAToCheck))
     {
       this.feedback = 'SHA is valid';
     }
@@ -68,7 +74,7 @@ export class ShaValidationViewComponent {
       this.feedback = 'SHA is not valid';
       // TODO more specific feedback - does it belong to another repository?
 
-    }
+    }*/
   }
 }
 

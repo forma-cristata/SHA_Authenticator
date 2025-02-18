@@ -51,10 +51,12 @@ app.get('/shas', async (req, res) => {
     let username = req.query.username;
     let className = req.query.classname;
     let assignment = req.query.assignment;
-    const forkedRepositories = await getClasses();
-    const shas = ParseSHAs(username, className, assignment, forkedRepositories);
+    let shaToCheck = req.query.sha;
 
-    res.json(shas);
+    const forkedRepositories = await getClasses();
+    const feedback = ParseSHAs(username, className, assignment, forkedRepositories, shaToCheck);
+
+    res.json(feedback);
 });
 
 

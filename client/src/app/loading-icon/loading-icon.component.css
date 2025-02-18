@@ -1,6 +1,12 @@
 *{
-  --dark-dots: #FF507A;
-  --duration: 1s;
+  --dark-dots: var(--aptly-named-periwinkle);
+  --circle-small: 12px;
+  --circle-big: 88px;
+  --square-small: 25px;
+  --square-big: 75px;
+
+  --smallSmall: var(--square-small);
+  --bigBig: var(--square-big);
 }
 #dot-box{
   position: relative;
@@ -34,8 +40,8 @@
   animation: load-spin var(--duration) infinite;
 }
 #circ-2{
-  top: 12px;
-  left: 12px;
+  top: var(--smallSmall);
+  left: var(--smallSmall);
   animation: load-spin var(--duration) infinite;
   animation-delay: calc(var(--duration) / 8);
 }
@@ -46,8 +52,8 @@
   animation-delay: calc(var(--duration) * 2 / 8);
 }
 #circ-4{
-  top: 12px;
-  left: 88px;
+  top: var(--smallSmall);
+  left: var(--bigBig);
   animation: load-spin var(--duration) infinite;
   animation-delay: calc(var(--duration) * 3 / 8);
 }
@@ -58,8 +64,8 @@
   animation-delay: calc(var(--duration) * 4 / 8);
 }
 #circ-6{
-  top: 88px;
-  left: 88px;
+  top: var(--bigBig);
+  left: var(--bigBig);
   animation: load-spin var(--duration) infinite;
   animation-delay: calc(var(--duration) * 5 / 8);
 }
@@ -71,8 +77,8 @@
 
 }
 #circ-8{
-  top: 88px;
-  left: 12px;
+  top: var(--bigBig);
+  left: var(--smallSmall);
   animation: load-spin var(--duration) infinite;
   animation-delay: calc(var(--duration) * 7 / 8);
 

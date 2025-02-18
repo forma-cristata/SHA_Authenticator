@@ -3,19 +3,49 @@ body{
   background-color: var(--background);
 }
 :root{
-  --dark-magenta: #a30052;
-  --light-green: #00ff46;
-  --gh-green: #2da44e;
-  --uv-blue: #000aff;
-  --flamingo-dark: #ff507a;
-  --ultraviolet-glow: #978def;
-  --indigogo: #6F779D;
-  --periwinkle: #ffffff;
-  --midnight: #24292e;
-  --greyrocking: #acbad5;
   --background: #2b3137;
-  --productive-purple: #7c72ff;
+  --midnight: #24292e;
 
+  --indigogo: #6F779D;
+  --greyrocking: #acbad5;
+
+  --periwinkle: #ffffff;
+
+  --dark-magenta: #a30052;
+  --dark-dots: #FF507A;
+  --flamingo-dark: #ff507a;
+
+  --light-green: #00ff46;
+  --muted-green: #2da44f;
+  --gh-green: #2da44e;
+  --dark-middle-green: #2da44f;
+  --dark-middle-green2: #268c3a;
+  --dark-middle-green3: #227a33;
+  --dark-middle-green4: #1f6b2d;
+  --another-mid-green: #00A56A;
+
+  --see-foam-eat-foam: #00a086;
+  --another-damn-teal: #009c9b;
+  --another-teal: #0099ab;
+  --custom-teal: #0099ab;
+  --custom-teal-2: #0097b9;
+
+  --skai-bloo: #0097b9;
+  --custom-darker-teal: #0095c8;
+  --custom-blue-2: #0090e0;
+  --custom-blue: #0b82ff;
+  --uv-blue: #000aff;
+
+  --aptly-named-periwinkle: #7a70ff;
+  --productive-purple: #7c72ff;
+  --ultraviolet-glow: #978def;
+
+  --duration: 1s;
+
+
+
+
+/*-------------------RGB IDK if necessary------------------------*/
   --periwinkle-rgb: 172, 186, 213;
 
   --ultraviolet-glow-rgb: 25, 0, 248;
