@@ -2,7 +2,7 @@ import {Octokit} from "octokit";
 export {getClasses};
 
 const octokit = new Octokit({
-    auth: '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'
+    auth: ''
 });
 
 let repositories = [];
