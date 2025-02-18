@@ -23,8 +23,11 @@
               <input type="text" class="form-control" id="floatingInput" placeholder="sha" [(ngModel)]="sHAToCheck" name="sha" required>
               <label for="floatingInput">SHA</label>
             </div>
-            <button class="btn btn-primary" type="button" (click)="checkSHA()">Check</button>
-            <h3 id="feedback-header">Feedback{{this.feedback}}</h3>
+            <button id="sha-checker-btn" class="btn btn-primary" type="button" (click)="checkSHA()">Check</button>
+            <div id="loading-boxer" class="d-none">
+              <app-loading-icon />
+            </div>
+            <h4 id="feedback-header">{{this.feedback}}</h4>
             </div>
         </td>
         <td class="no-vis-col"></td>
@@ -33,7 +36,4 @@
   </table>
 </div>
 
-<!--Loading Icon-->
-<div id="loading-boxer" class="d-none">
-  <app-loading-icon />
-</div>
+

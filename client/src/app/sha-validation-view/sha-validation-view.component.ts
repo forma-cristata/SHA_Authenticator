@@ -28,12 +28,14 @@ import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
 })
 export class ShaValidationViewComponent {
   public returnedSHAs: string[] = [];
-  private octokit: Octokit = new Octokit({});
+  private octokit = new Octokit({});
   public username: string = '';
   public assignmentName: string = '';
   public className: string = '';
   public sHAToCheck: string = '';
   public feedback:string = '';
+  private validText: string = 'var(--gh-green)';
+  private invalidText: string = 'var(--dark-magenta)';
 
   constructor(private router: Router){}
   async ngOnInit() {
@@ -53,28 +55,45 @@ export class ShaValidationViewComponent {
   }
 
   async setReturnedSHAs() {
-    this.feedback = ((await this.octokit.request(`GET http://localhost:3012/shas?username=${this.username}&classname=${this.className}&assignment=${this.assignmentName}&sha=${this.sHAToCheck}`, {}))).data[0];
+
+    this.feedback = ((await this.octokit.request(`GET http://localhost:3012/shas?username=${encodeURIComponent(this.username)}&classname=${encodeURIComponent(this.className)}&assignment=${encodeURIComponent(this.assignmentName)}&sha=${encodeURIComponent(this.sHAToCheck)}`, {}))).data[0];
     console.log(this.feedback);
+
+    this.parseFeedback();
+  }
+
+  parseFeedback() {
+    const indicator = this.feedback[0];
+    this.feedback = this.feedback.substring(1);
+    const feedbackElement = document.querySelector('#feedback-header')!;
+
+    console.log(indicator);
+    console.log(indicator === "I");
+    console.log(feedbackElement);
+
+
+    if (indicator === 'I')
+    {
+      document.querySelector('.form-floating')!.setAttribute('style', `-webkit-box-shadow:0px 0px 10px 0px ${this.invalidText}; -moz-box-shadow: 0px 0px 10px 0px ${this.invalidText}; box-shadow: 0px 0px 10px 0px ${this.invalidText};`);
+    }
+    else
+    {
+      document.querySelector('.form-floating')!.setAttribute('style', `-webkit-box-shadow:0px 0px 10px 0px ${this.validText}; -moz-box-shadow: 0px 0px 10px 0px ${this.validText}; box-shadow: 0px 0px 10px 0px ${this.validText};`);
+    }
   }
 
   async checkSHA() {
+    this.feedback = '';
+    document.querySelector('.form-floating')!.setAttribute('style', `-webkit-box-shadow:0px 0px 0px 0px ${this.validText}; -moz-box-shadow: 0px 0px 0px 0px ${this.validText}; box-shadow: 0px 0px 0px 0px ${this.validText};`);
+
     document.querySelector('#loading-boxer')!.classList.remove('d-none');
-    document.querySelector('#classes-table')!.classList.add('d-none');
+    document.querySelector('#sha-checker-btn')!.classList.add('silence');
 
     await this.setReturnedSHAs().then(() => {
       document.querySelector('#loading-boxer')!.classList.add('d-none');
-      document.querySelector('#classes-table')!.classList.remove('d-none');
+      document.querySelector('#sha-checker-btn')!.classList.remove('silence');
     });
 
-    /*if(this.returnedSHAs.includes(this.sHAToCheck))
-    {
-      this.feedback = 'SHA is valid';
-    }
-    else {
-      this.feedback = 'SHA is not valid';
-      // TODO more specific feedback - does it belong to another repository?
-
-    }*/
   }
 }
 

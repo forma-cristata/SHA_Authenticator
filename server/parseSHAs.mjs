@@ -1,8 +1,11 @@
 export default function ParseSHAs(username, className, assignment, forkedRepositories, shaToCheck) {
     let shas = [];
-    let wrongAssFeedback = "This assignment belongs to a different assignment: ";
-    let shaNotFoundFeedback = "This SHA does not belong to any assignment";
-    let validSHAFeedback = "This SHA is valid for this assignment";
+
+
+    let wrongAssFeedback = "ICommit ID belongs to ";
+    let shaNotFoundFeedback = "ICommit ID not found";
+    let validSHAFeedback = "VCommit ID is valid";
+    let validButNotFirstSHAFeedback = "VNote • SHA is not the most recent commit";
 
     for(let i = 0; i < forkedRepositories.length; i++) {
         if(forkedRepositories[i].username === username && forkedRepositories[i].className === className && forkedRepositories[i].assignmentName === assignment){
@@ -10,27 +13,38 @@ export default function ParseSHAs(username, className, assignment, forkedReposit
         }
     }
 
-    console.log(shas);
+    console.log(forkedRepositories);
 
+    let allSHAs = [];
+    let allAssignmentNames = [];
+    for(let i = 0; i < forkedRepositories.length; i++)
+    {
+        if(forkedRepositories[i].username === username)
+        {
+            allSHAs = allSHAs.concat(forkedRepositories[i].sHAs);
+            for(let j = 0; j < forkedRepositories[i].sHAs.length; j++)
+            {
+                allAssignmentNames.push(forkedRepositories[i].assignmentName);
+            }
+        }
+    }
 
     /*CONDITIONS*/
+
 
     // If shaToCheck does not match specific assignment
     if(!shas.includes(shaToCheck))
     {
-        let allSHAs = [];
-        let allAssignmentNames = [];
 
-        for(let i = 0; i < forkedRepositories.length; i++)
-        {
-            allSHAs = allSHAs.push(forkedRepositories[i].sHAs);
-            allAssignmentNames.push(forkedRepositories[i].assignmentName);
-        }
+
+        console.log(allSHAs.join(' | '));
+        console.log(allAssignmentNames.join(' | '));
+
         // If shaToCheck matches any other assignments
         if(allSHAs.includes(shaToCheck))
         {
             // Notify user that shaToCheck belongs to ${this} other assignment
-            return `${wrongAssFeedback} ${allAssignmentNames[allSHAs.indexOf(shaToCheck)]}`;
+            return `${wrongAssFeedback} ${className} | ${allAssignmentNames[allSHAs.indexOf(shaToCheck)]}`;
         }
         // If shaToCheck does not match any other assignments
         else
@@ -42,6 +56,22 @@ export default function ParseSHAs(username, className, assignment, forkedReposit
     // If shaToCheck matches assignment in question
     else
     {
+        console.log(`allSHAs: ${allSHAs.join("   ")}`);
+        let thisAssignmentSHAs = []
+        for(let x = 0; x < allSHAs.length; x++)
+        {
+            if(allAssignmentNames[x] === assignment)
+            {
+                thisAssignmentSHAs.push(allSHAs[x]);
+            }
+        }
+        console.log(thisAssignmentSHAs.join(' | '));
+
+        // Notify that the SHA is valid for this assignment but not the most recent commit
+        if(shaToCheck !== thisAssignmentSHAs[0])
+        {
+            return validButNotFirstSHAFeedback;
+        }
         // Notify that the SHA is valid for this assignment
         return validSHAFeedback;
     }
