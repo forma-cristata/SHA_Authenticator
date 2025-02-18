@@ -43,9 +43,8 @@
 .flex-attempt{
   height: 200px;
   flex-wrap: wrap;
-  /*
-  TODO If you need to check layout, uncomment this.
 
+  /*
   border: 2px solid #0099ab;
   */
 }
@@ -62,6 +61,7 @@
 }
 #credit-title{
   font-variant: small-caps;
+  margin-bottom: 33px;
 }
 .creds{
   margin-left: 70px;
