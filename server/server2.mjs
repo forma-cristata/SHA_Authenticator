@@ -62,7 +62,7 @@ async function compareObjects(allRepos) {
     // Compare
     // If changes
     try {
-        await fs.writeFile(path, JSON.stringify(allRepos));
+        fs.writeFileSync(path, JSON.stringify(allRepos));
         console.log('File has been written successfully.');
     } catch (err) {
         console.error('An error occurred while writing the file:', err);

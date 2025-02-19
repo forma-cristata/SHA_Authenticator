@@ -2,7 +2,7 @@ import {Octokit} from "octokit";
 export {getClasses};
 
 const octokit = new Octokit({
-    auth: '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'
+    auth: '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'
 });
 
 /*TODO *****360***** CALLS FOR EVERY CALL IS ____---HORRIFYING---____. THERE'S GOT TO BE A WAY TO LIMIT THIS
