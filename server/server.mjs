@@ -5,6 +5,8 @@ import ParseClasses from "./parseClasses.mjs";
 import ParseAssignmentsInGivenClass from "./parseAssignmentsInGivenClass.mjs";
 import ParseSHAs from "./parseSHAs.mjs";
 import cors from 'cors';
+import {Octokit} from 'octokit';
+
 
 const app = express();
 const PORT = 3012;
@@ -12,9 +14,6 @@ const PORT = 3012;
 app.use(bodyParser.json());
 app.use(cors());
 
-let chosenAssignment = 'Something Something'; // todo: how to set??
-let chosenClass = 'IT241JavaScript'; // todo: how to set??
-let chosenUsername = 'kcraycraft45'; // todo, how to set??
 
 const server = app.listen(PORT, () =>
 {
@@ -24,9 +23,19 @@ const server = app.listen(PORT, () =>
 // Console.log when the server receives a request
 app.get(`/classes`, async (req, res) => {
     console.log('Received a request for classes');
+    let octokit = new Octokit({});
+
+    // Tell other server to begin checking for changes
+    let data = ((await octokit.request(`GET http://localhost:3009/start`, {}))).data;
+    console.log("HERE IS THE COWBOY SHIT;")
+    console.log(data);
+
+
     let username = req.query.username;
     const forkedRepositories = await getClasses();
+/*
     console.log(forkedRepositories);
+*/
     if(forkedRepositories){
         const classes = ParseClasses(username, forkedRepositories);
         res.json(classes);
