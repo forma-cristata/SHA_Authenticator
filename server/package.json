@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-      "server1": "nodemon server.mjs",
-      "server2": "nodemon server2.mjs",
+      "server1": "nodemon --ignore '*.json' server.mjs",
+      "server2": "nodemon --ignore '*.json' server2.mjs",
 "start": "concurrently \"npm run server1\" \"npm run server2\""  },
   "keywords": [],
   "author": "",

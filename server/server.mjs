@@ -29,7 +29,7 @@ app.get(`/classes`, async (req, res) => {
 
 app.get(`/assignments`, async (req, res) => {
     console.log('Received a request for assignments');
-    let data = await AssignmentsCacheRequest(req.query.classname, req.query.username);
+    let data = await AssignmentsCacheRequest(req.query.classname);
     res.json(data);
 });
 

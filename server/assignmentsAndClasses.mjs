@@ -1,7 +1,7 @@
 import fs from "fs";
 import {octokit} from "./classesAndAssignments.mjs";
 
-export { AssignmentsGHRequest, AssignmentsCacheRequest, organization};
+export { WriteAssignmentsToFile, ParseAssignmentNames, AssignmentsGHRequest, AssignmentsCacheRequest, organization};
 
 
 const organization = "SouthHillsSubmissionCheck";
@@ -9,7 +9,7 @@ const organization = "SouthHillsSubmissionCheck";
 
 
 function WriteAssignmentsToFile(assignments, cId){
-    const path = `./assignments${cId}.json`;
+    const path = `../database/assignments${cId}.json`;
 
     try {
         fs.writeFileSync(path, JSON.stringify(assignments));
@@ -24,7 +24,7 @@ function WriteAssignmentsToFile(assignments, cId){
 
 
 
-async function AssignmentsGHRequest(cId, username) {
+async function AssignmentsGHRequest(cId) {
     try {
         let data = (await octokit.request(`GET /classrooms/${cId}/assignments`, {
             headers: {
@@ -49,7 +49,7 @@ async function AssignmentsGHRequest(cId, username) {
 
 async function AssignmentsCacheRequest(cName, username)
 {
-    const classPath = './classes.json';
+    const classPath = '../database/classes.json';
     let cId = 0;
 
     let cachedAssignments = [];
@@ -64,7 +64,7 @@ async function AssignmentsCacheRequest(cName, username)
         console.log(error)
     }
 
-    const assPath = `./assignments${cId}.json`;
+    const assPath = `../database/assignments${cId}.json`;
 
 
 

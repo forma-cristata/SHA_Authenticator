@@ -1,9 +1,9 @@
 import {Octokit} from "octokit";
 import fs from "fs";
-export {ParseClasses, ClassesGHRequest, ClassesCacheRequest, octokit};
+export {WriteClassesToFile, ParseClasses, ClassesGHRequest, ClassesCacheRequest, octokit};
 
 const octokit = new Octokit({
-    auth: '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'
+    auth: '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'
 });
 
 function ParseClasses(data) {
@@ -22,7 +22,7 @@ function ParseClasses(data) {
 }
 
 function WriteClassesToFile(classes){
-    const path = `./classes.json`;
+    const path = `../database/classes.json`;
 
     try {
         fs.writeFileSync(path, JSON.stringify(classes));
@@ -53,7 +53,7 @@ async function ClassesGHRequest() {
 
 async function ClassesCacheRequest()
 {
-    const path = `./classes.json`;
+    const path = `../database/classes.json`;
     let cachedClasses = [];
 
     try {
