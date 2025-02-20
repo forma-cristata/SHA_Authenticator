@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'express';
 import cors from 'cors';
-import {octokit} from "./classesAndAssignments.mjs";
+import {octokit, WriteClassesToFile} from "./classesAndAssignments.mjs";
 import { ParseAssignmentNames, WriteAssignmentsToFile} from "./assignmentsAndClasses.mjs";
 import fs from "fs";
 
@@ -11,7 +11,8 @@ const PORT = 3009;
 app.use(bodyParser.json());
 app.use(cors());
 
-setTimeout(pollClassesAndAssignments, 10000);
+pollClassesAndAssignments();
+setInterval(pollClassesAndAssignments, 10000);
 
 
 const server = app.listen(PORT, () => {
@@ -73,16 +74,7 @@ async function ParseClasses(data) {
         classes.push(data[i].name);
         classes.push(data[i].id.toString());
     }
+    WriteClassesToFile(classes);
     return classIds;
 }
 
-function WriteClassesAndAssignmentsToFile(assignments, cId){
-    const path = `./assignments${cId}.json`;
-
-    try {
-        fs.writeFileSync(path, JSON.stringify(assignments));
-        console.log('File written successfully.');
-    } catch (err) {
-        console.error('An error occurred while writing the file:', err);
-    }
-}
