@@ -70,9 +70,16 @@ body{
   --greyrocking-rgb: 184, 185, 187;
 
   --light-magenta-rgb: 253, 141, 198;
+
+  --bs-border-color-translucent: var(--productive-purple);
+}
+.btn-secondary{
+  --bs-btn-bg: #494987 !important;
+  --bs-btn-hover-bg: #393774 !important;
 }
 .hoverers:hover{
   filter: drop-shadow(0 0 0.75rem var(--productive-purple));
   transform-origin: center;
   transform: scale(108%);
 }
+

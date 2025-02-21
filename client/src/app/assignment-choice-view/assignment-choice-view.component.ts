@@ -7,21 +7,22 @@ import {Router, RouterLink} from '@angular/router';
 import {getCookie, setCookie} from '../get-cookie';
 import {Octokit} from 'octokit';
 import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
-import {NgClass, NgForOf, NgIf} from '@angular/common';
+import {NgClass, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 import {of} from 'rxjs';
 import {ManualPollButtonComponent} from '../manual-poll-button/manual-poll-button.component';
 
 @Component({
   selector: 'app-assignment-choice-view',
-  imports: [
-    InfoButtonComponent,
-    ProfileButtonComponent,
-    HomeButtonComponent,
-    BackButtonComponent,
-    RouterLink,
-    LoadingIconComponent,
-    ManualPollButtonComponent
-  ],
+    imports: [
+        InfoButtonComponent,
+        ProfileButtonComponent,
+        HomeButtonComponent,
+        BackButtonComponent,
+        RouterLink,
+        LoadingIconComponent,
+        ManualPollButtonComponent,
+        NgOptimizedImage
+    ],
   templateUrl: './assignment-choice-view.component.html',
   standalone: true,
   styleUrl: './assignment-choice-view.component.css'
@@ -75,6 +76,12 @@ export class AssignmentChoiceViewComponent {
 
 
 
+  }
+
+  showToast(){
+    let toast: any = document.querySelector('.toast');
+    toast.classList.remove("hide");
+    toast.classList.add("show");
   }
 
   protected readonly of = of;

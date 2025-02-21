@@ -1,9 +1,27 @@
 <div id="profile-button-sha" class="hoverers">
   <app-profile-button />
 </div>
-<div id="info-button-sha" class="hoverers">
+<div id="info-button-sha" (click)="showToast()" class="hoverers">
   <app-info-button />
 </div>
+<div id="toast-try">
+  <div class="position-fixed bottom-0 start-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <img ngSrc="/info.png" class="rounded me-2" alt="..." width="25" height="25">
+        <strong class="me-auto">Info</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Enter the commit ID you wish to submit. The input will turn green if valid and magenta if invalid. Feedback will be provided after you submit an SHA.
+        <hr />
+        <button class="btn btn-secondary link-for-more" routerLink="/profile">More info</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 <div id="home-button-sha" class="hoverers">
   <app-home-button />
 </div>
@@ -20,7 +38,7 @@
           <div id="c1" class="class-blocker col-4" >
             <h3 class="w-100">{{className}} • {{assignmentName}}</h3>
             <div class="form-floating d-inline-block w-50">
-              <input type="text" class="form-control" id="floatingInput" placeholder="sha" [(ngModel)]="sHAToCheck" name="sha" required>
+              <input type="text" class="form-control" id="floatingInput" placeholder="sha" [(ngModel)]="sHAToCheck" (keydown.enter)="checkSHA()" name="sha" required>
               <label for="floatingInput">SHA</label>
             </div>
             <button id="sha-checker-btn" class="btn btn-primary" type="button" (click)="checkSHA()">Check</button>

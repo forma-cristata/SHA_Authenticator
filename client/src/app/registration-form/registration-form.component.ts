@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {Router} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import {getCookie} from '../get-cookie';
+import {NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-registration-form',
-  imports: [
-    FormsModule
-  ],
+    imports: [
+        FormsModule,
+        NgOptimizedImage,
+        RouterLink
+    ],
   templateUrl: './registration-form.component.html',
   standalone: true,
   styleUrl: './registration-form.component.css'

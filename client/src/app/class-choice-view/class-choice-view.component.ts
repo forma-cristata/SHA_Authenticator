@@ -9,19 +9,21 @@ import {FormsModule} from '@angular/forms';
 import {Octokit} from 'octokit';
 import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
 import {ManualPollButtonComponent} from '../manual-poll-button/manual-poll-button.component';
+import {NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-class-choice-view',
-  imports: [
-    InfoButtonComponent,
-    ProfileButtonComponent,
-    HomeButtonComponent,
-    CircuitAnimationComponent,
-    FormsModule,
-    LoadingIconComponent,
-    ManualPollButtonComponent,
-    RouterLink,
-  ],
+    imports: [
+        InfoButtonComponent,
+        ProfileButtonComponent,
+        HomeButtonComponent,
+        CircuitAnimationComponent,
+        FormsModule,
+        LoadingIconComponent,
+        ManualPollButtonComponent,
+        RouterLink,
+        NgOptimizedImage,
+    ],
   standalone: true,
   templateUrl: './class-choice-view.component.html',
   styleUrl: './class-choice-view.component.css'
@@ -70,16 +72,12 @@ export class ClassChoiceViewComponent {
 
   }
 
-  // Send a request to the server (3012) using express and log the response
-
-  /*constructor(private SHAService: SHAService) { }
-  async ngOnInit() {
-    await this.check();
+  showToast(){
+    let toast: any = document.querySelector('.toast');
+    toast.classList.remove("hide");
+    toast.classList.add("show");
   }
 
-  async check() {
-    let data = await this.SHAService.getClasses()
-    console.log(data);
-  }*/
+
 
 }

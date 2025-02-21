@@ -15,7 +15,6 @@ import {InfoButtonComponent} from '../info-button/info-button.component';
     ProfileButtonComponent,
     HomeButtonComponent,
     CircuitAnimationComponent,
-    BackButtonComponent,
     ChangeUsernameComponent,
     InfoButtonComponent,
   ],

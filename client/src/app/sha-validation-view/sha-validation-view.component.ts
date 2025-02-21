@@ -9,6 +9,7 @@ import {getCookie, setCookie} from '../get-cookie';
 import {Octokit} from 'octokit';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
+import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-sha-validation-view',
@@ -20,7 +21,8 @@ import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
     RouterLink,
     ReactiveFormsModule,
     FormsModule,
-    LoadingIconComponent
+    LoadingIconComponent,
+    NgOptimizedImage
   ],
   templateUrl: './sha-validation-view.component.html',
   standalone: true,
@@ -56,7 +58,7 @@ export class ShaValidationViewComponent {
 
   async setReturnedSHAs() {
 
-    this.feedback = ((await this.octokit.request(`GET http://localhost:3012/shas?username=${encodeURIComponent(this.username)}&classname=${encodeURIComponent(this.className)}&assignment=${encodeURIComponent(this.assignmentName)}&sha=${encodeURIComponent(this.sHAToCheck)}`, {}))).data[0];
+    this.feedback = this.sHAToCheck.length === 40 ? ((await this.octokit.request(`GET http://localhost:3012/shas?username=${encodeURIComponent(this.username)}&classname=${encodeURIComponent(this.className)}&assignment=${encodeURIComponent(this.assignmentName)}&sha=${encodeURIComponent(this.sHAToCheck)}`, {}))).data[0] : 'IInvalid SHA length.';
     console.log(this.feedback);
 
     this.parseFeedback();
@@ -94,6 +96,12 @@ export class ShaValidationViewComponent {
       document.querySelector('#sha-checker-btn')!.classList.remove('silence');
     });
 
+  }
+
+  showToast(){
+    let toast: any = document.querySelector('.toast');
+    toast.classList.remove("hide");
+    toast.classList.add("show");
   }
 }
 

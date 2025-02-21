@@ -1,10 +1,9 @@
 import express from 'express';
 import bodyParser from 'express';
 import cors from 'cors';
-import {ClassesCacheRequest, octokit, WriteClassesToFile} from "./classesAndAssignments.mjs";
+import { octokit, WriteClassesToFile} from "./classesAndAssignments.mjs";
 import { ParseAssignmentNames, WriteAssignmentsToFile} from "./assignmentsAndClasses.mjs";
 import fs from "fs";
-import {Octokit} from "octokit";
 import cron from 'node-cron';
 
 const app = express();
