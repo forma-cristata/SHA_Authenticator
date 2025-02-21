@@ -14,7 +14,13 @@ body{
   --dark-magenta: #a30052;
   --dark-dots: #FF507A;
   --flamingo-dark: #ff507a;
-
+  --contrast-a1: #fc9a8f;
+  --contrast-a2: #ff6a37;
+  --contrast-a3: #f47d00;
+  --contrast-a4: #ff6846;
+  --contrast-a5: #ff6f1f;
+  --contrast-a6:#858f00;
+  --contrast-a7: #6d9700;
   --light-green: #00ff46;
   --muted-green: #2da44f;
   --gh-green: #2da44e;
@@ -36,6 +42,9 @@ body{
   --custom-blue: #0b82ff;
   --uv-blue: #000aff;
 
+  --violet: #c258ff;
+  --barney: #aa60ff;
+  --dark-peri: #9268ff;
   --aptly-named-periwinkle: #7a70ff;
   --productive-purple: #7c72ff;
   --ultraviolet-glow: #978def;

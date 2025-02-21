@@ -17,23 +17,27 @@
   <table id="class-table" class="table-borderless">
     <thead>
       <tr class="visible-row">
-        @if(this.returnedClasses[0] && !this.returnedClasses[1]){
+        @if(!this.returnedClasses)
+        {
+          <div style="opacity: 0;"></div>
+        }
+        @else if(this.returnedClasses[0] && !this.returnedClasses[1]){
         <td><div class="c1 class-blocker" (click)="selectClass(this.returnedClasses[0])">{{this.returnedClasses[0]}}</div></td>
         <td class="no-vis-col"></td>
-        <td><div style="opacity: 0;" class="c2 class-blocker" (click)="selectClass(this.returnedClasses[1])">{{this.returnedClasses[1]}}</div></td>
+        <td><div style="opacity: 0;" class="c2 class-blocker">{{this.returnedClasses[1]}}</div></td>
         <td class="no-vis-col"></td>
-        <td style="opacity: 0;"><div class="c3 class-blocker" (click)="selectClass(this.returnedClasses[2])">{{this.returnedClasses[2]}}</div></td>}
+        <td style="opacity: 0;"><div class="c3 class-blocker">{{this.returnedClasses[2]}}</div></td>}
 
         @else if(this.returnedClasses[1] && !this.returnedClasses[2]){
         <td><div class="c1 class-blocker" (click)="selectClass(this.returnedClasses[0])">{{this.returnedClasses[0]}}</div></td>
         <td class="no-vis-col"></td>
         <td><div class="c2 class-blocker" (click)="selectClass(this.returnedClasses[1])">{{this.returnedClasses[1]}}</div></td>
         <td class="no-vis-col"></td>
-        <td style="opacity: 0;"><div class="c3 class-blocker" (click)="selectClass(this.returnedClasses[2])">{{this.returnedClasses[2]}}</div></td>}
+        <td style="opacity: 0;"><div class="c3 class-blocker">{{this.returnedClasses[2]}}</div></td>}
 
 
         @else{
-        <td><div id="c1" class="class-blocker" (click)="selectClass(this.returnedClasses[0])">{{this.returnedClasses[0]}}</div></td>
+        <td><div class="c1 class-blocker" (click)="selectClass(this.returnedClasses[0])">{{this.returnedClasses[0]}}</div></td>
         <td class="no-vis-col"></td>
         <td><div class="c2 class-blocker" (click)="selectClass(this.returnedClasses[1])">{{this.returnedClasses[1]}}</div></td>
         <td class="no-vis-col"></td>
@@ -48,25 +52,25 @@
       </tr>
       <tr class="visible-row">
         @if(!this.returnedClasses[3]){
-          <td><div style="opacity: 0;" class="c4 class-blocker" (click)="selectClass(this.returnedClasses[3])">{{this.returnedClasses[3]}}</div></td>
+          <td><div style="opacity: 0;" class="c4 class-blocker">{{this.returnedClasses[3]}}</div></td>
           <td class="no-vis-col"></td>
-          <td><div style="opacity: 0;" class="c5 class-blocker" (click)="selectClass(this.returnedClasses[4])">{{this.returnedClasses[4]}}</div></td>
+          <td><div style="opacity: 0;" class="c5 class-blocker">{{this.returnedClasses[4]}}</div></td>
           <td class="no-vis-col"></td>
-          <td><div style="opacity: 0;" class="c6 class-blocker" (click)="selectClass(this.returnedClasses[5])">{{this.returnedClasses[5]}}</div></td>
+          <td><div style="opacity: 0;" class="c6 class-blocker">{{this.returnedClasses[5]}}</div></td>
         }
         @else if(this.returnedClasses[3] && !this.returnedClasses[4]){
           <td><div class="c4 class-blocker" (click)="selectClass(this.returnedClasses[3])">{{this.returnedClasses[3]}}</div></td>
           <td class="no-vis-col"></td>
-          <td><div style="opacity: 0;" class="c5 class-blocker" (click)="selectClass(this.returnedClasses[4])">{{this.returnedClasses[4]}}</div></td>
+          <td><div style="opacity: 0;" class="c5 class-blocker">{{this.returnedClasses[4]}}</div></td>
           <td class="no-vis-col"></td>
-          <td><div style="opacity: 0;" class="c6 class-blocker" (click)="selectClass(this.returnedClasses[5])">{{this.returnedClasses[5]}}</div></td>
+          <td><div style="opacity: 0;" class="c6 class-blocker">{{this.returnedClasses[5]}}</div></td>
           }
         @else if(this.returnedClasses[4] && !this.returnedClasses[5]){
             <td><div class="c4 class-blocker" (click)="selectClass(this.returnedClasses[3])">{{this.returnedClasses[3]}}</div></td>
             <td class="no-vis-col"></td>
             <td><div class="c5 class-blocker" (click)="selectClass(this.returnedClasses[4])">{{this.returnedClasses[4]}}</div></td>
             <td class="no-vis-col"></td>
-            <td><div style="opacity: 0;" class="c6 class-blocker" (click)="selectClass(this.returnedClasses[5])">{{this.returnedClasses[5]}}</div></td>
+            <td><div style="opacity: 0;" class="c6 class-blocker">{{this.returnedClasses[5]}}</div></td>
         }
         @else{
           <td><div class="c4 class-blocker" (click)="selectClass(this.returnedClasses[3])">{{this.returnedClasses[3]}}</div></td>

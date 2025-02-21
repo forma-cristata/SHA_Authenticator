@@ -87,7 +87,7 @@ async function AssignmentsCacheRequest(cName, username)
 
 function ParseAssignmentNames(data){
     let aNames = [];
-    for(let i = 0; i < data.length; i = i+2)
+    for(let i = data.length - 1; i >= 0; i--)
     {
         aNames.push(data[i].title);
     }

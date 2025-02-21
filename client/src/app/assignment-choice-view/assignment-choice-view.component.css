@@ -57,20 +57,25 @@ td{
   margin: auto auto;
 }
 .a1 {
+
   border-color: var(--custom-teal);
+
 }
 .a1:hover{
-  filter: drop-shadow(0 0 1rem var(--custom-teal));
-  border: 10px solid var(--custom-teal);
+  filter: drop-shadow(0 0 1rem var(--custom-teal)); /*  --custom-teal: #0099ab;
+*/
+  border-width: 10px;
+  border-style: solid;
   transform-origin: center;
   transform: scale(102%);
 }
 .a2{
-  border-color: var(--custom-darker-teal);
+  border-color: var(--custom-darker-teal); /*  --custom-darker-teal: #0095c8;*/
 }
 .a2:hover{
   filter: drop-shadow(0 0 1rem var(--custom-darker-teal));
-  border: 10px solid var(--custom-darker-teal);
+  border-width: 10px;
+  border-style: solid;
   transform: scale(102%);
 
 }
@@ -93,23 +98,50 @@ td{
 
 }
 .a5{
-  border-color: var(--custom-blue-2);
-}
-.a5:hover{
-  filter: drop-shadow(0 0 1rem var(--custom-blue-2));
-  border: 10px solid var(--custom-blue-2);
-  transform: scale(102%);
-
-}
-.a6{
   border-color: var(--aptly-named-periwinkle);
 }
-.a6:hover{
+.a5:hover{
   filter: drop-shadow(0 0 1rem var(--aptly-named-periwinkle));
   border: 10px solid var(--aptly-named-periwinkle);
   transform: scale(102%);
 
 }
+
+.a6{
+  border-color: var(--custom-blue-2);
+}
+.a6:hover{
+  filter: drop-shadow(0 0 1rem var(--custom-blue-2));
+  border: 10px solid var(--custom-blue-2);
+  transform: scale(102%);
+}
+
+.a7{
+  border-color: var(--custom-teal-2);
+}
+.a7:hover{
+  filter: drop-shadow(0 0 1rem var(--custom-teal-2));
+  border: 10px solid var(--custom-teal-2);
+  transform: scale(102%);
+}
+
+.a8{
+  border-color: var(--custom-blue);
+}
+.a8:hover{
+  filter: drop-shadow(0 0 1rem var(--custom-blue));
+  border: 10px solid var(--custom-blue);
+  transform: scale(102%);
+}
+.a9{
+  border-color: var(--custom-darker-teal);
+}
+.a9:hover{
+  filter: drop-shadow(0 0 1rem var(--custom-darker-teal));
+  border: 10px solid var(--custom-darker-teal);
+  transform: scale(102%);
+}
+
 #loading-boxer{
   position: absolute;
   top: 50%;

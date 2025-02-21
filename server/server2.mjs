@@ -11,8 +11,7 @@ const PORT = 3009;
 app.use(bodyParser.json());
 app.use(cors());
 
-pollClassesAndAssignments();
-setInterval(pollClassesAndAssignments, 10000);
+pollClassesAndAssignments().then(setInterval(pollClassesAndAssignments, 10000));
 
 
 const server = app.listen(PORT, () => {
@@ -37,12 +36,13 @@ async function AssignmentsGHRequest(cId) {
                 'X-GitHub-Api-Version': '2022-11-28'
             }
         })).data;
+        console.log(data);
 
 
 
         let aNames = ParseAssignmentNames(data);
-        WriteAssignmentsToFile(aNames, cId);
         console.log(aNames);
+        WriteAssignmentsToFile(aNames, cId);
         return aNames;
 
 
