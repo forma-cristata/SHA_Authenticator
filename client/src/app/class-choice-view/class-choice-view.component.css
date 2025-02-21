@@ -60,50 +60,50 @@ td{
   border-radius: 20px !important;
   margin: auto auto;
 }
-.c1 {
+.c1, .c12 {
   border-color: var(--muted-green);
 }
-.c1:hover{
+.c1:hover, .c12:hover{
   filter: drop-shadow(0 0 1rem var(--muted-green));
   border: 10px solid var(--muted-green);
   transform: scale(102%);
 }
-.c2{
+.c2, .c11{
   border-color: var(--see-foam-eat-foam);
 }
-.c2:hover{
+.c2:hover, .c11:hover{
   filter: drop-shadow(0 0 1rem var(--see-foam-eat-foam));
   border: 10px solid var(--see-foam-eat-foam);
   transform: scale(102%);
 }
-.c3{
+.c3, .c10{
   border-color: var(--another-teal);
 }
-.c3:hover{
+.c3:hover, .c10:hover{
   filter: drop-shadow(0 0 1rem var(--another-teal));
   border: 10px solid var(--another-teal);
   transform: scale(102%);
 }
-.c4{
+.c4, .c9{
   border-color: var(--another-mid-green);
 }
-.c4:hover{
+.c4:hover, .c9:hover{
   filter: drop-shadow(0 0 1rem var(--another-mid-green));
   border: 10px solid var(--another-mid-green);
   transform: scale(102%);
 }
-.c5{
+.c5, .c8{
   border-color: var(--another-damn-teal);
 }
-.c5:hover{
+.c5:hover, .c8:hover{
   filter: drop-shadow(0 0 1rem var(--another-damn-teal));
   border: 10px solid var(--another-damn-teal);
   transform: scale(102%);
 }
-.c6{
+.c6, .c7{
   border-color: var(--skai-bloo);
 }
-.c6:hover{
+.c6:hover, .c7:hover{
   filter: drop-shadow(0 0 1rem var(--skai-bloo));
   border: 10px solid var(--skai-bloo);
   transform: scale(102%);

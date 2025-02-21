@@ -56,12 +56,12 @@ td{
   border-radius: 20px !important;
   margin: auto auto;
 }
-.a1 {
+.a1, .a12 {
 
   border-color: var(--custom-teal);
 
 }
-.a1:hover{
+.a1:hover, .a12:hover{
   filter: drop-shadow(0 0 1rem var(--custom-teal)); /*  --custom-teal: #0099ab;
 */
   border-width: 10px;
@@ -69,78 +69,53 @@ td{
   transform-origin: center;
   transform: scale(102%);
 }
-.a2{
+.a2, .a11{
   border-color: var(--custom-darker-teal); /*  --custom-darker-teal: #0095c8;*/
 }
-.a2:hover{
+.a2:hover, .a11:hover{
   filter: drop-shadow(0 0 1rem var(--custom-darker-teal));
   border-width: 10px;
   border-style: solid;
   transform: scale(102%);
 
 }
-.a3{
+.a3, .a10{
   border-color: var(--custom-blue);
 }
-.a3:hover{
+.a3:hover, .a10:hover{
   filter: drop-shadow(0 0 1rem var(--custom-blue));
   border: 10px solid var(--custom-blue);
   transform: scale(102%);
 
 }
-.a4{
+.a4, .a9{
   border-color: var(--custom-teal-2);
 }
-.a4:hover{
+.a4:hover, .a9:hover{
   filter: drop-shadow(0 0 1rem var(--custom-teal-2));
   border: 10px solid var(--custom-teal-2);
   transform: scale(102%);
 
 }
-.a5{
+.a5, .a8{
+  border-color: var(--custom-blue-2);
+}
+.a5:hover, .a8:hover{
+  filter: drop-shadow(0 0 1rem var(--custom-blue-2));
+  border: 10px solid var(--custom-blue-2);
+  transform: scale(102%);
+
+}
+.a6, .a7{
   border-color: var(--aptly-named-periwinkle);
 }
-.a5:hover{
+.a6:hover, .a7:hover{
   filter: drop-shadow(0 0 1rem var(--aptly-named-periwinkle));
   border: 10px solid var(--aptly-named-periwinkle);
   transform: scale(102%);
 
 }
 
-.a6{
-  border-color: var(--custom-blue-2);
-}
-.a6:hover{
-  filter: drop-shadow(0 0 1rem var(--custom-blue-2));
-  border: 10px solid var(--custom-blue-2);
-  transform: scale(102%);
-}
-
-.a7{
-  border-color: var(--custom-teal-2);
-}
-.a7:hover{
-  filter: drop-shadow(0 0 1rem var(--custom-teal-2));
-  border: 10px solid var(--custom-teal-2);
-  transform: scale(102%);
-}
-
-.a8{
-  border-color: var(--custom-blue);
-}
-.a8:hover{
-  filter: drop-shadow(0 0 1rem var(--custom-blue));
-  border: 10px solid var(--custom-blue);
-  transform: scale(102%);
-}
-.a9{
-  border-color: var(--custom-darker-teal);
-}
-.a9:hover{
-  filter: drop-shadow(0 0 1rem var(--custom-darker-teal));
-  border: 10px solid var(--custom-darker-teal);
-  transform: scale(102%);
-}
 
 #loading-boxer{
   position: absolute;

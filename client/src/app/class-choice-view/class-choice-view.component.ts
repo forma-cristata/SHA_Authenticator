@@ -26,6 +26,8 @@ import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
 export class ClassChoiceViewComponent {
   public returnedClasses: string[] = [];
   private octokit = new Octokit({});
+  public rALength: number[] =[];
+
   constructor(private router: Router){}
 
   async setReturnedClasses(username: String) {
@@ -35,6 +37,13 @@ export class ClassChoiceViewComponent {
 
     console.log(data);
     this.returnedClasses = [...data];
+
+    let length = this.returnedClasses.length;
+
+    for(let i = 0; i < length; i+=3)
+    {
+      this.rALength.push(i);
+    }
   }
   async ngOnInit() {
     if (!getCookie('username')) {

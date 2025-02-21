@@ -18,38 +18,38 @@
       {
         <tr class="visible-row">
 
-        <td><div style="opacity: 0;" [classList]="['a' + (i%9+1) + ' ass-blocker']">{{this.returnedAssignments[i]}}</div></td>
+        <td><div style="opacity: 0;" [classList]="['a' + (i%12+1) + ' ass-blocker']">{{this.returnedAssignments[i]}}</div></td>
         <td class="no-vis-col"></td>
-        <td><div style="opacity: 0;" [classList]="['a' + (i%9+2) + ' ass-blocker']">{{this.returnedAssignments[i + 1]}}</div></td>
+        <td><div style="opacity: 0;" [classList]="['a' + (i%12+2) + ' ass-blocker']">{{this.returnedAssignments[i + 1]}}</div></td>
         <td class="no-vis-col"></td>
-        <td><div style="opacity: 0;" [classList]="['a' + (i%9+3) + ' ass-blocker']">{{this.returnedAssignments[i + 2]}}</div></td></tr>
+        <td><div style="opacity: 0;" [classList]="['a' + (i%12+3) + ' ass-blocker']">{{this.returnedAssignments[i + 2]}}</div></td></tr>
       }
       @else if(this.returnedAssignments[i] && !this.returnedAssignments[i + 1]){
         <tr class="visible-row">
 
-        <td><div [classList]="['a' + (i%9+1) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i])">{{this.returnedAssignments[i]}}</div></td>
+        <td><div [classList]="['a' + (i%12+1) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i])">{{this.returnedAssignments[i]}}</div></td>
         <td class="no-vis-col"></td>
-        <td><div style="opacity: 0;" [classList]="['a' + (i%9+2) + ' ass-blocker']">{{this.returnedAssignments[i + 1]}}</div></td>
+        <td><div style="opacity: 0;" [classList]="['a' + (i%12+2) + ' ass-blocker']">{{this.returnedAssignments[i + 1]}}</div></td>
         <td class="no-vis-col"></td>
-        <td><div style="opacity: 0;" [classList]="['a' + (i%9+3) + ' ass-blocker']">{{this.returnedAssignments[i + 2]}}</div></td></tr>
+        <td><div style="opacity: 0;" [classList]="['a' + (i%12+3) + ' ass-blocker']">{{this.returnedAssignments[i + 2]}}</div></td></tr>
       }
       @else if(this.returnedAssignments[i + 1] && !this.returnedAssignments[i + 2]){
         <tr class="visible-row">
 
-        <td><div [classList]="['a' + (i%9 + 1) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i])">{{this.returnedAssignments[i]}}</div></td>
+        <td><div [classList]="['a' + (i%12 + 1) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i])">{{this.returnedAssignments[i]}}</div></td>
         <td class="no-vis-col"></td>
-        <td><div [classList]="['a' + (i%9+2) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i + 1])">{{this.returnedAssignments[i + 1]}}</div></td>
+        <td><div [classList]="['a' + (i%12+2) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i + 1])">{{this.returnedAssignments[i + 1]}}</div></td>
         <td class="no-vis-col"></td>
-        <td><div style="opacity: 0;" [classList]="['a' + (i%9+3) + ' ass-blocker']">{{this.returnedAssignments[i + 2]}}</div></td></tr>
+        <td><div style="opacity: 0;" [classList]="['a' + (i%12+3) + ' ass-blocker']">{{this.returnedAssignments[i + 2]}}</div></td></tr>
       }
       @else{
         <tr class="visible-row">
 
-        <td><div [classList]="['a' + (i%9 + 1) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i])">{{this.returnedAssignments[i]}}</div></td>
+        <td><div [classList]="['a' + (i%12 + 1) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i])">{{this.returnedAssignments[i]}}</div></td>
         <td class="no-vis-col"></td>
-        <td><div [classList]="['a' + (i%9+2) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i + 1])">{{this.returnedAssignments[i + 1]}}</div></td>
+        <td><div [classList]="['a' + (i%12+2) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i + 1])">{{this.returnedAssignments[i + 1]}}</div></td>
         <td class="no-vis-col"></td>
-        <td><div [classList]="['a' + (i%9+3) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i + 2])">{{this.returnedAssignments[i + 2]}}</div></td></tr>
+        <td><div [classList]="['a' + (i%12+3) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i + 2])">{{this.returnedAssignments[i + 2]}}</div></td></tr>
       }
 
     <tr class="background-row">
