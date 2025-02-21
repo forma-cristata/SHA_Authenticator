@@ -2,8 +2,9 @@ import {Octokit} from "octokit";
 import fs from "fs";
 export {WriteClassesToFile, ParseClasses, ClassesGHRequest, ClassesCacheRequest, octokit};
 
+const ghToken = JSON.parse(fs.readFileSync('../app.config.json', 'utf8')).gitHubAccessToken;
 const octokit = new Octokit({
-    auth: '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'
+    auth: ghToken
 });
 
 function ParseClasses(data) {

@@ -4,6 +4,8 @@ import cors from 'cors';
 import {ClassesCacheRequest, octokit, WriteClassesToFile} from "./classesAndAssignments.mjs";
 import { ParseAssignmentNames, WriteAssignmentsToFile} from "./assignmentsAndClasses.mjs";
 import fs from "fs";
+import {Octokit} from "octokit";
+import cron from 'node-cron';
 
 const app = express();
 const PORT = 3009;
@@ -11,7 +13,11 @@ const PORT = 3009;
 app.use(bodyParser.json());
 app.use(cors());
 
-pollClassesAndAssignments().then(setInterval(pollClassesAndAssignments, 10000));
+const pollTime = JSON.parse(fs.readFileSync('../app.config.json', 'utf8')).pollTime;
+const hour = pollTime.split(":")[0];
+const minute = pollTime.split(":")[1];
+
+pollClassesAndAssignments().then(cron.schedule(`${minute} ${hour} * * *`, pollClassesAndAssignments));
 
 
 const server = app.listen(PORT, () => {
