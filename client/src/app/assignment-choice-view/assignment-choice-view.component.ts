@@ -9,6 +9,7 @@ import {Octokit} from 'octokit';
 import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
 import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {of} from 'rxjs';
+import {ManualPollButtonComponent} from '../manual-poll-button/manual-poll-button.component';
 
 @Component({
   selector: 'app-assignment-choice-view',
@@ -19,8 +20,7 @@ import {of} from 'rxjs';
     BackButtonComponent,
     RouterLink,
     LoadingIconComponent,
-    NgClass,
-    NgIf
+    ManualPollButtonComponent
   ],
   templateUrl: './assignment-choice-view.component.html',
   standalone: true,
@@ -35,7 +35,7 @@ export class AssignmentChoiceViewComponent {
 
   async setReturnedAssignments(username: string, classChoice: string) {
 
-    let data = ((await this.octokit.request(`GET http://localhost:3012/assignments?username=${username}&classname=${classChoice}`, {}))).data;
+    let data = ((await this.octokit.request(`GET http://localhost:3012/assignments?username=${encodeURIComponent(username)}&classname=${encodeURIComponent(classChoice)}`, {}))).data;
 
     // TODO API Return Call Set
     this.returnedAssignments = [...data];
@@ -69,6 +69,13 @@ export class AssignmentChoiceViewComponent {
   }
 
 
+  async manualPoll() {
+    let data = ((await this.octokit.request(`GET http://localhost:3009/refresh`, {})));
+    this.router.navigate(['/']);
+
+
+
+  }
 
   protected readonly of = of;
 }

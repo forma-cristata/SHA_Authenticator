@@ -1,7 +1,9 @@
 #info-button-sha{
   position: absolute;
   top: 20px;
-  left: 90px;
+  left: calc(50vw);
+
+  transform: translateX(-50%);
   z-index: 5;
 }
 
@@ -9,6 +11,12 @@
   position: absolute;
   top: 20px;
   left: 20px;
+
+  /*
+  top: 20px;
+  right: 90px;
+  */
+
   z-index: 5;
 }
 #home-button-sha{
@@ -20,7 +28,7 @@
 #back-button-sha{
   position: absolute;
   top: 20px;
-  right: 90px;
+  right: calc(50vw + 65px);
   z-index: 5;
 }
 .class-blocker{

@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'express';
 import cors from 'cors';
-import {octokit, WriteClassesToFile} from "./classesAndAssignments.mjs";
+import {ClassesCacheRequest, octokit, WriteClassesToFile} from "./classesAndAssignments.mjs";
 import { ParseAssignmentNames, WriteAssignmentsToFile} from "./assignmentsAndClasses.mjs";
 import fs from "fs";
 
@@ -77,4 +77,10 @@ async function ParseClasses(data) {
     WriteClassesToFile(classes);
     return classIds;
 }
+
+app.get(`/refresh`, async (req, res) => {
+    console.log("Manual refresh request received");
+    await pollClassesAndAssignments();
+    res.json("fini");
+});
 

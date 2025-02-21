@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {Octokit} from 'octokit';
 import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
+import {ManualPollButtonComponent} from '../manual-poll-button/manual-poll-button.component';
 
 @Component({
   selector: 'app-class-choice-view',
@@ -18,6 +19,7 @@ import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
     CircuitAnimationComponent,
     FormsModule,
     LoadingIconComponent,
+    ManualPollButtonComponent,
   ],
   standalone: true,
   templateUrl: './class-choice-view.component.html',
@@ -30,8 +32,8 @@ export class ClassChoiceViewComponent {
 
   constructor(private router: Router){}
 
-  async setReturnedClasses(username: String) {
-    let data = ((await this.octokit.request(`GET http://localhost:3012/classes?username=${username}`, {}))).data;
+  async setReturnedClasses(username: string) {
+    let data = ((await this.octokit.request(`GET http://localhost:3012/classes?username=${encodeURIComponent(username)}`, {}))).data;
 
 
 
@@ -61,7 +63,11 @@ export class ClassChoiceViewComponent {
     this.router.navigate(['/assignments']);
   }
 
+  async manualPoll() {
+    let data = ((await this.octokit.request(`GET http://localhost:3009/refresh`, {})));
+    this.router.navigate(['/']);
 
+  }
 
   // Send a request to the server (3012) using express and log the response
 

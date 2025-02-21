@@ -10,6 +10,9 @@
 <div id="back-button-assignment" routerLink="/classes" class="hoverers">
   <app-back-button />
 </div>
+<div id="refresh-button" routerLink="/assignments" class="hoverers">
+  <app-manual-poll-button (click)="manualPoll()"/>
+</div>
 <div id="assignments-table" class="d-none">
   <table id="ass-table" class="table-borderless">
     <thead>

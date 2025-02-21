@@ -27,7 +27,7 @@
 #back-button-prof{
   position: absolute;
   top: 20px;
-  right: 90px;
+  right: calc(50vw + 10px);
   z-index: 5;
 }
 #profile-info-div{
