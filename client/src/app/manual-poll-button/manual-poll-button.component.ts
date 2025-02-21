@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import {Octokit} from 'octokit';
-import {Router} from '@angular/router';
+import {RouterLink} from '@angular/router';
+import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-manual-poll-button',
-  imports: [],
+  imports: [
+    NgOptimizedImage
+  ],
   templateUrl: './manual-poll-button.component.html',
   styleUrl: './manual-poll-button.component.css'
 })

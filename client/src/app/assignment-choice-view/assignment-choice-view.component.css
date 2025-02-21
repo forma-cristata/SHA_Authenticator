@@ -25,6 +25,12 @@
   right: 20px;
   z-index: 5;
 }
+#refresh-data-button{
+  position: absolute;
+  top: 20px;
+  left: calc(50vw + 65px);
+
+}
 #back-button-assignment{
   position: absolute;
   top: 20px;

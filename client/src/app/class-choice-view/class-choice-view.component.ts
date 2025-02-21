@@ -4,7 +4,7 @@ import {ProfileButtonComponent} from '../profile-button/profile-button.component
 import {HomeButtonComponent} from '../home-button/home-button.component';
 import {CircuitAnimationComponent} from '../circuit-animation/circuit-animation.component';
 import {getCookie, setCookie} from '../get-cookie';
-import {Router} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {Octokit} from 'octokit';
 import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
@@ -20,6 +20,7 @@ import {ManualPollButtonComponent} from '../manual-poll-button/manual-poll-butto
     FormsModule,
     LoadingIconComponent,
     ManualPollButtonComponent,
+    RouterLink,
   ],
   standalone: true,
   templateUrl: './class-choice-view.component.html',

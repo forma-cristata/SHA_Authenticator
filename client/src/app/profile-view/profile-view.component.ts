@@ -24,6 +24,8 @@ import {InfoButtonComponent} from '../info-button/info-button.component';
   styleUrl: './profile-view.component.css'
 })
 export class ProfileViewComponent {
+  public termLengthInSeconds: string = new Date(Date.now() + 24 * 60 * 60 * 7 * 14 * 1000).toUTCString();
+  public username: string = '';
   constructor(private router: Router, private location: Location){}
 
 
@@ -32,6 +34,8 @@ export class ProfileViewComponent {
     {
       this.router.navigate(['/']);
     }
+    this.termLengthInSeconds = new Date(Date.now() + 24 * 60 * 60 * 7 * 14 * 1000).toUTCString();
+
   }
 
   back(){
