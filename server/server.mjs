@@ -11,16 +11,10 @@ const PORT = 3012;
 app.use(bodyParser.json());
 app.use(cors());
 
-
-// EARLY EXIT FOR COMMIT ID LENGTH CAN LIVE ON CLIENT SIDE
-// THIS FILE IS COMPLETE
-
-const server = app.listen(PORT, () =>
-{
+const server = app.listen(PORT, () => {
     console.log(`Server is listening on http://localhost:${PORT}`);
 });
 
-// Console.log when the server receives a request
 app.get(`/classes`, async (req, res) => {
     console.log('Received a request for classes');
     let data = await ClassesCacheRequest();
@@ -38,9 +32,6 @@ app.get('/shas', async (req, res) => {
     let username = req.query.username;
     let assignment = req.query.assignment;
     let shaToCheck = req.query.sha;
-
     let validSHAs = await shaGHRequest(assignment, username);
-    console.log(validSHAs);
-
     res.json([generateFeedback(validSHAs, shaToCheck)]);
 });

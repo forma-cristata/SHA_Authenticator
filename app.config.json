@@ -1,4 +1,5 @@
 {
   "gitHubAccessToken" : "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",
-  "pollTime" : "00:01"
+  "pollTime" : "00:01",
+  "organization": "SouthHillsSubmissionCheck"
 }

@@ -18,13 +18,9 @@ const minute = pollTime.split(":")[1];
 
 pollClassesAndAssignments().then(cron.schedule(`${minute} ${hour} * * *`, pollClassesAndAssignments));
 
-
 const server = app.listen(PORT, () => {
     console.log(`Server is polling on http://localhost:${PORT}`);
-
 });
-
-
 
 async function pollClassesAndAssignments() {
     let classes = await ClassesGHRequest();
@@ -41,16 +37,9 @@ async function AssignmentsGHRequest(cId) {
                 'X-GitHub-Api-Version': '2022-11-28'
             }
         })).data;
-        console.log(data);
-
-
-
         let aNames = ParseAssignmentNames(data);
-        console.log(aNames);
         WriteAssignmentsToFile(aNames, cId);
         return aNames;
-
-
     } catch (error) {
         console.log(error);
     }
@@ -64,7 +53,6 @@ async function ClassesGHRequest() {
             }
         })).data;
         return await ParseClasses(data);
-
     } catch (error) {
         console.log(error);
     }
@@ -75,7 +63,6 @@ async function ParseClasses(data) {
     let classIds = [];
     for (let i = 0; i < data.length; i++) {
         classIds.push(data[i].id.toString());
-
         classes.push(data[i].name);
         classes.push(data[i].id.toString());
     }
