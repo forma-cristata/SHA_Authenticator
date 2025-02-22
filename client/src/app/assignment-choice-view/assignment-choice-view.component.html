@@ -1,3 +1,4 @@
+<div id="header">
 <div id="profile-button" class="hoverers" aria-label="Profile Button">
   <app-profile-button (click)="this.transformProfile()"/>
 </div>
@@ -7,24 +8,27 @@
 <div id="info-button-assignment" class="hoverers" aria-label="Info Button" (click)="showToast()">
   <app-info-button/>
 </div>
+  <div id="back-button-assignment" routerLink="/classes" class="hoverers" aria-label="Back Button">
+    <app-back-button/>
+  </div>
+  <div id="home-button" class="hoverers" aria-label="Home button">
+    <app-home-button (click)="this.transformHome()"/>
+  </div>
+  <div id="home-button-changing" class="hoverers d-none" aria-label="Home button">
+    <app-home-button />
+  </div>
 
+  <div id="refresh-data-button" routerLink="/assignments" class="hoverers" aria-label="Refresh Data Button">
+    <app-manual-poll-button (click)="manualPoll()"/>
+  </div>
+</div>
 <div class="toast-container">
   <app-toast-notification [toast]="this.toast" />
 
 </div>
 
-<div id="home-button" class="hoverers" aria-label="Home button">
-  <app-home-button (click)="this.transformHome()"/>
-</div>
-<div id="home-button-changing" class="hoverers d-none" aria-label="Home button">
-  <app-home-button />
-</div>
-<div id="back-button-assignment" routerLink="/classes" class="hoverers" aria-label="Back Button">
-  <app-back-button/>
-</div>
-<div id="refresh-data-button" routerLink="/assignments" class="hoverers" aria-label="Refresh Data Button">
-  <app-manual-poll-button (click)="manualPoll()"/>
-</div>
+
+
 <div id="class-title" [attr.aria-label]="className + 'is the class chosen'">{{ className }}</div>
 <div id="assignments-table" class="d-none">
   <table id="ass-table" class="table-borderless" aria-label="Assignments Table">

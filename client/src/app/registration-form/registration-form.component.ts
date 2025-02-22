@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {Router, RouterLink} from '@angular/router';
 import {getCookie} from '../get-cookie';
@@ -13,7 +13,7 @@ import {NgOptimizedImage} from "@angular/common";
   standalone: true,
   styleUrl: './registration-form.component.css'
 })
-export class RegistrationFormComponent {
+export class RegistrationFormComponent implements OnInit{
   public termLengthInSeconds: string = new Date(Date.now() + 24 * 60 * 60 * 7 * 14 * 1000).toUTCString();
   public username: string = '';
 

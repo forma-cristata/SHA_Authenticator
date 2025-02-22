@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {InfoButtonComponent} from '../info-button/info-button.component';
 import {ProfileButtonComponent} from '../profile-button/profile-button.component';
 import {HomeButtonComponent} from '../home-button/home-button.component';
@@ -30,7 +30,7 @@ import {ToastNotificationComponent} from '../toast-notification/toast-notificati
   standalone: true,
   styleUrl: './sha-validation-view.component.css'
 })
-export class ShaValidationViewComponent {
+export class ShaValidationViewComponent implements OnInit{
   public returnedSHAs: string[] = [];
   private octokit = new Octokit({});
   public username: string = '';

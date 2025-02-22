@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {InfoButtonComponent} from '../info-button/info-button.component';
 import {ProfileButtonComponent} from '../profile-button/profile-button.component';
 import {HomeButtonComponent} from '../home-button/home-button.component';
@@ -30,7 +30,7 @@ import {Toast} from '../toast';
   templateUrl: './class-choice-view.component.html',
   styleUrl: './class-choice-view.component.css'
 })
-export class ClassChoiceViewComponent {
+export class ClassChoiceViewComponent implements OnInit{
   public returnedClasses: string[] = [];
   private octokit = new Octokit({});
   public rALength: number[] =[];

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProfileButtonComponent} from '../profile-button/profile-button.component';
 import {HomeButtonComponent} from '../home-button/home-button.component';
 import {CircuitAnimationComponent} from '../circuit-animation/circuit-animation.component';
@@ -22,7 +22,7 @@ import {InfoButtonComponent} from '../info-button/info-button.component';
   standalone: true,
   styleUrl: './profile-view.component.css'
 })
-export class ProfileViewComponent {
+export class ProfileViewComponent implements OnInit{
   public termLengthInSeconds: string = new Date(Date.now() + 24 * 60 * 60 * 7 * 14 * 1000).toUTCString();
   public username: string = '';
   constructor(private router: Router, private location: Location){}

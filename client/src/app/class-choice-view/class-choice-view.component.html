@@ -1,3 +1,4 @@
+<div id="header">
 <div id="profile-button" class="hoverers" aria-label="Profile Button">
   <app-profile-button (click)="this.transformProfile()"/>
 </div>
@@ -7,18 +8,21 @@
 <div id="info-button" (click)="showToast()" class="hoverers" aria-label="Info Button">
   <app-info-button />
 </div>
-<div id="class-title" aria-label="Class Chosen">{{className}}</div>
+  <div id="class-title" aria-label="Class Chosen">{{className}}</div>
+  <div id="home-button" class="hoverers" aria-label="Home Button">
+    <app-home-button />
+  </div>
+  <div id="refresh-data-button" routerLink="/classes" class="hoverers" aria-label="Refresh Data Button">
+    <app-manual-poll-button (click)="manualPoll()"/>
+  </div>
+</div>
 <div class="toast-container">
   <app-toast-notification [toast]="this.toast" />
 
 </div>
 
-<div id="home-button" class="hoverers" aria-label="Home Button">
-  <app-home-button />
-</div><div id="circuit-animation-div-home" class="hoverers" aria-label="Circuit Animation">
+<div id="circuit-animation-div-home" class="hoverers" aria-label="Circuit Animation">
   <app-circuit-animation />
-</div><div id="refresh-data-button" routerLink="/classes" class="hoverers" aria-label="Refresh Data Button">
-  <app-manual-poll-button (click)="manualPoll()"/>
 </div>
 
 <div id="classes-table" class="d-none" aria-label="Classes Table">

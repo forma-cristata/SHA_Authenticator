@@ -1,3 +1,4 @@
+<div id="header">
 <div id="profile-button" class="hoverers" aria-label="Profile Button">
   <app-profile-button (click)="this.transformProfile()"/>
 </div>
@@ -6,22 +7,25 @@
 </div><div id="info-button-sha" (click)="showToast()" class="hoverers" aria-label="Info button">
   <app-info-button />
 </div>
+  <div id="home-button" class="hoverers" aria-label="Home button">
+    <app-home-button (click)="this.transformHome()"/>
+  </div>
+  <div id="home-button-changing" class="hoverers d-none" aria-label="Home button">
+    <app-home-button />
+  </div>
+  <div id="back-button-sha" routerLink="/assignments" class="hoverers" aria-label="Back button">
+    <app-back-button />
+  </div>
+  <div id="class-title" [attr.aria-label]="className + 'is the class and assignment chosen'">{{ this.className }} • {{this.assignmentName}}</div>
+
+</div>
 
 <div class="toast-container">
   <app-toast-notification [toast]="this.toast" />
 
 </div>
 
-<div id="home-button" class="hoverers" aria-label="Home button">
-  <app-home-button (click)="this.transformHome()"/>
-</div>
-<div id="home-button-changing" class="hoverers d-none" aria-label="Home button">
-  <app-home-button />
-</div>
-<div id="back-button-sha" routerLink="/assignments" class="hoverers" aria-label="Back button">
-  <app-back-button />
-</div>
-<div id="class-title" [attr.aria-label]="className + 'is the class and assignment chosen'">{{ this.className }} • {{this.assignmentName}}</div>
+
 
 
 <div id="classes-table" class="filler" aria-labelledby="class-table-title">
