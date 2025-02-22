@@ -13,22 +13,23 @@ import {getCookie} from '../get-cookie';
   standalone: true,
   styleUrl: './change-username.component.css'
 })
-export class ChangeUsernameComponent implements OnInit{
+export class ChangeUsernameComponent implements OnInit {
   public termLengthInSeconds: string = new Date(Date.now() + 24 * 60 * 60 * 7 * 14 * 1000).toUTCString();
   public username: string = getCookie("username");
-  constructor(private router: Router, private location: Location){}
 
-  ngOnInit(){
-    this.termLengthInSeconds = new Date(Date.now() + 24 * 60 * 60 * 7 * 14 * 1000).toUTCString();
-
+  constructor(private router: Router, private location: Location) {
   }
+
+  ngOnInit() {
+    this.termLengthInSeconds = new Date(Date.now() + 24 * 60 * 60 * 7 * 14 * 1000).toUTCString();
+  }
+
   createUsernameCookie(event: Event) {
     // @ts-ignore
     let username = this.username;
     console.log(username);
     document.cookie = `username=${username}; expires=${(this.termLengthInSeconds)}`;
     this.username = '';
-    // Preventing default behavior by returning false
     this.router.navigate(['/classes']);
   }
 

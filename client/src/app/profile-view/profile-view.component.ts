@@ -22,27 +22,26 @@ import {InfoButtonComponent} from '../info-button/info-button.component';
   standalone: true,
   styleUrl: './profile-view.component.css'
 })
-export class ProfileViewComponent implements OnInit{
+export class ProfileViewComponent implements OnInit {
   public termLengthInSeconds: string = new Date(Date.now() + 24 * 60 * 60 * 7 * 14 * 1000).toUTCString();
   public username: string = '';
-  constructor(private router: Router, private location: Location){}
 
+  constructor(private router: Router, private location: Location) {
+  }
 
-  ngOnInit(){
-    if(!getCookie('username'))
-    {
+  ngOnInit() {
+    if (!getCookie('username')) {
       this.router.navigate(['/']);
     }
     this.termLengthInSeconds = new Date(Date.now() + 24 * 60 * 60 * 7 * 14 * 1000).toUTCString();
 
   }
 
-
-  transformHome(){
+  transformHome() {
     document.querySelector('#home-button-changing')!.classList.remove('d-none');
     document.querySelector('#home-button')!.classList.add('d-none');
-    setTimeout(() => {this.router.navigate(['/classes'])}, 450);
+    setTimeout(() => {
+      this.router.navigate(['/classes'])
+    }, 450);
   }
-
-
 }

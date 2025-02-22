@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {CircuitAnimationComponent} from '../circuit-animation/circuit-animation.component';
 import {RegistrationFormComponent} from '../registration-form/registration-form.component';
 import {InfoButtonComponent} from '../info-button/info-button.component';
@@ -21,7 +21,6 @@ import {ToastNotificationComponent} from '../toast-notification/toast-notificati
   styleUrl: './registration-view.component.css'
 })
 export class RegistrationViewComponent {
-
   newToast: Toast =
     {
       imgPath: '/info.png',
@@ -35,13 +34,12 @@ export class RegistrationViewComponent {
       description: "GitHub Username Docs"
     };
 
-  showToast(){
+  showToast() {
     let toast: any = document.querySelector('app-toast-notification .toast');
     toast.classList.remove("hide");
     toast.classList.add("show");
-    return(ToastNotificationComponent);
+    return (ToastNotificationComponent);
   }
-
 
   protected readonly setTimeout = setTimeout;
 }

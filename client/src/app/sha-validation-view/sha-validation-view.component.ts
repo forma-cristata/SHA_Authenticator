@@ -33,16 +33,17 @@ import {FooterComponent} from '../footer/footer.component';
   standalone: true,
   styleUrl: './sha-validation-view.component.css'
 })
-export class ShaValidationViewComponent implements OnInit{
+export class ShaValidationViewComponent implements OnInit {
   public returnedSHAs: string[] = [];
   private octokit = new Octokit({});
   public username: string = '';
   public assignmentName: string = '';
   public className: string = '';
   public sHAToCheck: string = '';
-  public feedback:string = '';
+  public feedback: string = '';
   private validText: string = 'var(--gh-green)';
   private invalidText: string = 'var(--dark-magenta)';
+
   public toast: Toast =
     {
       imgPath: '/info.png',
@@ -54,7 +55,9 @@ export class ShaValidationViewComponent implements OnInit{
       link: "/profile",
       description: "More info"
     };
-  constructor(private router: Router){}
+
+  constructor(private router: Router) {}
+
   async ngOnInit() {
     this.username = getCookie('username');
     this.assignmentName = getCookie('assignment');
@@ -72,7 +75,6 @@ export class ShaValidationViewComponent implements OnInit{
   }
 
   async setReturnedSHAs() {
-
     this.feedback = this.sHAToCheck.length === 40 ? ((await this.octokit.request(`GET http://localhost:3012/shas?username=${encodeURIComponent(this.username)}&classname=${encodeURIComponent(this.className)}&assignment=${encodeURIComponent(this.assignmentName)}&sha=${encodeURIComponent(this.sHAToCheck)}`, {}))).data[0] : 'IInvalid SHA length.';
     console.log(this.feedback);
 
@@ -88,13 +90,9 @@ export class ShaValidationViewComponent implements OnInit{
     console.log(indicator === "I");
     console.log(feedbackElement);
 
-
-    if (indicator === 'I')
-    {
+    if (indicator === 'I') {
       document.querySelector('.form-floating')!.setAttribute('style', `-webkit-box-shadow:0px 0px 10px 0px ${this.invalidText}; -moz-box-shadow: 0px 0px 10px 0px ${this.invalidText}; box-shadow: 0px 0px 10px 0px ${this.invalidText};`);
-    }
-    else
-    {
+    } else {
       document.querySelector('.form-floating')!.setAttribute('style', `-webkit-box-shadow:0px 0px 10px 0px ${this.validText}; -moz-box-shadow: 0px 0px 10px 0px ${this.validText}; box-shadow: 0px 0px 10px 0px ${this.validText};`);
     }
   }
@@ -110,23 +108,28 @@ export class ShaValidationViewComponent implements OnInit{
       document.querySelector('#loading-boxer')!.classList.add('d-none');
       document.querySelector('#sha-checker-btn')!.classList.remove('silence');
     });
-
   }
 
-  showToast(){
+  showToast() {
     let toast: any = document.querySelector('.toast');
     toast.classList.remove("hide");
     toast.classList.add("show");
   }
-  transformProfile(){
+
+  transformProfile() {
     document.querySelector('#changing-profile-button')!.classList.remove('d-none');
     document.querySelector('#profile-button')!.classList.add('d-none');
-    setTimeout(() => {this.router.navigate(['/profile'])}, 450);
+    setTimeout(() => {
+      this.router.navigate(['/profile'])
+    }, 450);
   }
-  transformHome(){
+
+  transformHome() {
     document.querySelector('#home-button-changing')!.classList.remove('d-none');
     document.querySelector('#home-button')!.classList.add('d-none');
-    setTimeout(() => {this.router.navigate(['/classes'])}, 450);
+    setTimeout(() => {
+      this.router.navigate(['/classes'])
+    }, 450);
   }
 }
 

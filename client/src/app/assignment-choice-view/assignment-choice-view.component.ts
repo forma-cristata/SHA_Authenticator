@@ -30,10 +30,10 @@ import {TitleComponent} from '../title/title.component';
   standalone: true,
   styleUrl: './assignment-choice-view.component.css'
 })
-export class AssignmentChoiceViewComponent implements OnInit{
+export class AssignmentChoiceViewComponent implements OnInit {
   public returnedAssignments: string[] = [];
   private octokit = new Octokit({});
-  public rALength: number[] =[];
+  public rALength: number[] = [];
   public a = "a";
   public assignmentName: string = "";
   public className: string = "";
@@ -49,22 +49,19 @@ export class AssignmentChoiceViewComponent implements OnInit{
       link: "/profile",
       description: "More info"
     };
-  constructor(private router: Router){}
+
+  constructor(private router: Router) {
+  }
 
   async setReturnedAssignments(username: string, classChoice: string) {
-
     let data = ((await this.octokit.request(`GET http://localhost:3012/assignments?username=${encodeURIComponent(username)}&classname=${encodeURIComponent(classChoice)}`, {}))).data;
-
-    // TODO API Return Call Set
     this.returnedAssignments = [...data];
-
     let length = this.returnedAssignments.length;
-
-    for(let i = 0; i < length; i+=3)
-    {
+    for (let i = 0; i < length; i += 3) {
       this.rALength.push(i);
     }
   }
+
   async ngOnInit() {
     if (!getCookie('username')) {
       this.router.navigate(['/']).then(r => console.log('redirected to login'));
@@ -90,46 +87,47 @@ export class AssignmentChoiceViewComponent implements OnInit{
     document.querySelector('#loading-boxer')!.classList.add('d-none');
     document.querySelector('#assignments-table')!.classList.remove('d-none');
     this.router.navigate(['/']);
-
-
-
   }
-  selectAssignment(selectedAssignment: string){
+
+  selectAssignment(selectedAssignment: string) {
     setCookie('assignment', selectedAssignment);
     this.assignmentName = selectedAssignment;
     // Get all the class-blocker elements except for the one clicked class and fade them out;
     let chosenBlockIndex = 0;
     let assBlockers = document.querySelectorAll('.ass-blocker');
-    for(let i = 0; i < assBlockers.length; i++) {
+    for (let i = 0; i < assBlockers.length; i++) {
       console.log(assBlockers[i]);
       setTimeout(() => {
         assBlockers[i].animate({opacity: [1, 0]}, {duration: 500, fill: 'forwards'})
       }, 100 * i);
     }
-    // Get rid of border color
-    // Fade out the chosen block
-
-    setTimeout(() => {this.router.navigate(['/sha-validation'])}, 100*(assBlockers.length+1) + 500);
+    setTimeout(() => {
+      this.router.navigate(['/sha-validation'])
+    }, 100 * (assBlockers.length + 1) + 500);
   }
 
-  showToast(){
+  showToast() {
     let toast: any = document.querySelector('.toast');
     toast.classList.remove("hide");
     toast.classList.add("show");
   }
 
-
-  transformProfile(){
+  transformProfile() {
     document.querySelector('#changing-profile-button')!.classList.remove('d-none');
     document.querySelector('#profile-button')!.classList.add('d-none');
-    setTimeout(() => {this.router.navigate(['/profile'])}, 450);
+    setTimeout(() => {
+      this.router.navigate(['/profile'])
+    }, 450);
   }
 
-  transformHome(){
+  transformHome() {
     document.querySelector('#home-button-changing')!.classList.remove('d-none');
     document.querySelector('#home-button')!.classList.add('d-none');
-    setTimeout(() => {this.router.navigate(['/classes'])}, 450);
+    setTimeout(() => {
+      this.router.navigate(['/classes'])
+    }, 450);
   }
+
   protected readonly of = of;
 }
 

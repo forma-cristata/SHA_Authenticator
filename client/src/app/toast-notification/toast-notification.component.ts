@@ -17,9 +17,7 @@ export class ToastNotificationComponent {
   @Input() toast!: Toast;
   @Output() delete = new EventEmitter<Toast>();
 
-  onDelete(){
+  onDelete() {
     this.delete.emit(this.toast)
   }
-
-
 }

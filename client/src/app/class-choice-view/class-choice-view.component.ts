@@ -33,12 +33,11 @@ import {FooterComponent} from '../footer/footer.component';
   templateUrl: './class-choice-view.component.html',
   styleUrl: './class-choice-view.component.css'
 })
-export class ClassChoiceViewComponent implements OnInit{
+export class ClassChoiceViewComponent implements OnInit {
   public returnedClasses: string[] = [];
   private octokit = new Octokit({});
-  public rALength: number[] =[];
+  public rALength: number[] = [];
   public className: string = "";
-  public time = 100;
   public toast: Toast =
     {
       imgPath: '/info.png',
@@ -51,23 +50,19 @@ export class ClassChoiceViewComponent implements OnInit{
       link: "/profile",
       description: "More info"
     };
-  constructor(private router: Router){}
+
+  constructor(private router: Router) {}
 
   async setReturnedClasses(username: string) {
     let data = ((await this.octokit.request(`GET http://localhost:3012/classes?username=${encodeURIComponent(username)}`, {}))).data;
-
-
-
     console.log(data);
     this.returnedClasses = [...data];
-
     let length = this.returnedClasses.length;
-
-    for(let i = 0; i < length; i+=3)
-    {
+    for (let i = 0; i < length; i += 3) {
       this.rALength.push(i);
     }
   }
+
   async ngOnInit() {
     if (!getCookie('username')) {
       this.router.navigate(['/']);
@@ -81,23 +76,21 @@ export class ClassChoiceViewComponent implements OnInit{
     });
   }
 
-  selectClass(selectedClass: string){
+  selectClass(selectedClass: string) {
     setCookie('class', selectedClass);
     this.className = selectedClass;
-    // Get all the class-blocker elements except for the one clicked class and fade them out;
     let chosenBlockIndex = 0;
     let classBlockers = document.querySelectorAll('.class-blocker');
-    for(let i = 0; i < classBlockers.length; i++){
-        setTimeout(() => {classBlockers[i].animate({opacity: [1, 0]}, {duration: 500, fill: 'forwards'})}, 100*i);
-
+    for (let i = 0; i < classBlockers.length; i++) {
+      setTimeout(() => {
+        classBlockers[i].animate({opacity: [1, 0]}, {duration: 500, fill: 'forwards'})
+      }, 100 * i);
     }
-    // Get rid of border color
-    // Fade out the chosen block
 
-    setTimeout(() => {this.router.navigate(['/assignments'])}, 100*classBlockers.length + 500);
-
+    setTimeout(() => {
+      this.router.navigate(['/assignments'])
+    }, 100 * classBlockers.length + 500);
   }
-
 
 
   async manualPoll() {
@@ -108,21 +101,19 @@ export class ClassChoiceViewComponent implements OnInit{
     document.querySelector('#classes-table')!.classList.remove('d-none');
 
     this.router.navigate(['/']);
-
   }
 
-  showToast(){
+  showToast() {
     let toast: any = document.querySelector('.toast');
     toast.classList.remove("hide");
     toast.classList.add("show");
   }
 
-  transformProfile(){
+  transformProfile() {
     document.querySelector('#changing-profile-button')!.classList.remove('d-none');
     document.querySelector('#profile-button')!.classList.add('d-none');
-    setTimeout(() => {this.router.navigate(['/profile'])}, 450);
+    setTimeout(() => {
+      this.router.navigate(['/profile'])
+    }, 450);
   }
-
-
-
 }
