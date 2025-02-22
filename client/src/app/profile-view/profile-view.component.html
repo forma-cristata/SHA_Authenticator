@@ -1,36 +1,41 @@
 <div id="header">
-<div id="profile-button-prof" aria-label="Profile button">
-  <app-profile-button />
-</div><div id="home-button" class="hoverers" aria-label="Home button">
-  <app-home-button (click)="this.transformHome()"/>
-</div>
-<div id="home-button-changing" class="hoverers d-none" aria-label="Home button">
-  <app-home-button />
-</div>
+  <div id="profile-button-prof" aria-label="Profile button">
+    <app-profile-button/>
+  </div>
+  <div id="home-button" class="hoverers" aria-label="Home button">
+    <app-home-button (click)="this.transformHome()"/>
+  </div>
+  <div id="home-button-changing" class="hoverers d-none" aria-label="Home button">
+    <app-home-button/>
+  </div>
 
 </div>
 
 <div id="circuit-animation-div-home" aria-label="Circuit animation">
-  <app-circuit-animation />
+  <app-circuit-animation/>
 </div>
 <div id="profile-info-div" aria-labelledby="profile-info-title">
   <div class="flex-attempt col-10" id="changing-username-div" aria-labelledby="change-username-title">
-    <app-change-username />
+    <app-change-username/>
   </div>
 
   <div class="flex-attempt2 col-10" id="how-to-div" aria-labelledby="how-title">
-    <app-info-button />
+    <app-info-button/>
     <h1 id="how-title" class="w-75">How to use this application</h1>
     <h5 class="creds">
       This tool helps you verify your GitHub commit IDs (SHAs) for your class assignments in a simple, straightforward way.
     </h5><h5 class="creds">
-      To begin using this tool, enter your GitHub username in the input field on the home page. Once logged in, you'll see a list of your classes to choose from. From there, choose the assignment you need to verify. Finally, enter your commit SHA in the verification field to check its validity.
-    </h5><h5 class="creds">
-      After submitting your SHA, the system will analyze your commit and provide one of several possible responses. The form input box will glow green to indicate a valid commit SHA, or red if there's an issue. Additional details about your submission will appear below the input box.
-    </h5><h5 class="creds">
-      To ensure a smooth verification process, always double-check that you're using your correct GitHub username (not your associated email). Make sure you've selected the appropriate class and assignment from the options provided. It's also crucial to verify that you've copied your SHA accurately to avoid any verification errors.
-    </h5><h5 class="creds">
-      Once you have validated that your commit ID is valid, you may submit your project to Canvas.
-    </h5>
+    To begin using this tool, enter your GitHub username in the input field on the home page. Once logged in, you'll see a list of your classes to choose from.
+    From there, choose the assignment you need to verify. Finally, enter your commit SHA in the verification field to check its validity.
+  </h5><h5 class="creds">
+    After submitting your SHA, the system will analyze your commit and provide one of several possible responses. The form input box will glow green to indicate
+    a valid commit SHA, or red if there's an issue. Additional details about your submission will appear below the input box.
+  </h5><h5 class="creds">
+    To ensure a smooth verification process, always double-check that you're using your correct GitHub username (not your associated email). Make sure you've
+    selected the appropriate class and assignment from the options provided. It's also crucial to verify that you've copied your SHA accurately to avoid any
+    verification errors.
+  </h5><h5 class="creds">
+    Once you have validated that your commit ID is valid, you may submit your project to Canvas.
+  </h5>
   </div>
 </div>

@@ -1,36 +1,35 @@
 <div id="header">
-<div id="profile-button" class="hoverers" aria-label="Profile Button">
-  <app-profile-button (click)="this.transformProfile()"/>
-</div>
-<div id="changing-profile-button" class="d-none hoverers" aria-label="Profile Button">
-  <app-profile-button />
-</div>
-<div id="info-button" (click)="showToast()" class="hoverers" aria-label="Info Button">
-  <app-info-button />
-</div>
+  <div id="profile-button" class="hoverers" aria-label="Profile Button">
+    <app-profile-button (click)="this.transformProfile()"/>
+  </div>
+  <div id="changing-profile-button" class="d-none hoverers" aria-label="Profile Button">
+    <app-profile-button/>
+  </div>
+  <div id="info-button" (click)="showToast()" class="hoverers" aria-label="Info Button">
+    <app-info-button/>
+  </div>
   <div id="home-button" class="hoverers" aria-label="Home Button">
-    <app-home-button />
+    <app-home-button/>
   </div>
   <div id="refresh-data-button" routerLink="/classes" class="hoverers" aria-label="Refresh Data Button">
     <app-manual-poll-button (click)="manualPoll()"/>
   </div>
-  <app-title />
+  <app-title/>
 </div>
 <div class="toast-container">
-  <app-toast-notification [toast]="this.toast" />
+  <app-toast-notification [toast]="this.toast"/>
 
 </div>
 
 <div id="circuit-animation-div-home" class="hoverers" aria-label="Circuit Animation">
-  <app-circuit-animation />
+  <app-circuit-animation/>
 </div>
 
 <div id="classes-table" class="d-none" aria-label="Classes Table">
   <table id="class-table" class="table-borderless" aria-label="Class Table">
     <thead>
       @for (i of rALength; track $index) {
-        @if(!this.returnedClasses[i])
-        {
+        @if (!this.returnedClasses[i]) {
           <tr class="visible-row" aria-label="Class Row">
             <td>
               <div class="class-blocker-opaque" aria-hidden="true">N/A</div>
@@ -44,11 +43,12 @@
               <div class="class-blocker-opaque" aria-hidden="true">N/A</div>
             </td>
           </tr>
-        }
-        @else if(this.returnedClasses[i] && !this.returnedClasses[i + 1]){
+        } @else if (this.returnedClasses[i] && !this.returnedClasses[i + 1]) {
           <tr class="visible-row" aria-label="Class Row">
             <td>
-              <div [classList]="['c' + (i%12+1) + ' class-blocker']" (click)="selectClass(this.returnedClasses[i])" [attr.aria-label]="this.returnedClasses[i]">{{this.returnedClasses[i]}}</div>
+              <div [classList]="['c' + (i%12+1) + ' class-blocker']" (click)="selectClass(this.returnedClasses[i])"
+                   [attr.aria-label]="this.returnedClasses[i]">{{ this.returnedClasses[i] }}
+              </div>
             </td>
             <td class="no-vis-col"></td>
             <td>
@@ -59,34 +59,42 @@
               <div class="class-blocker-opaque" aria-hidden="true">N/A</div>
             </td>
           </tr>
-        }
-        @else if(this.returnedClasses[i + 1] && !this.returnedClasses[i + 2]){
+        } @else if (this.returnedClasses[i + 1] && !this.returnedClasses[i + 2]) {
           <tr class="visible-row" aria-label="Class Row">
             <td>
-              <div [classList]="['c' + (i%12 + 1) + ' class-blocker']" (click)="selectClass(this.returnedClasses[i])" [attr.aria-label]="this.returnedClasses[i]">{{this.returnedClasses[i]}}</div>
+              <div [classList]="['c' + (i%12 + 1) + ' class-blocker']" (click)="selectClass(this.returnedClasses[i])"
+                   [attr.aria-label]="this.returnedClasses[i]">{{ this.returnedClasses[i] }}
+              </div>
             </td>
             <td class="no-vis-col"></td>
             <td>
-              <div [classList]="['c' + (i%12+2) + ' class-blocker']" (click)="selectClass(this.returnedClasses[i + 1])" [attr.aria-label]="this.returnedClasses[i+1]">{{this.returnedClasses[i + 1]}}</div>
+              <div [classList]="['c' + (i%12+2) + ' class-blocker']" (click)="selectClass(this.returnedClasses[i + 1])"
+                   [attr.aria-label]="this.returnedClasses[i+1]">{{ this.returnedClasses[i + 1] }}
+              </div>
             </td>
             <td class="no-vis-col"></td>
             <td>
               <div class="class-blocker-opaque" aria-hidden="true">N/A</div>
             </td>
           </tr>
-        }
-        @else{
+        } @else {
           <tr class="visible-row" aria-label="Class Row">
             <td>
-              <div [classList]="['c' + (i%12 + 1) + ' class-blocker']" (click)="selectClass(this.returnedClasses[i])" [attr.aria-label]="this.returnedClasses[i]">{{this.returnedClasses[i]}}</div>
+              <div [classList]="['c' + (i%12 + 1) + ' class-blocker']" (click)="selectClass(this.returnedClasses[i])"
+                   [attr.aria-label]="this.returnedClasses[i]">{{ this.returnedClasses[i] }}
+              </div>
             </td>
             <td class="no-vis-col"></td>
             <td>
-              <div [classList]="['c' + (i%12+2) + ' class-blocker']" (click)="selectClass(this.returnedClasses[i + 1])" [attr.aria-label]="this.returnedClasses[i+1]">{{this.returnedClasses[i + 1]}}</div>
+              <div [classList]="['c' + (i%12+2) + ' class-blocker']" (click)="selectClass(this.returnedClasses[i + 1])"
+                   [attr.aria-label]="this.returnedClasses[i+1]">{{ this.returnedClasses[i + 1] }}
+              </div>
             </td>
             <td class="no-vis-col"></td>
             <td>
-              <div [classList]="['c' + (i%12+3) + ' class-blocker']" (click)="selectClass(this.returnedClasses[i + 2])" [attr.aria-label]="this.returnedClasses[i+2]">{{this.returnedClasses[i + 2]}}</div>
+              <div [classList]="['c' + (i%12+3) + ' class-blocker']" (click)="selectClass(this.returnedClasses[i + 2])"
+                   [attr.aria-label]="this.returnedClasses[i+2]">{{ this.returnedClasses[i + 2] }}
+              </div>
             </td>
           </tr>
         }
@@ -106,5 +114,5 @@
 
 <!--Loading Icon-->
 <div id="loading-boxer" aria-busy="true" aria-label="Loading content">
-  <app-loading-icon />
+  <app-loading-icon/>
 </div>

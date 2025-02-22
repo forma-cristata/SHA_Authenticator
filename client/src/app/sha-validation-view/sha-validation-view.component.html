@@ -1,54 +1,55 @@
 <div id="header">
-<div id="profile-button" class="hoverers" aria-label="Profile Button">
-  <app-profile-button (click)="this.transformProfile()"/>
-</div>
-<div id="changing-profile-button" class="d-none hoverers" aria-label="Profile Button">
-  <app-profile-button />
-</div><div id="info-button-sha" (click)="showToast()" class="hoverers" aria-label="Info button">
-  <app-info-button />
-</div>
+  <div id="profile-button" class="hoverers" aria-label="Profile Button">
+    <app-profile-button (click)="this.transformProfile()"/>
+  </div>
+  <div id="changing-profile-button" class="d-none hoverers" aria-label="Profile Button">
+    <app-profile-button/>
+  </div>
+  <div id="info-button-sha" (click)="showToast()" class="hoverers" aria-label="Info button">
+    <app-info-button/>
+  </div>
   <div id="home-button" class="hoverers" aria-label="Home button">
     <app-home-button (click)="this.transformHome()"/>
   </div>
   <div id="home-button-changing" class="hoverers d-none" aria-label="Home button">
-    <app-home-button />
+    <app-home-button/>
   </div>
   <div id="back-button-sha" routerLink="/assignments" class="hoverers" aria-label="Back button">
-    <app-back-button />
+    <app-back-button/>
   </div>
-<app-title />
+  <app-title/>
 </div>
 
 <div class="toast-container">
-  <app-toast-notification [toast]="this.toast" />
+  <app-toast-notification [toast]="this.toast"/>
 
 </div>
-
-
 
 
 <div id="classes-table" class="filler" aria-labelledby="class-table-title">
   <h2 id="class-table-title" class="visually-hidden">Class and Assignment Table</h2>
   <table id="class-table" class="table-borderless" aria-describedby="class-table-description">
-    <caption id="class-table-description" class="visually-hidden">Table displaying the class and assignment details along with SHA input for validation</caption>
+    <caption id="class-table-description" class="visually-hidden">Table displaying the class and assignment details along with SHA input for validation
+    </caption>
     <thead>
     <tr class="visible-row">
       <td class="no-vis-col col-2"></td>
-        <td class="col-6">
-          <div id="c1" class="class-blocker col-4" >
-            <h3 class="w-100">Validate your Commit ID Here</h3>
-            <div class="form-floating d-inline-block w-50">
-              <input type="text" class="form-control" id="floatingInput" placeholder="sha" [(ngModel)]="sHAToCheck" (keydown.enter)="checkSHA()" name="sha" required aria-labelledby="floatingInputLabel">
-              <label for="floatingInput" id="floatingInputLabel">SHA</label>
-            </div>
-            <button id="sha-checker-btn" class="btn btn-primary" type="button" (click)="checkSHA()" aria-label="Check SHA">Check</button>
-            <div id="loading-boxer" class="d-none" aria-live="polite" aria-atomic="true">
-              <app-loading-icon />
-            </div>
-            <h4 id="feedback-header" aria-live="polite">{{this.feedback}}</h4>
-            </div>
-        </td>
-        <td class="no-vis-col"></td>
+      <td class="col-6">
+        <div id="c1" class="class-blocker col-4">
+          <h3 class="w-100">Validate your Commit ID Here</h3>
+          <div class="form-floating d-inline-block w-50">
+            <input type="text" class="form-control" id="floatingInput" placeholder="sha" [(ngModel)]="sHAToCheck" (keydown.enter)="checkSHA()" name="sha"
+                   required aria-labelledby="floatingInputLabel">
+            <label for="floatingInput" id="floatingInputLabel">SHA</label>
+          </div>
+          <button id="sha-checker-btn" class="btn btn-primary" type="button" (click)="checkSHA()" aria-label="Check SHA">Check</button>
+          <div id="loading-boxer" class="d-none" aria-live="polite" aria-atomic="true">
+            <app-loading-icon/>
+          </div>
+          <h4 id="feedback-header" aria-live="polite">{{ this.feedback }}</h4>
+        </div>
+      </td>
+      <td class="no-vis-col"></td>
     </tr>
     </thead>
   </table>
