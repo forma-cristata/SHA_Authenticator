@@ -14,21 +14,8 @@
 
 
 <div id="info-button-registration" class="hoverers" (click)="setTimeout(showToast, 100)" aria-label="Show information about GitHub Username">
-  <app-info-button aria-hidden="true" />
-</div><div id="toast-try" aria-live="polite" aria-atomic="true">
-  <div class="position-fixed bottom-0 start-0 p-3" style="z-index: 11">
-    <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header">
-        <img ngSrc="/info.png" class="rounded me-2" alt="Information icon" width="25" height="25">
-        <strong class="me-auto">Info</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-      <div class="toast-body">
-        <div>Enter your GitHub Username to begin validating your Commit ID</div>
-        <div>Your associated email is not your username!</div>
-        <hr />
-        <a href="http://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/remembering-your-github-username-or-email">GitHub Username Docs</a>
-      </div>
-    </div>
-  </div>
+
+  <app-info-button />
 </div>
+
+<app-toast-notification [toast]="this.newToast" />

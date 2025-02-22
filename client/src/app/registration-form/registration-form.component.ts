@@ -7,9 +7,7 @@ import {NgOptimizedImage} from "@angular/common";
 @Component({
   selector: 'app-registration-form',
     imports: [
-        FormsModule,
-        NgOptimizedImage,
-        RouterLink
+        FormsModule
     ],
   templateUrl: './registration-form.component.html',
   standalone: true,
@@ -31,12 +29,35 @@ export class RegistrationFormComponent {
   }
 
   createUsernameCookie(event: Event) {
-    // @ts-ignore
-    let username = this.username;
-    console.log(username);
-    document.cookie = `username=${username}; expires=${(this.termLengthInSeconds)}`;
-    this.username = '';
-    // Preventing default behavior by returning false
-    this.router.navigate(['/classes']);
+    if(this.usernameStandardizationMatchingCheck() && this.username.length > 0) {
+      document.cookie = `username=${this.username}; expires=${(this.termLengthInSeconds)}`;
+      this.username = '';
+      this.router.navigate(['/classes']);
+    }
+    else{
+      this.username = "";
+    }
+  }
+
+
+  usernameStandardizationMatchingCheck(): boolean{
+    let validLength = true;
+    let validCharacters = true;
+
+    if(this.username.length > 39){
+      alert('Username is too long. Please enter a username that is 39 characters or less.');
+      validLength = false;
+    }
+    for(let i = 0; i < this.username.length; i++){
+      if(!this.username[i].match(/[a-zA-Z0-9-]/)){
+        validCharacters = false;
+      }
+    }
+    if(!validCharacters) {
+      alert('Username contains an invalid character. Please enter a username that only contains alphanumeric characters and dashes.');
+    }
+
+    return validCharacters && validLength;
+
   }
 }

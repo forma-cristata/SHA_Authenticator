@@ -1,0 +1,19 @@
+<div id="toast-try" aria-live="polite" aria-atomic="true">
+  <div class="position-fixed bottom-0 start-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <img [ngSrc]="toast.imgPath" class="rounded me-2" alt="Information icon" width="25" height="25">
+        <strong class="me-auto">{{ toast.toastHeader }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        @for(msg of toast.toastBody; track $index)
+        {
+        <div>{{msg}}</div>
+        }
+        <hr />
+        <a [href]="toast.link">{{ toast.description }}</a>
+      </div>
+    </div>
+  </div>
+</div>
