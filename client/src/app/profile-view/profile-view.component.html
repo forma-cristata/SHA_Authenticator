@@ -1,19 +1,16 @@
-<div id="profile-button-prof">
+<div id="profile-button-prof" aria-label="Profile button">
   <app-profile-button />
-</div>
-<div id="home-button-prof" class="hoverers">
+</div><div id="home-button-prof" class="hoverers" aria-label="Home button">
   <app-home-button />
-</div>
-<div id="circuit-animation-div-home">
+</div><div id="circuit-animation-div-home" aria-label="Circuit animation">
   <app-circuit-animation />
 </div>
-
-<div id="profile-info-div">
-  <div class="flex-attempt col-10" id="changing-username-div">
+<div id="profile-info-div" aria-labelledby="profile-info-title">
+  <div class="flex-attempt col-10" id="changing-username-div" aria-labelledby="change-username-title">
     <app-change-username />
   </div>
 
-  <div class="flex-attempt2 col-10" id="how-to-div">
+  <div class="flex-attempt2 col-10" id="how-to-div" aria-labelledby="how-title">
     <app-info-button />
     <h1 id="how-title" class="w-75">How to use this application</h1>
     <h5 class="creds">
@@ -28,5 +25,4 @@
       Once you have validated that your commit ID is valid, you may submit your project to Canvas.
     </h5>
   </div>
-
 </div>

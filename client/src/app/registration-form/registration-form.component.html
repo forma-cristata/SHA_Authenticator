@@ -1,8 +1,8 @@
-<h4 class="mb-3 mt-2">Enter your GitHub Username:</h4>
-<form (submit)="createUsernameCookie($event)" class="mb-3 w-100" id="fit-betas">
-<div class="form-floating d-inline-block w-75">
-  <input type="text" class="form-control" id="floatingInput" placeholder="<FirstInitial><LastName>00" [(ngModel)]="username" name="username" required>
-  <label for="floatingInput">Username</label>
-</div>
-<button class="d-inline-block btn btn-primary" type="submit"><span id="chev-1"><strong>⟩</strong></span><span id="chev-2"><strong>⟩</strong></span><span id="chev-3"><strong>⟩</strong></span></button>
+<h4 class="mb-3 mt-2" id="github-username-label">Enter your GitHub Username:</h4>
+<form (submit)="createUsernameCookie($event)" class="mb-3 w-100" id="fit-betas" aria-labelledby="github-username-label">
+  <div class="form-floating d-inline-block w-75">
+<input type="text" class="form-control" id="floatingInput" placeholder="<FirstInitial><LastName>00" [(ngModel)]="username" name="username" required aria-labelledby="floatingInputLabel">
+<label for="floatingInput" id="floatingInputLabel">Username</label>
+  </div>
+<button class="d-inline-block btn btn-primary" type="submit" aria-label="Submit GitHub Username"><span id="chev-1"><strong>⟩</strong></span><span id="chev-2"><strong>⟩</strong></span><span id="chev-3"><strong>⟩</strong></span></button>
 </form>

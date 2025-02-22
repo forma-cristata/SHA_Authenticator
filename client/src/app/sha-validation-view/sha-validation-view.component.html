@@ -1,36 +1,33 @@
-<div id="profile-button-sha" class="hoverers">
+<div id="profile-button-sha" class="hoverers" aria-label="Profile button">
   <app-profile-button />
-</div>
-<div id="info-button-sha" (click)="showToast()" class="hoverers">
+</div><div id="info-button-sha" (click)="showToast()" class="hoverers" aria-label="Info button">
   <app-info-button />
-</div>
-<div id="toast-try">
+</div><div id="toast-try" aria-live="polite" aria-atomic="true">
   <div class="position-fixed bottom-0 start-0 p-3" style="z-index: 11">
     <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
-        <img ngSrc="/info.png" class="rounded me-2" alt="..." width="25" height="25">
+        <img ngSrc="/info.png" class="rounded me-2" alt="Information icon" width="25" height="25">
         <strong class="me-auto">Info</strong>
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
       <div class="toast-body">
         Enter the commit ID you wish to submit. The input will turn green if valid and magenta if invalid. Feedback will be provided after you submit an SHA.
         <hr />
-        <button class="btn btn-secondary link-for-more" routerLink="/profile">More info</button>
+        <button class="btn btn-secondary link-for-more" routerLink="/profile" aria-label="More information about SHA validation">More info</button>
       </div>
     </div>
   </div>
-
-</div>
-
-<div id="home-button-sha" class="hoverers">
+</div><div id="home-button-sha" class="hoverers" aria-label="Home button">
   <app-home-button />
 </div>
-<div id="back-button-sha" routerLink="/assignments" class="hoverers">
+<div id="back-button-sha" routerLink="/assignments" class="hoverers" aria-label="Back button">
   <app-back-button />
 </div>
 
-<div id="classes-table" class="filler">
-  <table id="class-table" class="table-borderless">
+<div id="classes-table" class="filler" aria-labelledby="class-table-title">
+  <h2 id="class-table-title" class="visually-hidden">Class and Assignment Table</h2>
+  <table id="class-table" class="table-borderless" aria-describedby="class-table-description">
+    <caption id="class-table-description" class="visually-hidden">Table displaying the class and assignment details along with SHA input for validation</caption>
     <thead>
     <tr class="visible-row">
       <td class="no-vis-col col-2"></td>
@@ -38,14 +35,14 @@
           <div id="c1" class="class-blocker col-4" >
             <h3 class="w-100">{{className}} • {{assignmentName}}</h3>
             <div class="form-floating d-inline-block w-50">
-              <input type="text" class="form-control" id="floatingInput" placeholder="sha" [(ngModel)]="sHAToCheck" (keydown.enter)="checkSHA()" name="sha" required>
-              <label for="floatingInput">SHA</label>
+              <input type="text" class="form-control" id="floatingInput" placeholder="sha" [(ngModel)]="sHAToCheck" (keydown.enter)="checkSHA()" name="sha" required aria-labelledby="floatingInputLabel">
+              <label for="floatingInput" id="floatingInputLabel">SHA</label>
             </div>
-            <button id="sha-checker-btn" class="btn btn-primary" type="button" (click)="checkSHA()">Check</button>
-            <div id="loading-boxer" class="d-none">
+            <button id="sha-checker-btn" class="btn btn-primary" type="button" (click)="checkSHA()" aria-label="Check SHA">Check</button>
+            <div id="loading-boxer" class="d-none" aria-live="polite" aria-atomic="true">
               <app-loading-icon />
             </div>
-            <h4 id="feedback-header">{{this.feedback}}</h4>
+            <h4 id="feedback-header" aria-live="polite">{{this.feedback}}</h4>
             </div>
         </td>
         <td class="no-vis-col"></td>

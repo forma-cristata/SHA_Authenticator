@@ -1,29 +1,25 @@
-<div id="form-container" >
+<div id="form-container" aria-label="Form Container">
 
 </div>
-<div id="not-opaque">
+<div id="not-opaque" aria-label="Not Opaque Section">
   <div id="centering-form-register">
-    <app-registration-form />
+    <app-registration-form aria-label="Registration Form" />
   </div>
 </div>
-<div id="top-banner" style="position: absolute; top: 0; left: 0"></div>
-<div id="circuit-right-bottom">
+<div id="top-banner" style="position: absolute; top: 0; left: 0" aria-label="Top Banner for visual styling only"></div>
+<div id="circuit-right-bottom" aria-label="Circuit Right Bottom">
   <app-circuit-animation />
 </div>
-<div id="left-banner" style="position: absolute; top: 0; left: 0"></div>
+<div id="left-banner" style="position: absolute; top: 0; left: 0" aria-label="Left Banner for visual styling only"></div>
 
 
-<!--
-<div id="info-button-registration" type="button" data-toggle="tooltip" title="Enter your GitHub Username to begin validating your Commit ID" class="hoverers bs-popover-start">
--->
-<div id="info-button-registration" class="hoverers" (click)="setTimeout(showToast, 100)">
-  <app-info-button />
-</div>
-<div id="toast-try">
+<div id="info-button-registration" class="hoverers" (click)="setTimeout(showToast, 100)" aria-label="Show information about GitHub Username">
+  <app-info-button aria-hidden="true" />
+</div><div id="toast-try" aria-live="polite" aria-atomic="true">
   <div class="position-fixed bottom-0 start-0 p-3" style="z-index: 11">
     <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
-        <img ngSrc="/info.png" class="rounded me-2" alt="..." width="25" height="25">
+        <img ngSrc="/info.png" class="rounded me-2" alt="Information icon" width="25" height="25">
         <strong class="me-auto">Info</strong>
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
@@ -31,9 +27,8 @@
         <div>Enter your GitHub Username to begin validating your Commit ID</div>
         <div>Your associated email is not your username!</div>
         <hr />
-
-<a href="http://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/remembering-your-github-username-or-email">GitHub Username Docs</a>      </div>
+        <a href="http://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/remembering-your-github-username-or-email">GitHub Username Docs</a>
+      </div>
     </div>
   </div>
-
 </div>

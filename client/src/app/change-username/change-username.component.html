@@ -1,12 +1,10 @@
-<div id="contain">
+<div id="contain" role="form" aria-labelledby="change-username-with-enter-key">
   <div class="change-user col-6">
     <h1 id="change-title">Change Username</h1>
     <div class="form-floating">
-      <input type="text" class="form-control" id="floatingUsername" [(ngModel)]="username" name="username" (keydown.enter)="createUsernameCookie($event)" required>
+      <input type="text" class="form-control" id="floatingUsername" [(ngModel)]="username" name="username" (keydown.enter)="createUsernameCookie($event)" required aria-required="true" aria-label="New username press enter to save">
       <label for="floatingUsername">new username</label>
-
     </div>
   </div>
   <div class="change-user col-6"></div>
-
 </div>
