@@ -1,4 +1,9 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
+@font-face {
+  font-family: "vonique";
+  src: url('assets/Vonique 64.ttf') format('truetype');
+}
+
 body{
   background-color: var(--background);
 }
@@ -78,8 +83,13 @@ body{
   --bs-btn-hover-bg: #393774 !important;
 }
 .hoverers:hover{
-  filter: drop-shadow(0 0 0.75rem var(--productive-purple));
+  filter: drop-shadow(0 0 0.75rem var(--custom-teal));
   transform-origin: center;
   transform: scale(108%);
+}
+
+.form-control:focus {
+  border-color: var(--gh-green);
+  box-shadow: 0 0 0 .25rem rgba(45, 164, 78, 0.25);
 }
 

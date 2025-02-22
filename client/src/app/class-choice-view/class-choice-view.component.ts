@@ -32,6 +32,8 @@ export class ClassChoiceViewComponent {
   public returnedClasses: string[] = [];
   private octokit = new Octokit({});
   public rALength: number[] =[];
+  public className: string = "";
+  public time = 100;
 
   constructor(private router: Router){}
 
@@ -55,6 +57,7 @@ export class ClassChoiceViewComponent {
       this.router.navigate(['/']);
     }
     setCookie('class', '');
+
     await this.setReturnedClasses(getCookie('username')).then(() => {
       document.querySelector('#loading-boxer')!.classList.add('d-none');
       document.querySelector('#classes-table')!.classList.remove('d-none');
@@ -63,7 +66,25 @@ export class ClassChoiceViewComponent {
 
   selectClass(selectedClass: string){
     setCookie('class', selectedClass);
-    this.router.navigate(['/assignments']);
+    this.className = selectedClass;
+    // Get all the class-blocker elements except for the one clicked class and fade them out;
+    let chosenBlockIndex = 0;
+    let classBlockers = document.querySelectorAll('.class-blocker');
+    for(let i = 0; i < classBlockers.length; i++){
+      if(classBlockers[i].innerHTML != selectedClass){
+        setTimeout(() => {classBlockers[i].animate({opacity: [1, 0]}, {duration: 500, fill: 'forwards'})}, 100*i);
+      }
+      else{
+        chosenBlockIndex = i;
+      }
+    }
+    setTimeout(() => {classBlockers[chosenBlockIndex].animate({opacity: [1, 0]}, {duration: 1000, fill: 'forwards'})}, 100*classBlockers.length);
+    // Get rid of border color
+    // Fade out the chosen block
+    setTimeout(() => {document.querySelector('#class-title')!.animate({opacity: [0, 1]}, {duration: 1000, fill: 'forwards'})}, 100*classBlockers.length);
+
+    setTimeout(() => {this.router.navigate(['/assignments'])}, 100*classBlockers.length + 1000);
+
   }
 
   async manualPoll() {

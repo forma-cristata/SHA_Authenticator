@@ -6,6 +6,8 @@ button{
 }
 h4{
   width: 333px;
+  font-variant: small-caps;
+
 }
 #chev-3{
   animation: colors 1000ms linear infinite;

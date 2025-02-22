@@ -10,6 +10,7 @@ import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
 import {NgClass, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 import {of} from 'rxjs';
 import {ManualPollButtonComponent} from '../manual-poll-button/manual-poll-button.component';
+import {keyframes} from '@angular/animations';
 
 @Component({
   selector: 'app-assignment-choice-view',
@@ -32,6 +33,7 @@ export class AssignmentChoiceViewComponent {
   private octokit = new Octokit({});
   public rALength: number[] =[];
   public a = "a";
+  public className: string = "";
   constructor(private router: Router){}
 
   async setReturnedAssignments(username: string, classChoice: string) {
@@ -53,9 +55,11 @@ export class AssignmentChoiceViewComponent {
       this.router.navigate(['/']).then(r => console.log('redirected to login'));
     }
 
-    if (!getCookie('class')) {
+    this.className = getCookie('class');
+    if (!this.className) {
       this.router.navigate(['/classes']).then(r => console.log('redirected to classes'));
     }
+    this.fadeInTitle(this.className);
 
     setCookie('assignment', '');
     await this.setReturnedAssignments(getCookie('username'), getCookie('class')).then(() => {
@@ -83,6 +87,12 @@ export class AssignmentChoiceViewComponent {
     toast.classList.remove("hide");
     toast.classList.add("show");
   }
+
+  fadeInTitle(className: string)
+  {
+
+  }
+
 
   protected readonly of = of;
 }
