@@ -102,21 +102,16 @@ export class AssignmentChoiceViewComponent implements OnInit{
     // Get all the class-blocker elements except for the one clicked class and fade them out;
     let chosenBlockIndex = 0;
     let assBlockers = document.querySelectorAll('.ass-blocker');
-    for(let i = 0; i < assBlockers.length; i++){
+    for(let i = 0; i < assBlockers.length; i++) {
       console.log(assBlockers[i]);
-      if(assBlockers[i].ariaLabel !== selectedAssignment){
-        setTimeout(() => {assBlockers[i].animate({opacity: [1, 0]}, {duration: 500, fill: 'forwards'})}, 100*i);
-      }
-      else{
-        chosenBlockIndex = i;
-        console.log(chosenBlockIndex);
-      }
+      setTimeout(() => {
+        assBlockers[i].animate({opacity: [1, 0]}, {duration: 500, fill: 'forwards'})
+      }, 100 * i);
     }
-    setTimeout(() => {assBlockers[this.returnedAssignments.indexOf(selectedAssignment)].animate({opacity: [1, 0]}, {duration: 750, fill: 'forwards'})}, 100*(assBlockers.length - 1));
     // Get rid of border color
     // Fade out the chosen block
 
-    setTimeout(() => {this.router.navigate(['/sha-validation'])}, 100*(assBlockers.length+1) + 1000);
+    setTimeout(() => {this.router.navigate(['/sha-validation'])}, 100*(assBlockers.length+1) + 500);
   }
 
   showToast(){

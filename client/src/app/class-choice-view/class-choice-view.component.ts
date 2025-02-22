@@ -87,18 +87,13 @@ export class ClassChoiceViewComponent implements OnInit{
     let chosenBlockIndex = 0;
     let classBlockers = document.querySelectorAll('.class-blocker');
     for(let i = 0; i < classBlockers.length; i++){
-      if(classBlockers[i].innerHTML != selectedClass){
         setTimeout(() => {classBlockers[i].animate({opacity: [1, 0]}, {duration: 500, fill: 'forwards'})}, 100*i);
-      }
-      else{
-        chosenBlockIndex = i;
-      }
+
     }
-    setTimeout(() => {classBlockers[chosenBlockIndex].animate({opacity: [1, 0]}, {duration: 750, fill: 'forwards'})}, 100*(classBlockers.length - 1));
     // Get rid of border color
     // Fade out the chosen block
 
-    setTimeout(() => {this.router.navigate(['/assignments'])}, 100*classBlockers.length + 1000);
+    setTimeout(() => {this.router.navigate(['/assignments'])}, 100*classBlockers.length + 500);
 
   }
 
