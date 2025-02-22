@@ -1,4 +1,4 @@
-#circuit-right-bottom{
+#circuit-right-bottom {
   position: absolute;
   left: 100vw;
   bottom: 0;
@@ -8,30 +8,9 @@
   z-index: 1;
   width: 75vw;
   height: 75vw;
-
 }
 
-/*#top-banner{
-  background-color: var(--background);
-  z-index: 2;
-  width: 100vw;
-  min-width: 100vw;
-  max-width: 100vw;
-  height: 12vw;
-  min-height: 12vw;
-  max-height: 12vw;
-}
-#left-banner{
-  background-color: var(--background);
-  z-index: 3;
-  width: 20vw;
-  min-width: 20vw;
-  max-width: 20vw;
-  height: 100vh;
-  min-height: 100vh;
-  max-height: 100vh;
-}*/
-#form-container{
+#form-container {
   position: absolute;
   top: 12%;
   left: 12%;
@@ -48,7 +27,8 @@
   min-height: 236px;
   min-width: 412px;
 }
-#not-opaque{
+
+#not-opaque {
   position: absolute;
   top: 12%;
   left: 12%;
@@ -62,14 +42,16 @@
   min-height: fit-content;
   min-width: fit-content;
 }
-#centering-form-register{
+
+#centering-form-register {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: calc(max(300px, 18vw) - 40px);
 }
-#info-button-registration{
+
+#info-button-registration {
   position: absolute;
   top: 20px;
   right: 20px;

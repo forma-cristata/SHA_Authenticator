@@ -9,7 +9,6 @@
   position: absolute;
   top: 20px;
   left: calc(50vw + 65px);
-
 }
 
 #profile-button, #changing-profile-button {
@@ -18,7 +17,8 @@
   left: 20px;
   z-index: 5;
 }
-#changing-profile-button{
+
+#changing-profile-button {
   animation: biggerProfile 500ms ease-in-out;
 }
 
@@ -69,7 +69,6 @@
   height: calc(100vh - 220px);
   padding: 40px 0 0;
   overflow-y: scroll;
-
 }
 
 #class-table {
@@ -83,7 +82,7 @@ td {
 }
 
 .no-vis-col {
-opacity: 0;
+  opacity: 0;
   width: 40px;
   height: 40px;
 }
@@ -107,7 +106,6 @@ opacity: 0;
 .class-blocker-opaque {
   opacity: 0;
 }
-
 
 
 .c1, .c12 {

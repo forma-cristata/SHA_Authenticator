@@ -1,37 +1,42 @@
-button{
+button {
   margin-left: 2%;
   margin-bottom: 1%;
   width: 56px;
   height: 56px;
 }
-h4{
+
+h4 {
   width: 333px;
   font-variant: all-small-caps;
-
 }
-#chev-3{
+
+#chev-3 {
   animation: colors 1000ms linear infinite;
   animation-delay: 500ms;
 }
-#chev-2{
+
+#chev-2 {
   animation: colors 1000ms linear infinite;
   animation-delay: 250ms;
 }
-#chev-1{
+
+#chev-1 {
   animation: colors 1000ms linear infinite;
 }
-@keyframes colors{
-  0%{
+
+@keyframes colors {
+  0% {
     color: var(--periwinkle);
   }
 
-  75%{
+  75% {
     color: var(--light-green)
   }
-  100%{
+  100% {
     color: var(--light-green)
   }
 }
+
 .btn-primary {
   height: calc(3.5rem + calc(var(--bs-border-width) * 2)) !important;
   margin-left: 20px;
@@ -43,7 +48,7 @@ h4{
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: var(--light-green);
   --bs-btn-hover-border-color: var(--light-green);
-  --bs-btn-focus-shadow-rgb: 49,132,253;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: var(--dark-magenta);
   --bs-btn-active-border-color: var(--dark-magenta);
@@ -52,7 +57,8 @@ h4{
   --bs-btn-disabled-bg: var(--gh-green);
   --bs-btn-disabled-border-color: var(--gh-green);
 }
-#fit-betas{
+
+#fit-betas {
   min-width: 325px;
   width: 100%;
   height: calc(3.5rem + calc(var(--bs-border-width) * 2));

@@ -1,21 +1,20 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
+
 @font-face {
   font-family: "vonique";
   src: url('assets/Vonique 64.ttf') format('truetype');
 }
 
-body{
+body {
   background-color: var(--background);
 }
-:root{
+
+:root {
   --background: #2b3137;
   --midnight: #24292e;
-
   --indigogo: #6F779D;
   --greyrocking: #acbad5;
-
   --periwinkle: #ffffff;
-
   --dark-magenta: #a30052;
   --dark-dots: #FF507A;
   --flamingo-dark: #ff507a;
@@ -24,7 +23,7 @@ body{
   --contrast-a3: #f47d00;
   --contrast-a4: #ff6846;
   --contrast-a5: #ff6f1f;
-  --contrast-a6:#858f00;
+  --contrast-a6: #858f00;
   --contrast-a7: #6d9700;
   --light-green: #00ff46;
   --muted-green: #2da44f;
@@ -34,19 +33,16 @@ body{
   --dark-middle-green3: #227a33;
   --dark-middle-green4: #1f6b2d;
   --another-mid-green: #00A56A;
-
   --see-foam-eat-foam: #00a086;
   --another-damn-teal: #009c9b;
   --another-teal: #0099ab;
   --custom-teal: #0099ab;
   --custom-teal-2: #0097b9;
-
   --skai-bloo: #0097b9;
   --custom-darker-teal: #0095c8;
   --custom-blue-2: #0090e0;
   --custom-blue: #0b82ff;
   --uv-blue: #000aff;
-
   --violet: #c258ff;
   --barney: #aa60ff;
   --dark-peri: #9268ff;
@@ -54,53 +50,46 @@ body{
   --productive-purple: #7c72ff;
   --darkest-teal: #005e73;
   --darkest-teal-2: #004a5b;
-
   --ultraviolet-glow: #978def;
-
   --duration: 1s;
 
-
-
-
-/*-------------------RGB IDK if necessary------------------------*/
+  /*-------------------RGB IDK if necessary------------------------*/
   --periwinkle-rgb: 172, 186, 213;
-
   --ultraviolet-glow-rgb: 25, 0, 248;
-
   --dark-magenta-rgb: 163, 0, 82;
-
   --dark-teal-rgb: 81, 157, 168;
-
   --indigogo-rgb: 111, 119, 157;
-
   --midnight-rgb: 52, 45, 71;
-
   --greyrocking-rgb: 184, 185, 187;
-
   --light-magenta-rgb: 253, 141, 198;
-
   --bs-border-color-translucent: var(--productive-purple);
 }
-.btn-secondary{
+
+.btn-secondary {
   --bs-btn-bg: var(--darkest-teal-2) !important;
   --bs-btn-hover-bg: var(--darkest-teal) !important;
   --bs-btn-active-bg: var(--custom-teal-2);
 }
-.hoverers:hover{
+
+.hoverers:hover {
   filter: drop-shadow(0 0 0.75rem var(--light-green));
   transform-origin: center;
   transform: scale(108%);
 }
-input{
+
+input {
   font-family: monospace;
 }
-label{
+
+label {
   font-family: monospace;
 }
+
 .form-control:focus {
   border-color: var(--gh-green);
   box-shadow: 0 0 0 .25rem rgba(45, 164, 78, 0.25);
 }
+
 .toast {
   --bs-toast-zindex: 1090;
   --bs-toast-padding-x: 0.75rem;
@@ -128,6 +117,7 @@ label{
   box-shadow: var(--bs-toast-box-shadow);
   margin-bottom: 40px;
 }
+
 a:link, a:visited {
   color: var(--darkest-teal) !important;
   text-decoration: underline;
@@ -137,6 +127,7 @@ a:link, a:visited {
 a:link:active, a:visited:active {
   color: var(--darkest-teal-2);
 }
-a:hover{
+
+a:hover {
   cursor: pointer;
 }

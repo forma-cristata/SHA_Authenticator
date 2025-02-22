@@ -1,5 +1,5 @@
 
-#profile-button-prof{
+#profile-button-prof {
   position: absolute;
   top: 20px;
   left: 20px;
@@ -7,15 +7,16 @@
   transform-origin: top left;
   transform: scale(200%);
   filter: drop-shadow(0 0 0.75rem var(--gh-green));
-
 }
-#home-button, #home-button-changing{
+
+#home-button, #home-button-changing {
   position: absolute;
   top: 20px;
   right: 20px;
   z-index: 5;
 }
-#home-button-changing{
+
+#home-button-changing {
   animation: biggerHome 500ms ease-in-out;
 }
 
@@ -36,22 +37,24 @@
     filter: drop-shadow(0 0 0.75rem var(--gh-green));
   }
 }
-#circuit-animation-div-home{
+
+#circuit-animation-div-home {
   position: absolute;
   top: 0;
   left: 0;
   transform-origin: top left;
   transform: scale(25%);
   filter: saturate(150%) blur(100%);
-
 }
-#back-button-prof{
+
+#back-button-prof {
   position: absolute;
   top: 20px;
   right: calc(50vw + 10px);
   z-index: 5;
 }
-#profile-info-div{
+
+#profile-info-div {
   flex-direction: row;
   flex-wrap: wrap;
   display: flex;
@@ -62,36 +65,33 @@
 }
 
 
-.flex-attempt{
+.flex-attempt {
   height: 200px;
   flex-wrap: wrap;
-
-  /*
-  border: 2px solid #0099ab;
-  */
 }
-.flex-attempt2{
+
+.flex-attempt2 {
   flex-wrap: wrap;
-
-  /*
-  border: 2px solid #0099ab;
-  */
 }
-#how-to-div{
+
+#how-to-div {
   flex-direction: row;
   flex-wrap: wrap;
   display: flex;
 }
-#how-title{
+
+#how-title {
   margin-left: 20px;
   margin-bottom: 0;
   padding: 0 0 0 0;
   font-variant: small-caps;
 }
-#credit-title{
+
+#credit-title {
   font-variant: small-caps;
   margin-bottom: 33px;
 }
-.creds{
+
+.creds {
   margin-left: 70px;
 }

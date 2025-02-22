@@ -1,12 +1,12 @@
-#footer-border{
+#footer-border {
   opacity: 50%;
   height: 40px;
   position: absolute;
   bottom: 0;
   width: 100%;
-
 }
-#footer-content{
+
+#footer-content {
   border-top: 6px solid var(--gh-green);
   opacity: 1;
   height: 40px;
@@ -16,14 +16,15 @@
   filter: drop-shadow(0 0 0.5rem var(--custom-teal));
   font-variant: all-small-caps;
   font-family: monospace;
-
 }
-#copywrite{
+
+#copywrite {
   position: absolute;
   right: 0;
   bottom: 0;
 }
-#app-name{
+
+#app-name {
   position: absolute;
   left: 0;
   bottom: 0;
