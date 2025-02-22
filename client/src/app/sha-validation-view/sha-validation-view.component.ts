@@ -5,15 +5,13 @@ import {HomeButtonComponent} from '../home-button/home-button.component';
 import {BackButtonComponent} from '../back-button/back-button.component';
 import {Router, RouterLink} from '@angular/router';
 import '../get-cookie';
-import {getCookie, setCookie} from '../get-cookie';
+import {getCookie} from '../get-cookie';
 import {Octokit} from 'octokit';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
-import {NgOptimizedImage} from '@angular/common';
 import {Toast} from '../toast';
 import {ToastNotificationComponent} from '../toast-notification/toast-notification.component';
 import {TitleComponent} from '../title/title.component';
-import {FooterComponent} from '../footer/footer.component';
 
 @Component({
   selector: 'app-sha-validation-view',
@@ -34,7 +32,6 @@ import {FooterComponent} from '../footer/footer.component';
   styleUrl: './sha-validation-view.component.css'
 })
 export class ShaValidationViewComponent implements OnInit {
-  public returnedSHAs: string[] = [];
   private octokit = new Octokit({});
   public username: string = '';
   public assignmentName: string = '';

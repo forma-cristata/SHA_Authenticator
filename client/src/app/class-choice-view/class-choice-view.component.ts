@@ -9,11 +9,9 @@ import {FormsModule} from '@angular/forms';
 import {Octokit} from 'octokit';
 import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
 import {ManualPollButtonComponent} from '../manual-poll-button/manual-poll-button.component';
-import {NgOptimizedImage} from "@angular/common";
 import {ToastNotificationComponent} from '../toast-notification/toast-notification.component';
 import {Toast} from '../toast';
 import {TitleComponent} from '../title/title.component';
-import {FooterComponent} from '../footer/footer.component';
 
 @Component({
   selector: 'app-class-choice-view',

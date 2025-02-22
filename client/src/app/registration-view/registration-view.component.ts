@@ -2,9 +2,6 @@ import {Component} from '@angular/core';
 import {CircuitAnimationComponent} from '../circuit-animation/circuit-animation.component';
 import {RegistrationFormComponent} from '../registration-form/registration-form.component';
 import {InfoButtonComponent} from '../info-button/info-button.component';
-import {NgOptimizedImage} from "@angular/common";
-import {RouterLink} from "@angular/router";
-import {window} from 'rxjs';
 import {Toast} from '../toast';
 import {ToastNotificationComponent} from '../toast-notification/toast-notification.component';
 

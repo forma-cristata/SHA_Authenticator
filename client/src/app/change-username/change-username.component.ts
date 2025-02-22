@@ -32,6 +32,4 @@ export class ChangeUsernameComponent implements OnInit {
     this.username = '';
     this.router.navigate(['/classes']);
   }
-
-  protected readonly getCookie = getCookie;
 }

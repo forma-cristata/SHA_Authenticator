@@ -16,8 +16,4 @@ import {RouterLink} from '@angular/router';
 export class ToastNotificationComponent {
   @Input() toast!: Toast;
   @Output() delete = new EventEmitter<Toast>();
-
-  onDelete() {
-    this.delete.emit(this.toast)
-  }
 }

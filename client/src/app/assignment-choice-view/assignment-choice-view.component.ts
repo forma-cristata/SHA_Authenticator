@@ -79,7 +79,6 @@ export class AssignmentChoiceViewComponent implements OnInit {
     });
   }
 
-
   async manualPoll() {
     document.querySelector('#loading-boxer')!.classList.remove('d-none');
     document.querySelector('#assignments-table')!.classList.add('d-none');
