@@ -72,6 +72,7 @@ export class ClassChoiceViewComponent implements OnInit{
       this.router.navigate(['/']);
     }
     setCookie('class', '');
+    setCookie('assignment', '');
 
     await this.setReturnedClasses(getCookie('username')).then(() => {
       document.querySelector('#loading-boxer')!.classList.add('d-none');

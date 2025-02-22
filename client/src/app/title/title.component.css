@@ -13,6 +13,10 @@
   font-size: 4rem;
   font-family: 'vonique', var(--bs-font-monospace), serif;
   color: var(--gh-green);
+  filter: drop-shadow(0 0 0.5rem var(--custom-teal));
+
+  /*
   background: radial-gradient(circle, rgb(36, 41, 46) 0%, rgba(43,49,55,0.3) 40%);
+  */
 
 }

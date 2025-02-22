@@ -1,9 +1,8 @@
 #info-button-sha{
   position: absolute;
   top: 20px;
-  left: calc(50vw);
+  left: calc(50vw - 25px);
 
-  transform: translateX(-50%);
   z-index: 5;
 }
 
@@ -82,7 +81,8 @@
   min-width: 640px;
 }
 #c1 {
-  border-color: var(--dark-middle-green);
+  border: 10px double var(--custom-teal);
+  box-shadow: 0 0 2rem var(--muted-green);
   position: relative;
 }
 h3, #feedback-header{
@@ -127,6 +127,7 @@ td{
 .form-floating{
   margin-bottom: 0;
   margin-top: 0;
+
 }
 
 .btn-primary {
