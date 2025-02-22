@@ -13,6 +13,7 @@ import {NgOptimizedImage} from '@angular/common';
 import {Toast} from '../toast';
 import {ToastNotificationComponent} from '../toast-notification/toast-notification.component';
 import {TitleComponent} from '../title/title.component';
+import {FooterComponent} from '../footer/footer.component';
 
 @Component({
   selector: 'app-sha-validation-view',
@@ -26,7 +27,8 @@ import {TitleComponent} from '../title/title.component';
     LoadingIconComponent,
     ToastNotificationComponent,
     RouterLink,
-    TitleComponent
+    TitleComponent,
+    FooterComponent
   ],
   templateUrl: './sha-validation-view.component.html',
   standalone: true,

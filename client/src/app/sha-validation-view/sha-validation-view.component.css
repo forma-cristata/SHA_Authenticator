@@ -69,7 +69,7 @@
   z-index: 5;
 }
 .class-blocker{
-  width: max(calc((100vw - 120px) / 2), calc((100vh - 320px - 40px)));
+  width: min(calc((100vw - 120px) / 2), calc((100vh - 320px - 40px)));
   height: 280px;
   border: 5px solid var(--indigogo);
   border-radius: 20px !important;
@@ -78,7 +78,6 @@
   top: calc(50% + 94px - 140px);
   transform: translate(-50%, 0);
   padding: 30px 20px;
-  min-width: 640px;
 }
 #c1 {
   border: 10px double var(--custom-teal);
@@ -86,6 +85,7 @@
   position: relative;
 }
 h3, #feedback-header{
+  font-size: min(2rem, 2vw);
   font-variant: small-caps;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -114,7 +114,7 @@ td{
   text-align: center;
 }
 .no-vis-col{
-  background-color: var(--background);
+opacity: 0;
   width: 40px;
   height: 40px;
 }

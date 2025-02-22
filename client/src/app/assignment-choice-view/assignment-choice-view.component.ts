@@ -14,6 +14,7 @@ import {keyframes} from '@angular/animations';
 import {Toast} from '../toast';
 import {ToastNotificationComponent} from '../toast-notification/toast-notification.component';
 import {TitleComponent} from '../title/title.component';
+import {FooterComponent} from '../footer/footer.component';
 
 @Component({
   selector: 'app-assignment-choice-view',
@@ -26,7 +27,8 @@ import {TitleComponent} from '../title/title.component';
     LoadingIconComponent,
     ManualPollButtonComponent,
     ToastNotificationComponent,
-    TitleComponent
+    TitleComponent,
+    FooterComponent
   ],
   templateUrl: './assignment-choice-view.component.html',
   standalone: true,

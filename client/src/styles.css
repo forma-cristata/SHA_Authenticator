@@ -83,7 +83,7 @@ body{
   --bs-btn-hover-bg: #393774 !important;
 }
 .hoverers:hover{
-  filter: drop-shadow(0 0 0.75rem var(--custom-teal));
+  filter: drop-shadow(0 0 0.75rem var(--light-green));
   transform-origin: center;
   transform: scale(108%);
 }

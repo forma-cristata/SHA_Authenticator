@@ -1,0 +1,30 @@
+#footer-border{
+  opacity: 50%;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+}
+#footer-content{
+  border-top: 6px solid var(--gh-green);
+  opacity: 1;
+  height: 40px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  filter: drop-shadow(0 0 0.5rem var(--custom-teal));
+  font-variant: small-caps;
+  font-family: monospace;
+
+}
+#copywrite{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+#app-name{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
