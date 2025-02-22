@@ -1,6 +1,9 @@
 <div id="profile-button-prof" aria-label="Profile button">
   <app-profile-button />
-</div><div id="home-button-prof" class="hoverers" aria-label="Home button">
+</div><div id="home-button" class="hoverers" aria-label="Home button">
+  <app-home-button (click)="this.transformHome()"/>
+</div>
+<div id="home-button-changing" class="hoverers d-none" aria-label="Home button">
   <app-home-button />
 </div><div id="circuit-animation-div-home" aria-label="Circuit animation">
   <app-circuit-animation />

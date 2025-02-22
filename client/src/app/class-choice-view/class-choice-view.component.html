@@ -1,4 +1,7 @@
 <div id="profile-button" class="hoverers" aria-label="Profile Button">
+  <app-profile-button (click)="this.transformProfile()"/>
+</div>
+<div id="changing-profile-button" class="d-none hoverers" aria-label="Profile Button">
   <app-profile-button />
 </div>
 <div id="info-button" (click)="showToast()" class="hoverers" aria-label="Info Button">

@@ -9,11 +9,32 @@
   filter: drop-shadow(0 0 0.75rem var(--gh-green));
 
 }
-#home-button-prof{
+#home-button, #home-button-changing{
   position: absolute;
   top: 20px;
   right: 20px;
   z-index: 5;
+}
+#home-button-changing{
+  animation: biggerHome 500ms ease-in-out;
+}
+
+@keyframes biggerHome {
+  0% {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 5;
+  }
+  100% {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 5;
+    transform-origin: top right;
+    transform: scale(200%);
+    filter: drop-shadow(0 0 0.75rem var(--gh-green));
+  }
 }
 #circuit-animation-div-home{
   position: absolute;

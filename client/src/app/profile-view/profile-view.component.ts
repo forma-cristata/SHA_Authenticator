@@ -37,8 +37,11 @@ export class ProfileViewComponent {
 
   }
 
-  back(){
-    this.location.back();
+
+  transformHome(){
+    document.querySelector('#home-button-changing')!.classList.remove('d-none');
+    document.querySelector('#home-button')!.classList.add('d-none');
+    setTimeout(() => {this.router.navigate(['/classes'])}, 450);
   }
 
 

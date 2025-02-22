@@ -119,6 +119,12 @@ export class ClassChoiceViewComponent {
     toast.classList.add("show");
   }
 
+  transformProfile(){
+    document.querySelector('#changing-profile-button')!.classList.remove('d-none');
+    document.querySelector('#profile-button')!.classList.add('d-none');
+    setTimeout(() => {this.router.navigate(['/profile'])}, 450);
+  }
+
 
 
 }

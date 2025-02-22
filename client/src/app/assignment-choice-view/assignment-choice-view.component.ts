@@ -128,8 +128,17 @@ export class AssignmentChoiceViewComponent {
   }
 
 
+  transformProfile(){
+    document.querySelector('#changing-profile-button')!.classList.remove('d-none');
+    document.querySelector('#profile-button')!.classList.add('d-none');
+    setTimeout(() => {this.router.navigate(['/profile'])}, 450);
+  }
 
-
+  transformHome(){
+    document.querySelector('#home-button-changing')!.classList.remove('d-none');
+    document.querySelector('#home-button')!.classList.add('d-none');
+    setTimeout(() => {this.router.navigate(['/classes'])}, 450);
+  }
   protected readonly of = of;
 }
 

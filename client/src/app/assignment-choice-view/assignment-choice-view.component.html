@@ -1,5 +1,8 @@
-<div id="profile-button-assignment" aria-label="Profile Button" class="hoverers">
-  <app-profile-button/>
+<div id="profile-button" class="hoverers" aria-label="Profile Button">
+  <app-profile-button (click)="this.transformProfile()"/>
+</div>
+<div id="changing-profile-button" class="d-none hoverers" aria-label="Profile Button">
+  <app-profile-button />
 </div>
 <div id="info-button-assignment" class="hoverers" aria-label="Info Button" (click)="showToast()">
   <app-info-button/>
@@ -10,8 +13,11 @@
 
 </div>
 
-<div id="home-button-assignment" class="hoverers" aria-label="Home Button">
-  <app-home-button/>
+<div id="home-button" class="hoverers" aria-label="Home button">
+  <app-home-button (click)="this.transformHome()"/>
+</div>
+<div id="home-button-changing" class="hoverers d-none" aria-label="Home button">
+  <app-home-button />
 </div>
 <div id="back-button-assignment" routerLink="/classes" class="hoverers" aria-label="Back Button">
   <app-back-button/>

@@ -1,29 +1,64 @@
 #info-button-assignment{
   position: absolute;
   top: 20px;
-  left: calc(50vw);
+  left: calc(50vw - 25px);
 
-  transform: translateX(-50%);
   z-index: 5;
 }
 
-#profile-button-assignment{
+#profile-button, #changing-profile-button {
   position: absolute;
   top: 20px;
   left: 20px;
-
-  /*
-  top: 20px;
-  right: 90px;
-  */
-
   z-index: 5;
 }
-#home-button-assignment{
+#changing-profile-button{
+  animation: biggerProfile 500ms ease-in-out;
+}
+
+@keyframes biggerProfile {
+  0% {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+  }
+  100% {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    transform-origin: top left;
+    transform: scale(200%);
+    filter: drop-shadow(0 0 0.75rem var(--gh-green));
+  }
+}
+#home-button, #home-button-changing{
   position: absolute;
   top: 20px;
   right: 20px;
   z-index: 5;
+}
+#home-button-changing{
+  animation: biggerHome 500ms ease-in-out;
+}
+
+@keyframes biggerHome {
+  0% {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 5;
+  }
+  100% {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 5;
+    transform-origin: top right;
+    transform: scale(200%);
+    filter: drop-shadow(0 0 0.75rem var(--gh-green));
+  }
 }
 #refresh-data-button{
   position: absolute;
