@@ -160,5 +160,7 @@ td{
   top: 90px;
   left: 50%;
   transform: translateX(-50%);
-  color: var(--productive-purple)
+  color: var(--productive-purple);
+  filter: drop-shadow(0 0 1rem var(--greyrocking));
+
 }
