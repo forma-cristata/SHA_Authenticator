@@ -14,8 +14,12 @@
 
 
 <div id="info-button-registration" class="hoverers" (click)="setTimeout(showToast, 100)" aria-label="Show information about GitHub Username">
-
+<!--Make toasts stacking, reinstate for loop-->
+  <!--{if(format===link) && {link block}}-->
   <app-info-button />
 </div>
 
+<div class="toast-container">
 <app-toast-notification [toast]="this.newToast" />
+
+</div>

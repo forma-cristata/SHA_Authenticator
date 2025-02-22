@@ -10,20 +10,23 @@ import {Octokit} from 'octokit';
 import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
 import {ManualPollButtonComponent} from '../manual-poll-button/manual-poll-button.component';
 import {NgOptimizedImage} from "@angular/common";
+import {ToastNotificationComponent} from '../toast-notification/toast-notification.component';
+import {Toast} from '../toast';
 
 @Component({
   selector: 'app-class-choice-view',
-    imports: [
-        InfoButtonComponent,
-        ProfileButtonComponent,
-        HomeButtonComponent,
-        CircuitAnimationComponent,
-        FormsModule,
-        LoadingIconComponent,
-        ManualPollButtonComponent,
-        RouterLink,
-        NgOptimizedImage,
-    ],
+  imports: [
+    InfoButtonComponent,
+    ProfileButtonComponent,
+    HomeButtonComponent,
+    CircuitAnimationComponent,
+    FormsModule,
+    LoadingIconComponent,
+    ManualPollButtonComponent,
+    RouterLink,
+    NgOptimizedImage,
+    ToastNotificationComponent,
+  ],
   standalone: true,
   templateUrl: './class-choice-view.component.html',
   styleUrl: './class-choice-view.component.css'
@@ -34,7 +37,18 @@ export class ClassChoiceViewComponent {
   public rALength: number[] =[];
   public className: string = "";
   public time = 100;
-
+  public toast: Toast =
+    {
+      imgPath: '/info.png',
+      toastHeader: 'Class Instructions',
+      toastBody: [
+        "Click on a class block to select it.",
+        "Don't see your class? Click the refresh button to manually update the rendered classes."
+      ],
+      format: "button",
+      link: "/profile",
+      description: "More info"
+    };
   constructor(private router: Router){}
 
   async setReturnedClasses(username: string) {
@@ -86,6 +100,8 @@ export class ClassChoiceViewComponent {
     setTimeout(() => {this.router.navigate(['/assignments'])}, 100*classBlockers.length + 1000);
 
   }
+
+
 
   async manualPoll() {
     let data = ((await this.octokit.request(`GET http://localhost:3009/refresh`, {})));

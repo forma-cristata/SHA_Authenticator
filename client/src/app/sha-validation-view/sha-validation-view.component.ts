@@ -10,6 +10,8 @@ import {Octokit} from 'octokit';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
 import {NgOptimizedImage} from '@angular/common';
+import {Toast} from '../toast';
+import {ToastNotificationComponent} from '../toast-notification/toast-notification.component';
 
 @Component({
   selector: 'app-sha-validation-view',
@@ -22,7 +24,8 @@ import {NgOptimizedImage} from '@angular/common';
     ReactiveFormsModule,
     FormsModule,
     LoadingIconComponent,
-    NgOptimizedImage
+    NgOptimizedImage,
+    ToastNotificationComponent
   ],
   templateUrl: './sha-validation-view.component.html',
   standalone: true,
@@ -38,7 +41,17 @@ export class ShaValidationViewComponent {
   public feedback:string = '';
   private validText: string = 'var(--gh-green)';
   private invalidText: string = 'var(--dark-magenta)';
-
+  public toast: Toast =
+    {
+      imgPath: '/info.png',
+      toastHeader: 'SHA Instructions',
+      toastBody: [
+        "Enter the commit ID you wish to submit. The input will turn green if valid and magenta if invalid. Feedback will be provided after you submit an SHA."
+      ],
+      format: "button",
+      link: "/profile",
+      description: "More info"
+    };
   constructor(private router: Router){}
   async ngOnInit() {
     this.username = getCookie('username');

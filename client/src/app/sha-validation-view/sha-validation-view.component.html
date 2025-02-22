@@ -2,22 +2,14 @@
   <app-profile-button />
 </div><div id="info-button-sha" (click)="showToast()" class="hoverers" aria-label="Info button">
   <app-info-button />
-</div><div id="toast-try" aria-live="polite" aria-atomic="true">
-  <div class="position-fixed bottom-0 start-0 p-3" style="z-index: 11">
-    <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header">
-        <img ngSrc="/info.png" class="rounded me-2" alt="Information icon" width="25" height="25">
-        <strong class="me-auto">Info</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-      <div class="toast-body">
-        Enter the commit ID you wish to submit. The input will turn green if valid and magenta if invalid. Feedback will be provided after you submit an SHA.
-        <hr />
-        <button class="btn btn-secondary link-for-more" routerLink="/profile" aria-label="More information about SHA validation">More info</button>
-      </div>
-    </div>
-  </div>
-</div><div id="home-button-sha" class="hoverers" aria-label="Home button">
+</div>
+
+<div class="toast-container">
+  <app-toast-notification [toast]="this.toast" />
+
+</div>
+
+<div id="home-button-sha" class="hoverers" aria-label="Home button">
   <app-home-button />
 </div>
 <div id="back-button-sha" routerLink="/assignments" class="hoverers" aria-label="Back button">

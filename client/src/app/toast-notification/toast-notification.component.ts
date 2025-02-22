@@ -1,12 +1,15 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {NgOptimizedImage} from "@angular/common";
+import {NgIf, NgOptimizedImage} from "@angular/common";
 import {Toast} from '../toast';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-toast-notification',
-    imports: [
-        NgOptimizedImage
-    ],
+  imports: [
+    NgOptimizedImage,
+    NgIf,
+    RouterLink
+  ],
   templateUrl: './toast-notification.component.html',
   styleUrl: './toast-notification.component.css'
 })

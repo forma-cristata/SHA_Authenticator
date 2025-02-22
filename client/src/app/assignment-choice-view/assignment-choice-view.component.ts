@@ -11,19 +11,22 @@ import {NgClass, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 import {of} from 'rxjs';
 import {ManualPollButtonComponent} from '../manual-poll-button/manual-poll-button.component';
 import {keyframes} from '@angular/animations';
+import {Toast} from '../toast';
+import {ToastNotificationComponent} from '../toast-notification/toast-notification.component';
 
 @Component({
   selector: 'app-assignment-choice-view',
-    imports: [
-        InfoButtonComponent,
-        ProfileButtonComponent,
-        HomeButtonComponent,
-        BackButtonComponent,
-        RouterLink,
-        LoadingIconComponent,
-        ManualPollButtonComponent,
-        NgOptimizedImage
-    ],
+  imports: [
+    InfoButtonComponent,
+    ProfileButtonComponent,
+    HomeButtonComponent,
+    BackButtonComponent,
+    RouterLink,
+    LoadingIconComponent,
+    ManualPollButtonComponent,
+    NgOptimizedImage,
+    ToastNotificationComponent
+  ],
   templateUrl: './assignment-choice-view.component.html',
   standalone: true,
   styleUrl: './assignment-choice-view.component.css'
@@ -34,6 +37,18 @@ export class AssignmentChoiceViewComponent {
   public rALength: number[] =[];
   public a = "a";
   public className: string = "";
+  public toast: Toast =
+    {
+      imgPath: '/info.png',
+      toastHeader: 'Assignment Instructions',
+      toastBody: [
+        "Click on an assignment block to select it.",
+        "Don't see your assignment? Click the refresh button to manually update the rendered assignments."
+      ],
+      format: "button",
+      link: "/profile",
+      description: "More info"
+    };
   constructor(private router: Router){}
 
   async setReturnedAssignments(username: string, classChoice: string) {
@@ -59,7 +74,6 @@ export class AssignmentChoiceViewComponent {
     if (!this.className) {
       this.router.navigate(['/classes']).then(r => console.log('redirected to classes'));
     }
-    this.fadeInTitle(this.className);
 
     setCookie('assignment', '');
     await this.setReturnedAssignments(getCookie('username'), getCookie('class')).then(() => {
@@ -88,10 +102,7 @@ export class AssignmentChoiceViewComponent {
     toast.classList.add("show");
   }
 
-  fadeInTitle(className: string)
-  {
 
-  }
 
 
   protected readonly of = of;

@@ -27,7 +27,7 @@ export class RegistrationViewComponent {
   newToast: Toast =
     {
       imgPath: '/info.png',
-      toastHeader: 'Info',
+      toastHeader: 'Username Instructions',
       toastBody: [
         "Enter your GitHub Username to begin validating your Commit ID",
         "Your associated email is not your username; usernames created from email addresses are created from the normalized characters that precede the @ character."

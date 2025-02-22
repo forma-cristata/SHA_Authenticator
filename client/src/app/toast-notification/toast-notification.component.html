@@ -12,7 +12,9 @@
         <div>{{msg}}</div>
         }
         <hr />
-        <a [href]="toast.link">{{ toast.description }}</a>
+        <a *ngIf="toast.format === 'link'" [href]="toast.link">{{ toast.description }}</a>
+        <button *ngIf="toast.format === 'button'" class="btn btn-secondary link-for-more" [routerLink]="toast.link" [attr.aria-label]="toast.description + ' button'">{{ toast.description }}</button>
+
       </div>
     </div>
   </div>
