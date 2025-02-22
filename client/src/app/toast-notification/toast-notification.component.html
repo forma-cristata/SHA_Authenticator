@@ -7,13 +7,14 @@
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
       <div class="toast-body">
-        @for(msg of toast.toastBody; track $index)
-        {
-        <div>{{msg}}</div>
+        @for (msg of toast.toastBody; track $index) {
+          <div>{{ msg }}</div>
         }
-        <hr />
+        <hr/>
         <a *ngIf="toast.format === 'link'" [href]="toast.link">{{ toast.description }}</a>
-        <button *ngIf="toast.format === 'button'" class="btn btn-secondary link-for-more" [routerLink]="toast.link" [attr.aria-label]="toast.description + ' button'">{{ toast.description }}</button>
+        <button *ngIf="toast.format === 'button'" class="btn btn-secondary link-for-more" [routerLink]="toast.link"
+                [attr.aria-label]="toast.description + ' button'">{{ toast.description }}
+        </button>
 
       </div>
     </div>
