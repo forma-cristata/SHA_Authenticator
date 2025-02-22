@@ -28,7 +28,6 @@ import {FooterComponent} from '../footer/footer.component';
     ToastNotificationComponent,
     RouterLink,
     TitleComponent,
-    FooterComponent
   ],
   templateUrl: './sha-validation-view.component.html',
   standalone: true,

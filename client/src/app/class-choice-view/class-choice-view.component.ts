@@ -28,7 +28,6 @@ import {FooterComponent} from '../footer/footer.component';
     RouterLink,
     ToastNotificationComponent,
     TitleComponent,
-    FooterComponent,
   ],
   standalone: true,
   templateUrl: './class-choice-view.component.html',

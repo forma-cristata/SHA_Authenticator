@@ -6,7 +6,6 @@ import {Router, RouterLink} from '@angular/router';
   selector: 'app-profile-button',
   imports: [
     NgOptimizedImage,
-    RouterLink,
   ],
   templateUrl: './profile-button.component.html',
   standalone: true,

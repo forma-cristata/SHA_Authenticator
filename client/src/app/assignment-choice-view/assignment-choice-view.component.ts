@@ -7,14 +7,11 @@ import {Router, RouterLink} from '@angular/router';
 import {getCookie, setCookie} from '../get-cookie';
 import {Octokit} from 'octokit';
 import {LoadingIconComponent} from '../loading-icon/loading-icon.component';
-import {NgClass, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 import {of} from 'rxjs';
 import {ManualPollButtonComponent} from '../manual-poll-button/manual-poll-button.component';
-import {keyframes} from '@angular/animations';
 import {Toast} from '../toast';
 import {ToastNotificationComponent} from '../toast-notification/toast-notification.component';
 import {TitleComponent} from '../title/title.component';
-import {FooterComponent} from '../footer/footer.component';
 
 @Component({
   selector: 'app-assignment-choice-view',
@@ -28,7 +25,6 @@ import {FooterComponent} from '../footer/footer.component';
     ManualPollButtonComponent,
     ToastNotificationComponent,
     TitleComponent,
-    FooterComponent
   ],
   templateUrl: './assignment-choice-view.component.html',
   standalone: true,

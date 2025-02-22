@@ -6,7 +6,6 @@ import {RouterLink} from '@angular/router';
   selector: 'app-home-button',
   imports: [
     NgOptimizedImage,
-    RouterLink
   ],
   templateUrl: './home-button.component.html',
   standalone: true,

@@ -14,7 +14,7 @@
   position: absolute;
   bottom: 0;
   filter: drop-shadow(0 0 0.5rem var(--custom-teal));
-  font-variant: small-caps;
+  font-variant: all-small-caps;
   font-family: monospace;
 
 }
