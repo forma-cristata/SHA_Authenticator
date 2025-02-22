@@ -24,7 +24,6 @@ import {ToastNotificationComponent} from '../toast-notification/toast-notificati
     RouterLink,
     LoadingIconComponent,
     ManualPollButtonComponent,
-    NgOptimizedImage,
     ToastNotificationComponent
   ],
   templateUrl: './assignment-choice-view.component.html',
@@ -36,6 +35,7 @@ export class AssignmentChoiceViewComponent {
   private octokit = new Octokit({});
   public rALength: number[] =[];
   public a = "a";
+  public assignmentName: string = "";
   public className: string = "";
   public toast: Toast =
     {
@@ -82,18 +82,43 @@ export class AssignmentChoiceViewComponent {
     });
   }
 
-  selectAssignment(selectedAssignment: string){
-    setCookie('assignment', selectedAssignment);
-    this.router.navigate(['/sha-validation']);
-  }
-
 
   async manualPoll() {
-    let data = ((await this.octokit.request(`GET http://localhost:3009/refresh`, {})));
+    document.querySelector('#loading-boxer')!.classList.remove('d-none');
+    document.querySelector('#assignments-table')!.classList.add('d-none');
+    ((await this.octokit.request(`GET http://localhost:3009/refresh`, {})));
+    document.querySelector('#loading-boxer')!.classList.add('d-none');
+    document.querySelector('#assignments-table')!.classList.remove('d-none');
     this.router.navigate(['/']);
 
 
 
+  }
+  selectAssignment(selectedAssignment: string){
+    setCookie('assignment', selectedAssignment);
+    this.assignmentName = selectedAssignment;
+    // Get all the class-blocker elements except for the one clicked class and fade them out;
+    let chosenBlockIndex = 0;
+    let assBlockers = document.querySelectorAll('.ass-blocker');
+    for(let i = 0; i < assBlockers.length; i++){
+      console.log(assBlockers[i]);
+      if(assBlockers[i].ariaLabel !== selectedAssignment){
+        setTimeout(() => {assBlockers[i].animate({opacity: [1, 0]}, {duration: 500, fill: 'forwards'})}, 100*i);
+      }
+      else{
+        chosenBlockIndex = i;
+        console.log(chosenBlockIndex);
+      }
+    }
+    setTimeout(() => {assBlockers[this.returnedAssignments.indexOf(selectedAssignment)].animate({opacity: [1, 0]}, {duration: 1500, fill: 'forwards'})}, 100*(assBlockers.length+1));
+    // Get rid of border color
+    // Fade out the chosen block
+    setTimeout(() => {document.querySelector('#class-title')!.animate({opacity: [1, 0]}, {duration: 1000, fill: 'forwards'})}, 100*(assBlockers.length+1)+1000);
+
+    setTimeout(() => {this.className = this.className + " • " +this.assignmentName;}, 100*(assBlockers.length+1) + 2000);
+    setTimeout(() => {document.querySelector('#class-title')!.animate({opacity: [0, 1]}, {duration: 1000, fill: 'forwards'})}, 100*(assBlockers.length+1)+2000);
+
+    setTimeout(() => {this.router.navigate(['/sha-validation'])}, 100*(assBlockers.length+1) + 3500);
   }
 
   showToast(){

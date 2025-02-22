@@ -14,8 +14,6 @@ import {ToastNotificationComponent} from '../toast-notification/toast-notificati
     CircuitAnimationComponent,
     RegistrationFormComponent,
     InfoButtonComponent,
-    NgOptimizedImage,
-    RouterLink,
     ToastNotificationComponent,
   ],
   templateUrl: './registration-view.component.html',

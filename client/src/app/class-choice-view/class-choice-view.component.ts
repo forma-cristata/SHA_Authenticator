@@ -24,7 +24,6 @@ import {Toast} from '../toast';
     LoadingIconComponent,
     ManualPollButtonComponent,
     RouterLink,
-    NgOptimizedImage,
     ToastNotificationComponent,
   ],
   standalone: true,
@@ -104,7 +103,12 @@ export class ClassChoiceViewComponent {
 
 
   async manualPoll() {
-    let data = ((await this.octokit.request(`GET http://localhost:3009/refresh`, {})));
+    document.querySelector('#loading-boxer')!.classList.remove('d-none');
+    document.querySelector('#classes-table')!.classList.add('d-none');
+    ((await this.octokit.request(`GET http://localhost:3009/refresh`, {}))).data;
+    document.querySelector('#loading-boxer')!.classList.add('d-none');
+    document.querySelector('#classes-table')!.classList.remove('d-none');
+
     this.router.navigate(['/']);
 
   }

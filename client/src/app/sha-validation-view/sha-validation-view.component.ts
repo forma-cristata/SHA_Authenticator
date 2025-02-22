@@ -20,12 +20,11 @@ import {ToastNotificationComponent} from '../toast-notification/toast-notificati
     ProfileButtonComponent,
     HomeButtonComponent,
     BackButtonComponent,
-    RouterLink,
     ReactiveFormsModule,
     FormsModule,
     LoadingIconComponent,
-    NgOptimizedImage,
-    ToastNotificationComponent
+    ToastNotificationComponent,
+    RouterLink
   ],
   templateUrl: './sha-validation-view.component.html',
   standalone: true,
