@@ -1,90 +1,120 @@
-<div id="profile-button-assignment" class="hoverers">
-  <app-profile-button />
+<div id="profile-button-assignment" aria-label="Profile Button" class="hoverers">
+  <app-profile-button/>
 </div>
-<div id="info-button-assignment" class="hoverers" (click)="showToast()">
-  <app-info-button />
+<div id="info-button-assignment" class="hoverers" aria-label="Info Button" (click)="showToast()">
+  <app-info-button/>
 </div>
-<div id="toast-try">
+<div id="toast-try" aria-live="polite" aria-atomic="true">
   <div class="position-fixed bottom-0 start-0 p-3" style="z-index: 11">
     <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
-        <img ngSrc="/info.png" class="rounded me-2" alt="..." width="25" height="25">
+        <img ngSrc="/info.png" class="rounded me-2" alt="Info icon" width="25" height="25">
         <strong class="me-auto">Info</strong>
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
       <div class="toast-body">
         <div>Click on an assignment block to select it.</div>
-        <div>Don't see your assignment? <br /><ul><li><em>Click the refresh button to manually update the rendered assignments.</em></li></ul></div>
-        <hr />
-
-        <button class="btn btn-secondary link-for-more" routerLink="/profile">More info</button>
+        <div>Don't see your assignment? <br/>
+          <ul>
+            <li><em>Click the refresh button to manually update the rendered assignments.</em></li>
+          </ul>
+        </div>
+        <hr/>
+        <button class="btn btn-secondary link-for-more" routerLink="/profile" aria-label="More info about profile">More info</button>
       </div>
     </div>
   </div>
-
 </div>
 
-<div id="home-button-assignment" class="hoverers">
-  <app-home-button />
+<div id="home-button-assignment" class="hoverers" aria-label="Home Button">
+  <app-home-button/>
 </div>
-<div id="back-button-assignment" routerLink="/classes" class="hoverers">
-  <app-back-button />
+<div id="back-button-assignment" routerLink="/classes" class="hoverers" aria-label="Back Button">
+  <app-back-button/>
 </div>
-<div id="refresh-data-button" routerLink="/assignments" class="hoverers">
+<div id="refresh-data-button" routerLink="/assignments" class="hoverers" aria-label="Refresh Data Button">
   <app-manual-poll-button (click)="manualPoll()"/>
 </div>
-<div id="class-title">{{className}}</div>
+<div id="class-title" aria-label="Class Title">{{ className }}</div>
 <div id="assignments-table" class="d-none">
-  <table id="ass-table" class="table-borderless">
+  <table id="ass-table" class="table-borderless" aria-label="Assignments Table">
     <thead>
       @for (i of rALength; track $index) {
-      @if(!this.returnedAssignments[i])
-      {
-        <tr class="visible-row">
+        @if (!this.returnedAssignments[i]) {
+          <tr class="visible-row" aria-label="Assignment Row">
+            <td>
+              <div style="opacity: 0;" [classList]="['a' + (i%12+1) + ' ass-blocker']">{{ this.returnedAssignments[i] }}</div>
+            </td>
+            <td class="no-vis-col"></td>
+            <td>
+              <div style="opacity: 0;" [classList]="['a' + (i%12+2) + ' ass-blocker']">{{ this.returnedAssignments[i + 1] }}</div>
+            </td>
+            <td class="no-vis-col"></td>
+            <td>
+              <div style="opacity: 0;" [classList]="['a' + (i%12+3) + ' ass-blocker']">{{ this.returnedAssignments[i + 2] }}</div>
+            </td>
+          </tr>
+        } @else if (this.returnedAssignments[i] && !this.returnedAssignments[i + 1]) {
+          <tr class="visible-row" aria-label="Assignment Row">
+            <td>
+              <div [classList]="['a' + (i%12+1) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i])">{{ this.returnedAssignments[i] }}
+              </div>
+            </td>
+            <td class="no-vis-col"></td>
+            <td>
+              <div style="opacity: 0;" [classList]="['a' + (i%12+2) + ' ass-blocker']">{{ this.returnedAssignments[i + 1] }}</div>
+            </td>
+            <td class="no-vis-col"></td>
+            <td>
+              <div style="opacity: 0;" [classList]="['a' + (i%12+3) + ' ass-blocker']">{{ this.returnedAssignments[i + 2] }}</div>
+            </td>
+          </tr>
+        } @else if (this.returnedAssignments[i + 1] && !this.returnedAssignments[i + 2]) {
+          <tr class="visible-row" aria-label="Assignment Row">
+            <td>
+              <div [classList]="['a' + (i%12 + 1) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i])">{{ this.returnedAssignments[i] }}
+              </div>
+            </td>
+            <td class="no-vis-col"></td>
+            <td>
+              <div [classList]="['a' + (i%12+2) + ' ass-blocker']"
+                   (click)="selectAssignment(this.returnedAssignments[i + 1])">{{ this.returnedAssignments[i + 1] }}
+              </div>
+            </td>
+            <td class="no-vis-col"></td>
+            <td>
+              <div style="opacity: 0;" [classList]="['a' + (i%12+3) + ' ass-blocker']">{{ this.returnedAssignments[i + 2] }}</div>
+            </td>
+          </tr>
+        } @else {
+          <tr class="visible-row" aria-label="Assignment Row">
+            <td>
+              <div [classList]="['a' + (i%12 + 1) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i])">{{ this.returnedAssignments[i] }}
+              </div>
+            </td>
+            <td class="no-vis-col"></td>
+            <td>
+              <div [classList]="['a' + (i%12+2) + ' ass-blocker']"
+                   (click)="selectAssignment(this.returnedAssignments[i + 1])">{{ this.returnedAssignments[i + 1] }}
+              </div>
+            </td>
+            <td class="no-vis-col"></td>
+            <td>
+              <div [classList]="['a' + (i%12+3) + ' ass-blocker']"
+                   (click)="selectAssignment(this.returnedAssignments[i + 2])">{{ this.returnedAssignments[i + 2] }}
+              </div>
+            </td>
+          </tr>
+        }
 
-        <td><div style="opacity: 0;" [classList]="['a' + (i%12+1) + ' ass-blocker']">{{this.returnedAssignments[i]}}</div></td>
-        <td class="no-vis-col"></td>
-        <td><div style="opacity: 0;" [classList]="['a' + (i%12+2) + ' ass-blocker']">{{this.returnedAssignments[i + 1]}}</div></td>
-        <td class="no-vis-col"></td>
-        <td><div style="opacity: 0;" [classList]="['a' + (i%12+3) + ' ass-blocker']">{{this.returnedAssignments[i + 2]}}</div></td></tr>
+        <tr class="background-row" aria-hidden="true">
+          <td class="no-vis-col"></td>
+          <td class="no-vis-col"></td>
+          <td class="no-vis-col"></td>
+          <td class="no-vis-col"></td>
+          <td class="no-vis-col"></td>
+        </tr>
       }
-      @else if(this.returnedAssignments[i] && !this.returnedAssignments[i + 1]){
-        <tr class="visible-row">
-
-        <td><div [classList]="['a' + (i%12+1) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i])">{{this.returnedAssignments[i]}}</div></td>
-        <td class="no-vis-col"></td>
-        <td><div style="opacity: 0;" [classList]="['a' + (i%12+2) + ' ass-blocker']">{{this.returnedAssignments[i + 1]}}</div></td>
-        <td class="no-vis-col"></td>
-        <td><div style="opacity: 0;" [classList]="['a' + (i%12+3) + ' ass-blocker']">{{this.returnedAssignments[i + 2]}}</div></td></tr>
-      }
-      @else if(this.returnedAssignments[i + 1] && !this.returnedAssignments[i + 2]){
-        <tr class="visible-row">
-
-        <td><div [classList]="['a' + (i%12 + 1) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i])">{{this.returnedAssignments[i]}}</div></td>
-        <td class="no-vis-col"></td>
-        <td><div [classList]="['a' + (i%12+2) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i + 1])">{{this.returnedAssignments[i + 1]}}</div></td>
-        <td class="no-vis-col"></td>
-        <td><div style="opacity: 0;" [classList]="['a' + (i%12+3) + ' ass-blocker']">{{this.returnedAssignments[i + 2]}}</div></td></tr>
-      }
-      @else{
-        <tr class="visible-row">
-
-        <td><div [classList]="['a' + (i%12 + 1) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i])">{{this.returnedAssignments[i]}}</div></td>
-        <td class="no-vis-col"></td>
-        <td><div [classList]="['a' + (i%12+2) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i + 1])">{{this.returnedAssignments[i + 1]}}</div></td>
-        <td class="no-vis-col"></td>
-        <td><div [classList]="['a' + (i%12+3) + ' ass-blocker']" (click)="selectAssignment(this.returnedAssignments[i + 2])">{{this.returnedAssignments[i + 2]}}</div></td></tr>
-      }
-
-    <tr class="background-row">
-      <td class="no-vis-col"></td>
-      <td class="no-vis-col"></td>
-      <td class="no-vis-col"></td>
-      <td class="no-vis-col"></td>
-      <td class="no-vis-col"></td>
-    </tr>}
-
-
 
 
     </thead>
@@ -93,6 +123,6 @@
 
 
 <!--Loading Icon-->
-<div id="loading-boxer">
-  <app-loading-icon />
+<div id="loading-boxer" aria-label="Loading content">
+  <app-loading-icon/>
 </div>
