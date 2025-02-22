@@ -8,13 +8,13 @@
 <div id="info-button" (click)="showToast()" class="hoverers" aria-label="Info Button">
   <app-info-button />
 </div>
-  <div id="class-title" aria-label="Class Chosen">{{className}}</div>
   <div id="home-button" class="hoverers" aria-label="Home Button">
     <app-home-button />
   </div>
   <div id="refresh-data-button" routerLink="/classes" class="hoverers" aria-label="Refresh Data Button">
     <app-manual-poll-button (click)="manualPoll()"/>
   </div>
+  <app-title />
 </div>
 <div class="toast-container">
   <app-toast-notification [toast]="this.toast" />

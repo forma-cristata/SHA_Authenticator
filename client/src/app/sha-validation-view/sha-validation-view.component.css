@@ -18,6 +18,7 @@
   animation: biggerProfile 500ms ease-in-out;
 }
 
+
 @keyframes biggerProfile {
   0% {
     position: absolute;
@@ -172,16 +173,6 @@ td{
 }
 .invalid-feedback{
   color: var(--bs-danger);
-}
-#class-title{
-  font-variant: small-caps;
-  font-size: 4rem;
-  font-family: 'vonique', var(--bs-font-monospace), serif;
-  position: absolute;
-  top: 90px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--productive-purple);
 }
 
 

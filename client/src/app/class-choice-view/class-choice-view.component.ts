@@ -12,6 +12,7 @@ import {ManualPollButtonComponent} from '../manual-poll-button/manual-poll-butto
 import {NgOptimizedImage} from "@angular/common";
 import {ToastNotificationComponent} from '../toast-notification/toast-notification.component';
 import {Toast} from '../toast';
+import {TitleComponent} from '../title/title.component';
 
 @Component({
   selector: 'app-class-choice-view',
@@ -25,6 +26,7 @@ import {Toast} from '../toast';
     ManualPollButtonComponent,
     RouterLink,
     ToastNotificationComponent,
+    TitleComponent,
   ],
   standalone: true,
   templateUrl: './class-choice-view.component.html',
@@ -91,10 +93,9 @@ export class ClassChoiceViewComponent implements OnInit{
         chosenBlockIndex = i;
       }
     }
-    setTimeout(() => {classBlockers[chosenBlockIndex].animate({opacity: [1, 0]}, {duration: 1000, fill: 'forwards'})}, 100*classBlockers.length);
+    setTimeout(() => {classBlockers[chosenBlockIndex].animate({opacity: [1, 0]}, {duration: 750, fill: 'forwards'})}, 100*(classBlockers.length - 1));
     // Get rid of border color
     // Fade out the chosen block
-    setTimeout(() => {document.querySelector('#class-title')!.animate({opacity: [0, 1]}, {duration: 1000, fill: 'forwards'})}, 100*classBlockers.length);
 
     setTimeout(() => {this.router.navigate(['/assignments'])}, 100*classBlockers.length + 1000);
 

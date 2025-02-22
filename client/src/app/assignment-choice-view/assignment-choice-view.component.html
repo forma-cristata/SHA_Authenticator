@@ -21,6 +21,7 @@
   <div id="refresh-data-button" routerLink="/assignments" class="hoverers" aria-label="Refresh Data Button">
     <app-manual-poll-button (click)="manualPoll()"/>
   </div>
+  <app-title />
 </div>
 <div class="toast-container">
   <app-toast-notification [toast]="this.toast" />
@@ -29,7 +30,6 @@
 
 
 
-<div id="class-title" [attr.aria-label]="className + 'is the class chosen'">{{ className }}</div>
 <div id="assignments-table" class="d-none">
   <table id="ass-table" class="table-borderless" aria-label="Assignments Table">
     <thead>

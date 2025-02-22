@@ -13,6 +13,7 @@ import {ManualPollButtonComponent} from '../manual-poll-button/manual-poll-butto
 import {keyframes} from '@angular/animations';
 import {Toast} from '../toast';
 import {ToastNotificationComponent} from '../toast-notification/toast-notification.component';
+import {TitleComponent} from '../title/title.component';
 
 @Component({
   selector: 'app-assignment-choice-view',
@@ -24,7 +25,8 @@ import {ToastNotificationComponent} from '../toast-notification/toast-notificati
     RouterLink,
     LoadingIconComponent,
     ManualPollButtonComponent,
-    ToastNotificationComponent
+    ToastNotificationComponent,
+    TitleComponent
   ],
   templateUrl: './assignment-choice-view.component.html',
   standalone: true,
@@ -110,15 +112,11 @@ export class AssignmentChoiceViewComponent implements OnInit{
         console.log(chosenBlockIndex);
       }
     }
-    setTimeout(() => {assBlockers[this.returnedAssignments.indexOf(selectedAssignment)].animate({opacity: [1, 0]}, {duration: 1500, fill: 'forwards'})}, 100*(assBlockers.length+1));
+    setTimeout(() => {assBlockers[this.returnedAssignments.indexOf(selectedAssignment)].animate({opacity: [1, 0]}, {duration: 750, fill: 'forwards'})}, 100*(assBlockers.length - 1));
     // Get rid of border color
     // Fade out the chosen block
-    setTimeout(() => {document.querySelector('#class-title')!.animate({opacity: [1, 0]}, {duration: 1000, fill: 'forwards'})}, 100*(assBlockers.length+1)+1000);
 
-    setTimeout(() => {this.className = this.className + " • " +this.assignmentName;}, 100*(assBlockers.length+1) + 2000);
-    setTimeout(() => {document.querySelector('#class-title')!.animate({opacity: [0, 1]}, {duration: 1000, fill: 'forwards'})}, 100*(assBlockers.length+1)+2000);
-
-    setTimeout(() => {this.router.navigate(['/sha-validation'])}, 100*(assBlockers.length+1) + 3500);
+    setTimeout(() => {this.router.navigate(['/sha-validation'])}, 100*(assBlockers.length+1) + 1000);
   }
 
   showToast(){

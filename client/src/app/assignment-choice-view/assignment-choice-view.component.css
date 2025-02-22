@@ -75,7 +75,7 @@
 
 #assignments-table{
   position: absolute;
-  top: 180px;
+  top: 240px;
   left: 50%;
   transform: translate(-50%, 0);
   z-index: 7;
@@ -100,7 +100,7 @@ td{
 }
 .ass-blocker, .ass-blocker-opaque{
   width: max(calc((100vw - 120px) / 3), calc((100vh - 320px - 40px) / 2));
-  height: min(calc((100vw - 120px) / 3), calc((100vh - 320px - 40px) / 2));
+  height: calc((100vh - 540px - 40px) / 2);
   border: 5px solid var(--indigogo);
   border-radius: 20px !important;
   margin: auto auto;
@@ -189,15 +189,4 @@ td{
   transform: translate(-50%, -50%);
 }
 
-#class-title{
-  font-variant: small-caps;
-  font-size: 4rem;
-  font-family: 'vonique', var(--bs-font-monospace), serif;
-  position: absolute;
-  top: 90px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--productive-purple);
-  filter: drop-shadow(0 0 1rem var(--greyrocking));
 
-}
