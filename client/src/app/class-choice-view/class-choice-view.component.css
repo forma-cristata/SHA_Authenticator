@@ -69,6 +69,7 @@
   height: calc(100vh - 220px);
   padding: 40px 0 0;
   overflow-y: scroll;
+
 }
 
 #class-table {

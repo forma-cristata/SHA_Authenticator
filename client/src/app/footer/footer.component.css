@@ -7,12 +7,12 @@
 }
 
 #footer-content {
-  border-top: 6px solid var(--gh-green);
   opacity: 1;
   height: 40px;
   width: 100%;
   position: absolute;
   bottom: 0;
+  border-top: 6px solid var(--gh-green);
   filter: drop-shadow(0 0 0.5rem var(--custom-teal));
   font-variant: all-small-caps;
   font-family: monospace;
