@@ -20,12 +20,32 @@
 
 #copywrite {
   position: absolute;
-  right: 0;
+  right: 5px;
   bottom: 0;
 }
 
 #app-name {
   position: absolute;
-  left: 0;
+  left: 5px;
   bottom: 0;
+}
+
+img{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+#hide-border-footer{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--background);
+  z-index: 4;
 }
